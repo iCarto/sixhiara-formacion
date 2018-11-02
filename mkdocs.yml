@@ -1,0 +1,17 @@
+site_name: SIXHIARA. Formación para ITs
+repo_url: https://gitlab.com/icarto/sixhiara-formacion
+repo_name: SIXHIARA. Formación para ITs
+theme:
+  name: material
+  language: 'es'
+markdown_extensions:
+  - codehilite:
+      linenums: True
+  - admonition
+  - markdown_include.include:
+      base_path: docs
+nav:
+  - Home: index.md
+  - 1. Instalar VirtualBox, Vagrant y creación de VMs: 1_virtualbox_vagrant_vagrantfile.md
+  - 2. Acceso al servidor remoto (o VMs): 2_acceso_servidor_remoto.md
+  - 3. Servidor Web Apache: 3_servidor_web_apache.md
