@@ -14,16 +14,28 @@ La máquina virtual no puede acceder a la máquina anfitrión aunque existen her
 
 ### 2. Instalación VirtualBox
 Lo primero que tenemos que hacer para empezar a utilizar VirtualBox (VB) es descargar e instalar el software.
+
 1. Vamos a la página oficial: https://www.virtualbox.org/wiki/Downloads y descargamos la versión de VirtualBox nuestro sistema operativo. En este tutorial vamos a cubrir la instalación de Windows.
+
 2. Descargamos la versión que nos interesa:
-![vagrant-download](images/vagrant-download.png). Instalamos el paquete básico haciendo doble click sobre él y siguiendo las sencillas instrucciones que presenta.
+
+   ![vagrant-download](images/vagrant-download.png). 
+   
+   Instalamos el paquete básico haciendo doble click sobre él y siguiendo las sencillas instrucciones que presenta.
 
 3. Descargargamos también la última versión del paquete de extensiones, que es el mismo para todos los sistemas operativos donde se instale VB.
-![vagrant-download](images/vagrant-download-extensions.png). Instalar el paquete de extensiones haciendo doble click sobre él y siguiendo las instrucciones básicas que presenta.
+
+   ![vagrant-download](images/vagrant-download-extensions.png).
+
+   Instalar el paquete de extensiones haciendo doble click sobre él y siguiendo las instrucciones básicas que presenta.
+ 
 4. (OPCIONAL) Si queremos contar con las _Guest Additions_, éstas se instalarán sobre cada una de las MMVV. Su instalación es diferente de la instalación propia de VB. Estas sirven para mejorar la comunicación entre el anfitrión y una MV concreta.
+
 5. En la siguiente imagen se puede ver la pantalla principal de VirtualBox.
-![main-page](images/main.png)
-A la izquierda, se puede ver un panel que mostrará una lista con todas las Máquinas Virtuales (MMVV). En este momento no se ha creado ninguna por lo que la lista está vacía.  La fila de botones de la parte superior permiten crear nuevas MMVV y trabajar con MMVV existentes. El panel de la derecha muestra por secciones las propiedades de la MV que estuviera seleccionada y su árbol de instantáneas.
+
+   ![main-page](images/main.png)
+
+   A la izquierda, se puede ver un panel que mostrará una lista con todas las Máquinas Virtuales (MMVV). En este momento no se ha creado ninguna por lo que la lista está vacía.  La fila de botones de la parte superior permiten crear nuevas MMVV y trabajar con MMVV existentes. El panel de la derecha muestra por secciones las propiedades de la MV que estuviera seleccionada y su árbol de instantáneas.
 
 ### 3. Instalación de Vagrant
 ##### ¿Qué es Vagrant?
