@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>domains - test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>domains</h1><p><span id="recordNumber">0</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id="category">category</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="key">key</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="value">value</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ordering">ordering</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="parent">parent</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tooltip">tooltip</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-file-code-o"></i>
+                            <h3 id="ViewDefinition" class="box-title">View Definition</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">SELECT (current_database())::information_schema.sql_identifier AS domain_catalog,&#10;    (nt.nspname)::information_schema.sql_identifier AS domain_schema,&#10;    (t.typname)::information_schema.sql_identifier AS domain_name,&#10;    (&#10;        CASE&#10;            WHEN ((t.typelem &lt;&gt; (0)::oid) AND (t.typlen = &#39;-1&#39;::integer)) THEN &#39;ARRAY&#39;::text&#10;            WHEN (nbt.nspname = &#39;pg_catalog&#39;::name) THEN format_type(t.typbasetype, NULL::integer)&#10;            ELSE &#39;USER-DEFINED&#39;::text&#10;        END)::information_schema.character_data AS data_type,&#10;    (information_schema._pg_char_max_length(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS character_maximum_length,&#10;    (information_schema._pg_char_octet_length(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS character_octet_length,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_catalog,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_schema,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_name,&#10;    (&#10;        CASE&#10;            WHEN (nco.nspname IS NOT NULL) THEN current_database()&#10;            ELSE NULL::name&#10;        END)::information_schema.sql_identifier AS collation_catalog,&#10;    (nco.nspname)::information_schema.sql_identifier AS collation_schema,&#10;    (co.collname)::information_schema.sql_identifier AS collation_name,&#10;    (information_schema._pg_numeric_precision(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_precision,&#10;    (information_schema._pg_numeric_precision_radix(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_precision_radix,&#10;    (information_schema._pg_numeric_scale(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_scale,&#10;    (information_schema._pg_datetime_precision(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS datetime_precision,&#10;    (information_schema._pg_interval_type(t.typbasetype, t.typtypmod))::information_schema.character_data AS interval_type,&#10;    (NULL::integer)::information_schema.cardinal_number AS interval_precision,&#10;    (t.typdefault)::information_schema.character_data AS domain_default,&#10;    (current_database())::information_schema.sql_identifier AS udt_catalog,&#10;    (nbt.nspname)::information_schema.sql_identifier AS udt_schema,&#10;    (bt.typname)::information_schema.sql_identifier AS udt_name,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_catalog,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_schema,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_name,&#10;    (NULL::integer)::information_schema.cardinal_number AS maximum_cardinality,&#10;    (1)::information_schema.sql_identifier AS dtd_identifier&#10;   FROM (((pg_type t&#10;     JOIN pg_namespace nt ON ((t.typnamespace = nt.oid)))&#10;     JOIN (pg_type bt&#10;     JOIN pg_namespace nbt ON ((bt.typnamespace = nbt.oid))) ON (((t.typbasetype = bt.oid) AND (t.typtype = &#39;d&#39;::&quot;char&quot;))))&#10;     LEFT JOIN (pg_collation co&#10;     JOIN pg_namespace nco ON ((co.collnamespace = nco.oid))) ON (((t.typcollation = co.oid) AND ((nco.nspname &lt;&gt; &#39;pg_catalog&#39;::name) OR (co.collname &lt;&gt; &#39;default&#39;::name)))))&#10;  WHERE (pg_has_role(t.typowner, &#39;USAGE&#39;::text) OR has_type_privilege(t.oid, &#39;USAGE&#39;::text)); WITH tmp_query AS (&#10;         SELECT provincia.category,&#10;            provincia.key,&#10;            provincia.value,&#10;            provincia.ordering,&#10;            provincia.parent,&#10;            provincia.tooltip,&#10;            provincia.app&#10;           FROM domains.provincia&#10;          WHERE ((provincia.key IS NULL) OR (provincia.app IS NOT NULL))&#10;        UNION&#10;         SELECT &#39;utentes-provincia&#39;::text AS text,&#10;            provincia.key,&#10;            provincia.value,&#10;            provincia.ordering,&#10;            provincia.parent,&#10;            provincia.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.provincia&#10;        UNION&#10;         SELECT distrito.category,&#10;            distrito.key,&#10;            distrito.value,&#10;            distrito.ordering,&#10;            distrito.parent,&#10;            distrito.tooltip,&#10;            distrito.app&#10;           FROM domains.distrito&#10;          WHERE (distrito.app IS NOT NULL)&#10;        UNION&#10;         SELECT &#39;utentes-distrito&#39;::text AS text,&#10;            distrito.key,&#10;            distrito.value,&#10;            distrito.ordering,&#10;            distrito.parent,&#10;            distrito.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.distrito&#10;        UNION&#10;         SELECT posto.category,&#10;            posto.key,&#10;            posto.value,&#10;            posto.ordering,&#10;            posto.parent,&#10;            posto.tooltip,&#10;            posto.app&#10;           FROM domains.posto&#10;          WHERE (posto.app IS NOT NULL)&#10;        UNION&#10;         SELECT &#39;utentes-posto&#39;::text AS text,&#10;            posto.key,&#10;            posto.value,&#10;            posto.ordering,&#10;            posto.parent,&#10;            posto.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.posto&#10;        UNION&#10;         SELECT unidade.category,&#10;            unidade.key,&#10;            unidade.value,&#10;            unidade.ordering,&#10;            unidade.parent,&#10;            unidade.tooltip,&#10;            unidade.app&#10;           FROM domains.unidade&#10;        UNION&#10;         SELECT bacia.category,&#10;            bacia.key,&#10;            bacia.value,&#10;            bacia.ordering,&#10;            bacia.parent,&#10;            bacia.tooltip,&#10;            bacia.app&#10;           FROM domains.bacia&#10;        UNION&#10;         SELECT subacia.category,&#10;            subacia.key,&#10;            subacia.value,&#10;            subacia.ordering,&#10;            subacia.parent,&#10;            subacia.tooltip,&#10;            subacia.app&#10;           FROM domains.subacia&#10;        UNION&#10;         SELECT actividade.category,&#10;            actividade.key,&#10;            actividade.value,&#10;            actividade.ordering,&#10;            actividade.parent,&#10;            actividade.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.actividade&#10;        UNION&#10;         SELECT animal_tipo.category,&#10;            animal_tipo.key,&#10;            animal_tipo.value,&#10;            animal_tipo.ordering,&#10;            animal_tipo.parent,&#10;            animal_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.animal_tipo&#10;        UNION&#10;         SELECT cultivo_tipo.category,&#10;            cultivo_tipo.key,&#10;            cultivo_tipo.value,&#10;            cultivo_tipo.ordering,&#10;            cultivo_tipo.parent,&#10;            cultivo_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.cultivo_tipo&#10;        UNION&#10;         SELECT energia_tipo.category,&#10;            energia_tipo.key,&#10;            energia_tipo.value,&#10;            energia_tipo.ordering,&#10;            energia_tipo.parent,&#10;            energia_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.energia_tipo&#10;        UNION&#10;         SELECT fonte_tipo.category,&#10;            fonte_tipo.key,&#10;            fonte_tipo.value,&#10;            fonte_tipo.ordering,&#10;            fonte_tipo.parent,&#10;            fonte_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fonte_tipo&#10;        UNION&#10;         SELECT industria_tipo.category,&#10;            industria_tipo.key,&#10;            industria_tipo.value,&#10;            industria_tipo.ordering,&#10;            industria_tipo.parent,&#10;            industria_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.industria_tipo&#10;        UNION&#10;         SELECT licencia_estado.category,&#10;            licencia_estado.key,&#10;            licencia_estado.value,&#10;            licencia_estado.ordering,&#10;            licencia_estado.parent,&#10;            licencia_estado.tooltip,&#10;            licencia_estado.app&#10;           FROM domains.licencia_estado&#10;        UNION&#10;         SELECT licencia_tipo_agua.category,&#10;            licencia_tipo_agua.key,&#10;            licencia_tipo_agua.value,&#10;            licencia_tipo_agua.ordering,&#10;            licencia_tipo_agua.parent,&#10;            licencia_tipo_agua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.licencia_tipo_agua&#10;        UNION&#10;         SELECT pagamentos.category,&#10;            pagamentos.key,&#10;            pagamentos.value,&#10;            pagamentos.ordering,&#10;            pagamentos.parent,&#10;            pagamentos.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.pagamentos&#10;        UNION&#10;         SELECT &quot;boolean&quot;.category,&#10;            &quot;boolean&quot;.key,&#10;            &quot;boolean&quot;.value,&#10;            &quot;boolean&quot;.ordering,&#10;            &quot;boolean&quot;.parent,&#10;            &quot;boolean&quot;.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.&quot;boolean&quot;&#10;        UNION&#10;         SELECT rega_tipo.category,&#10;            rega_tipo.key,&#10;            rega_tipo.value,&#10;            rega_tipo.ordering,&#10;            rega_tipo.parent,&#10;            rega_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.rega_tipo&#10;        UNION&#10;         SELECT piscicultura_tipo_proc.category,&#10;            piscicultura_tipo_proc.key,&#10;            piscicultura_tipo_proc.value,&#10;            piscicultura_tipo_proc.ordering,&#10;            piscicultura_tipo_proc.parent,&#10;            piscicultura_tipo_proc.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.piscicultura_tipo_proc&#10;        UNION&#10;         SELECT piscicultura_gaio_subm.category,&#10;            piscicultura_gaio_subm.key,&#10;            piscicultura_gaio_subm.value,&#10;            piscicultura_gaio_subm.ordering,&#10;            piscicultura_gaio_subm.parent,&#10;            piscicultura_gaio_subm.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.piscicultura_gaio_subm&#10;        UNION&#10;         SELECT tanque_piscicola_tipo.category,&#10;            tanque_piscicola_tipo.key,&#10;            tanque_piscicola_tipo.value,&#10;            tanque_piscicola_tipo.ordering,&#10;            tanque_piscicola_tipo.parent,&#10;            tanque_piscicola_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_tipo&#10;        UNION&#10;         SELECT tanque_piscicola_estado.category,&#10;            tanque_piscicola_estado.key,&#10;            tanque_piscicola_estado.value,&#10;            tanque_piscicola_estado.ordering,&#10;            tanque_piscicola_estado.parent,&#10;            tanque_piscicola_estado.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_estado&#10;        UNION&#10;         SELECT tanque_piscicola_esp_culti.category,&#10;            tanque_piscicola_esp_culti.key,&#10;            tanque_piscicola_esp_culti.value,&#10;            tanque_piscicola_esp_culti.ordering,&#10;            tanque_piscicola_esp_culti.parent,&#10;            tanque_piscicola_esp_culti.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_esp_culti&#10;        UNION&#10;         SELECT tanque_piscicola_tipo_alim.category,&#10;            tanque_piscicola_tipo_alim.key,&#10;            tanque_piscicola_tipo_alim.value,&#10;            tanque_piscicola_tipo_alim.ordering,&#10;            tanque_piscicola_tipo_alim.parent,&#10;            tanque_piscicola_tipo_alim.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_tipo_alim&#10;        UNION&#10;         SELECT tanque_piscicola_prov_alev.category,&#10;            tanque_piscicola_prov_alev.key,&#10;            tanque_piscicola_prov_alev.value,&#10;            tanque_piscicola_prov_alev.ordering,&#10;            tanque_piscicola_prov_alev.parent,&#10;            tanque_piscicola_prov_alev.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_prov_alev&#10;        UNION&#10;         SELECT tanque_piscicola_fert_agua.category,&#10;            tanque_piscicola_fert_agua.key,&#10;            tanque_piscicola_fert_agua.value,&#10;            tanque_piscicola_fert_agua.ordering,&#10;            tanque_piscicola_fert_agua.parent,&#10;            tanque_piscicola_fert_agua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_fert_agua&#10;        UNION&#10;         SELECT utentes_uten_tipo.category,&#10;            utentes_uten_tipo.key,&#10;            utentes_uten_tipo.value,&#10;            utentes_uten_tipo.ordering,&#10;            utentes_uten_tipo.parent,&#10;            utentes_uten_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.utentes_uten_tipo&#10;        UNION&#10;         SELECT fontes_sist_med.category,&#10;            fontes_sist_med.key,&#10;            fontes_sist_med.value,&#10;            fontes_sist_med.ordering,&#10;            fontes_sist_med.parent,&#10;            fontes_sist_med.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fontes_sist_med&#10;        UNION&#10;         SELECT actividades_piscicultura_tipo_aqua.category,&#10;            actividades_piscicultura_tipo_aqua.key,&#10;            actividades_piscicultura_tipo_aqua.value,&#10;            actividades_piscicultura_tipo_aqua.ordering,&#10;            actividades_piscicultura_tipo_aqua.parent,&#10;            actividades_piscicultura_tipo_aqua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.actividades_piscicultura_tipo_aqua&#10;        UNION&#10;         SELECT fontes_disp_a.category,&#10;            fontes_disp_a.key,&#10;            fontes_disp_a.value,&#10;            fontes_disp_a.ordering,&#10;            fontes_disp_a.parent,&#10;            fontes_disp_a.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fontes_disp_a&#10;        UNION&#10;         SELECT licencia_tipo_lic.category,&#10;            licencia_tipo_lic.key,&#10;            licencia_tipo_lic.value,&#10;            licencia_tipo_lic.ordering,&#10;            licencia_tipo_lic.parent,&#10;            licencia_tipo_lic.tooltip,&#10;            licencia_tipo_lic.app&#10;           FROM domains.licencia_tipo_lic&#10;        UNION&#10;         SELECT facturacao_consumo_tipo.category,&#10;            facturacao_consumo_tipo.key,&#10;            facturacao_consumo_tipo.value,&#10;            facturacao_consumo_tipo.ordering,&#10;            facturacao_consumo_tipo.parent,&#10;            facturacao_consumo_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.facturacao_consumo_tipo&#10;        UNION&#10;         SELECT facturacao_fact_tipo.category,&#10;            facturacao_fact_tipo.key,&#10;            facturacao_fact_tipo.value,&#10;            facturacao_fact_tipo.ordering,&#10;            facturacao_fact_tipo.parent,&#10;            facturacao_fact_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.facturacao_fact_tipo&#10;        UNION&#10;         SELECT licencia_estado_renovacao.category,&#10;            licencia_estado_renovacao.key,&#10;            licencia_estado_renovacao.value,&#10;            licencia_estado_renovacao.ordering,&#10;            licencia_estado_renovacao.parent,&#10;            licencia_estado_renovacao.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.licencia_estado_renovacao&#10;        )&#10; SELECT tmp_query.category,&#10;    tmp_query.key,&#10;    tmp_query.value,&#10;    tmp_query.ordering,&#10;    tmp_query.parent,&#10;    tmp_query.tooltip&#10;   FROM tmp_query&#10;  WHERE ((tmp_query.app IS NULL) OR (( SELECT ara.key&#10;           FROM domains.ara&#10;         LIMIT 1) = ANY (tmp_query.app)));</textarea>
+                            <div style="padding-top: 5px;"><hr></div>
+                            <div class="box box-solid">
+                                <div class="box-header with-border">
+                                    <i class="fa fa-puzzle-piece"></i>
+                                    <h3 class="box-title">Possibly Referenced Tables/Views</h3>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <ul class="list-unstyled">
+                                        <li><a href="provincia.html">provincia</a></li>
+                                        <li><a href="distrito.html">distrito</a></li>
+                                        <li><a href="posto.html">posto</a></li>
+                                        <li><a href="unidade.html">unidade</a></li>
+                                        <li><a href="bacia.html">bacia</a></li>
+                                        <li><a href="subacia.html">subacia</a></li>
+                                        <li><a href="actividade.html">actividade</a></li>
+                                        <li><a href="animal_tipo.html">animal_tipo</a></li>
+                                        <li><a href="cultivo_tipo.html">cultivo_tipo</a></li>
+                                        <li><a href="energia_tipo.html">energia_tipo</a></li>
+                                        <li><a href="fonte_tipo.html">fonte_tipo</a></li>
+                                        <li><a href="industria_tipo.html">industria_tipo</a></li>
+                                        <li><a href="licencia_estado.html">licencia_estado</a></li>
+                                        <li><a href="licencia_tipo_agua.html">licencia_tipo_agua</a></li>
+                                        <li><a href="pagamentos.html">pagamentos</a></li>
+                                        <li><a href="boolean.html">boolean</a></li>
+                                        <li><a href="domains.html">domains</a></li>
+                                        <li><a href="rega_tipo.html">rega_tipo</a></li>
+                                        <li><a href="piscicultura_tipo_proc.html">piscicultura_tipo_proc</a></li>
+                                        <li><a href="piscicultura_gaio_subm.html">piscicultura_gaio_subm</a></li>
+                                        <li><a href="tanque_piscicola_tipo.html">tanque_piscicola_tipo</a></li>
+                                        <li><a href="tanque_piscicola_estado.html">tanque_piscicola_estado</a></li>
+                                        <li><a href="tanque_piscicola_esp_culti.html">tanque_piscicola_esp_culti</a></li>
+                                        <li><a href="tanque_piscicola_tipo_alim.html">tanque_piscicola_tipo_alim</a></li>
+                                        <li><a href="tanque_piscicola_prov_alev.html">tanque_piscicola_prov_alev</a></li>
+                                        <li><a href="tanque_piscicola_fert_agua.html">tanque_piscicola_fert_agua</a></li>
+                                        <li><a href="utentes_uten_tipo.html">utentes_uten_tipo</a></li>
+                                        <li><a href="fontes_sist_med.html">fontes_sist_med</a></li>
+                                        <li><a href="actividades_piscicultura_tipo_aqua.html">actividades_piscicultura_tipo_aqua</a></li>
+                                        <li><a href="fontes_disp_a.html">fontes_disp_a</a></li>
+                                        <li><a href="licencia_tipo_lic.html">licencia_tipo_lic</a></li>
+                                        <li><a href="facturacao_consumo_tipo.html">facturacao_consumo_tipo</a></li>
+                                        <li><a href="facturacao_fact_tipo.html">facturacao_fact_tipo</a></li>
+                                        <li><a href="licencia_estado_renovacao.html">licencia_estado_renovacao</a></li>
+                                        <li><a href="ara.html">ara</a></li>
+                                    </ul>
+                                </div><!-- /.box-body -->
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

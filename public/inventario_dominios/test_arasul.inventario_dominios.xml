@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="test_arasul" schema="inventario_dominios" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
+   <tables>
+      <table name="bacia" numRows="25" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'bacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="bacia" foreignKey="barragens_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="bacia" foreignKey="estacoes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_bacia" foreignKey="exploracoes_loc_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="bacia" foreignKey="fontes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="_text" typeCode="2003"/>
+         <index name="bacia_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="c_nitrat" numRows="6" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="c_nitrat" foreignKey="fontes_analise_c_nitrat_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_analise"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="c_nitrat_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="c_nitrit" numRows="6" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="c_nitrit" foreignKey="fontes_analise_c_nitrit_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_analise"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="c_nitrit_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="carac_lit" numRows="8" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'carac_lit'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="carac_lit" foreignKey="fontes_litologia_carac_lit_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_litologia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="carac_lit_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="cond_most" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="cond_most" foreignKey="fontes_analise_cond_most_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_analise"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="cond_most_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="distrito" numRows="35" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'distrito'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="distrito" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="distrito" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_distri" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="distrito" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="provincia" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="provincia" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_provin" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="provincia" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="_text" typeCode="2003"/>
+         <index name="distrito_key_parent_key" unique="true">
+            <column ascending="true" name="key"/>
+            <column ascending="true" name="parent"/>
+         </index>
+      </table>
+      <table name="estado" numRows="4" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="estado" foreignKey="estacoes_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="estado_fon" foreignKey="fontes_estado_fon_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="estado_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="estado_ampliado" numRows="5" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="estado" foreignKey="barragens_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="estado" foreignKey="fontes_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="estado_ampliado_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="fiab_info" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="fiab_info" foreignKey="barragens_fiab_info_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="fiab_info_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="frecuencia" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="frec_regi" foreignKey="estacoes_frec_regi_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="frec_toma" foreignKey="estacoes_frec_toma_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="frecuencia_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="gestao" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="gestao" foreignKey="barragens_gestao_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="gestao_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="gestao_estacoes" numRows="10" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'gestao_estacoes'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="gestao" foreignKey="estacoes_gestao_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="gestao_estacoes_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="litologia" numRows="16" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'litologia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="litologia" foreignKey="fontes_litologia_litologia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_litologia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="litologia_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="posto" numRows="100" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'posto'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="posto_adm" foreignKey="barragens_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="posto_adm" foreignKey="estacoes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_post" foreignKey="exploracoes_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="posto_adm" foreignKey="fontes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="distrito" foreignKey="barragens_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="distrito" foreignKey="estacoes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_distri" foreignKey="exploracoes_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="distrito" foreignKey="fontes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="_text" typeCode="2003"/>
+         <index name="posto_key_parent_key" unique="true">
+            <column ascending="true" name="key"/>
+            <column ascending="true" name="parent"/>
+         </index>
+      </table>
+      <table name="precisao" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="n_precis" foreignKey="estacoes_n_precis_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="v_precis" foreignKey="estacoes_v_precis_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="precisao_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="propiedad" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="propiedad" foreignKey="fontes_propiedad_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="propiedad_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="provincia" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'provincia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="provincia" foreignKey="barragens_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="provincia" foreignKey="estacoes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="loc_provin" foreignKey="exploracoes_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="exploracoes"/>
+            <child column="provincia" foreignKey="fontes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="_text" typeCode="2003"/>
+         <index name="provincia_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="red_monit" numRows="4" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="red_monit" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="red_monit_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="si_no" numRows="2" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="sac" foreignKey="estacoes_sac_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="si_no_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="subacia" numRows="25" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'subacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="subacia" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="subacia" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="subacia" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="bacia" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+            <child column="bacia" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+            <child column="bacia" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="_text" typeCode="2003"/>
+         <index name="subacia_key_parent_key" unique="true">
+            <column ascending="true" name="key"/>
+            <column ascending="true" name="parent"/>
+         </index>
+      </table>
+      <table name="tip_barra" numRows="4" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tip_barra" foreignKey="barragens_tip_barra_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tip_barra_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tip_estac" numRows="2" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tip_estac" foreignKey="estacoes_tip_estac_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tip_estac_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tip_fonte" numRows="10" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tip_fonte" foreignKey="fontes_tip_fonte_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tip_fonte_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tip_pluvi" numRows="2" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tip_pluvi" foreignKey="estacoes_tip_pluvi_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tip_pluvi_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_aqui" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'tipo_aqui'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_aqui" foreignKey="fontes_analise_tipo_aqui_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_analise"/>
+            <child column="tipo_aqui" foreignKey="fontes_carac_hidro_tipo_aqui_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_carac_hidro"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_aqui_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_cama" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'tipo_cama'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_cama" foreignKey="fontes_carac_hidro_tipo_cama_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes_carac_hidro"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_cama_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_hidr" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_hidr" foreignKey="acuiferos_tipo_hidr_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="acuiferos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_hidr_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_lito" numRows="2" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_lito" foreignKey="acuiferos_tipo_lito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="acuiferos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_lito_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_poro" numRows="3" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_poro" foreignKey="acuiferos_tipo_poro_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="acuiferos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_poro_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="tipo_pozo" numRows="2" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="tipo_pozo" foreignKey="fontes_tipo_pozo_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="tipo_pozo_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+      <table name="unidade" numRows="4" remarks="" schema="inventario_dominios" type="TABLE">
+         <column autoUpdated="false" defaultValue="'unidade'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="loc_unidad" foreignKey="fontes_loc_unidad_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="app" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="unidade_key_key" unique="true">
+            <column ascending="true" name="key"/>
+         </index>
+      </table>
+   </tables>
+</database>

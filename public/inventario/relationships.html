@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="55,2011,330,2099">
+<area shape="rect" id="node2" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="46,1800,339,1888">
+<area shape="rect" id="node3" href="tables/acuiferos.html" target="_top" title="acuiferos" alt="" coords="509,17,665,281">
+<area shape="rect" id="node45" href="../inventario_dominios/tables/tipo_hidr.html" target="_top" title="inventario_dominios.tipo_hidr" alt="" coords="35,5,350,93">
+<area shape="rect" id="node46" href="../inventario_dominios/tables/tipo_lito.html" target="_top" title="inventario_dominios.tipo_lito" alt="" coords="38,111,347,199">
+<area shape="rect" id="node47" href="../inventario_dominios/tables/tipo_poro.html" target="_top" title="inventario_dominios.tipo_poro" alt="" coords="33,216,352,304">
+<area shape="rect" id="node4" href="tables/acuiferos_imagenes.html" target="_top" title="acuiferos_imagenes" alt="" coords="803,47,1038,164">
+<area shape="rect" id="node5" href="tables/barragens.html" target="_top" title="barragens" alt="" coords="506,551,669,991">
+<area shape="rect" id="node19" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="49,1168,336,1256">
+<area shape="rect" id="node24" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="41,747,344,835">
+<area shape="rect" id="node26" href="../inventario_dominios/tables/estado_ampliado.html" target="_top" title="inventario_dominios.estado_ampliado" alt="" coords="5,1273,380,1361">
+<area shape="rect" id="node27" href="../inventario_dominios/tables/fiab_info.html" target="_top" title="inventario_dominios.fiab_info" alt="" coords="37,536,348,624">
+<area shape="rect" id="node29" href="../inventario_dominios/tables/gestao.html" target="_top" title="inventario_dominios.gestao" alt="" coords="45,431,340,519">
+<area shape="rect" id="node32" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="49,852,337,940">
+<area shape="rect" id="node35" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="33,641,352,729">
+<area shape="rect" id="node38" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="41,1589,345,1677">
+<area shape="rect" id="node39" href="../inventario_dominios/tables/tip_barra.html" target="_top" title="inventario_dominios.tip_barra" alt="" coords="35,325,351,413">
+<area shape="rect" id="node6" href="tables/barragens_imagenes.html" target="_top" title="barragens_imagenes" alt="" coords="801,580,1041,697">
+<area shape="rect" id="node7" href="tables/dados_hidrometricos.html" target="_top" title="dados_hidrometricos" alt="" coords="798,2351,1043,2497">
+<area shape="rect" id="node9" href="tables/estacoes.html" target="_top" title="estacoes" alt="" coords="505,2139,670,2725">
+<area shape="rect" id="node8" href="tables/dados_pluviometricos.html" target="_top" title="dados_pluviometricos" alt="" coords="795,2515,1047,2661">
+<area shape="rect" id="node25" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="44,1695,341,1783">
+<area shape="rect" id="node28" href="../inventario_dominios/tables/frecuencia.html" target="_top" title="inventario_dominios.frecuencia" alt="" coords="29,2420,356,2508">
+<area shape="rect" id="node30" href="../inventario_dominios/tables/gestao_estacoes.html" target="_top" title="inventario_dominios.gestao_estacoes" alt="" coords="9,2315,376,2403">
+<area shape="rect" id="node33" href="../inventario_dominios/tables/precisao.html" target="_top" title="inventario_dominios.precisao" alt="" coords="37,2525,348,2613">
+<area shape="rect" id="node37" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="51,2736,334,2824">
+<area shape="rect" id="node40" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="35,2203,350,2291">
+<area shape="rect" id="node42" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="36,2631,349,2719">
+<area shape="rect" id="node10" href="tables/estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="815,2052,1026,2199">
+<area shape="rect" id="node11" href="tables/estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="806,2216,1035,2333">
+<area shape="rect" id="node12" href="tables/exploracoes.html" target="_top" title="exploracoes" alt="" coords="499,299,676,533">
+<area shape="rect" id="node13" href="tables/fontes.html" target="_top" title="fontes" alt="" coords="498,1008,677,1595">
+<area shape="rect" id="node34" href="../inventario_dominios/tables/propiedad.html" target="_top" title="inventario_dominios.propiedad" alt="" coords="30,1379,355,1467">
+<area shape="rect" id="node36" href="../inventario_dominios/tables/red_monit.html" target="_top" title="inventario_dominios.red_monit" alt="" coords="31,1063,355,1151">
+<area shape="rect" id="node41" href="../inventario_dominios/tables/tip_fonte.html" target="_top" title="inventario_dominios.tip_fonte" alt="" coords="35,957,350,1045">
+<area shape="rect" id="node48" href="../inventario_dominios/tables/tipo_pozo.html" target="_top" title="inventario_dominios.tipo_pozo" alt="" coords="33,1484,352,1572">
+<area shape="rect" id="node49" href="../inventario_dominios/tables/unidade.html" target="_top" title="inventario_dominios.unidade" alt="" coords="38,1905,347,1993">
+<area shape="rect" id="node14" href="tables/fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="823,1548,1018,1812">
+<area shape="rect" id="node20" href="../inventario_dominios/tables/c_nitrat.html" target="_top" title="inventario_dominios.c_nitrat" alt="" coords="435,1612,740,1700">
+<area shape="rect" id="node21" href="../inventario_dominios/tables/c_nitrit.html" target="_top" title="inventario_dominios.c_nitrit" alt="" coords="437,1717,738,1805">
+<area shape="rect" id="node23" href="../inventario_dominios/tables/cond_most.html" target="_top" title="inventario_dominios.cond_most" alt="" coords="424,1823,751,1911">
+<area shape="rect" id="node43" href="../inventario_dominios/tables/tipo_aqui.html" target="_top" title="inventario_dominios.tipo_aqui" alt="" coords="429,1928,746,2016">
+<area shape="rect" id="node15" href="tables/fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="807,1829,1035,2035">
+<area shape="rect" id="node44" href="../inventario_dominios/tables/tipo_cama.html" target="_top" title="inventario_dominios.tipo_cama" alt="" coords="425,2033,749,2121">
+<area shape="rect" id="node16" href="tables/fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="815,956,1027,1073">
+<area shape="rect" id="node17" href="tables/fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="819,2679,1022,2884">
+<area shape="rect" id="node22" href="../inventario_dominios/tables/carac_lit.html" target="_top" title="inventario_dominios.carac_lit" alt="" coords="432,2848,743,2936">
+<area shape="rect" id="node31" href="../inventario_dominios/tables/litologia.html" target="_top" title="inventario_dominios.litologia" alt="" coords="433,2743,741,2831">
+<area shape="rect" id="node18" href="tables/quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="812,1091,1029,1237">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="55,5071,330,5311">
+<area shape="rect" id="node2" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="46,4527,339,4767">
+<area shape="rect" id="node3" href="tables/acuiferos.html" target="_top" title="acuiferos" alt="" coords="509,175,665,561">
+<area shape="rect" id="node45" href="../inventario_dominios/tables/tipo_hidr.html" target="_top" title="inventario_dominios.tipo_hidr" alt="" coords="35,5,350,245">
+<area shape="rect" id="node46" href="../inventario_dominios/tables/tipo_lito.html" target="_top" title="inventario_dominios.tipo_lito" alt="" coords="38,263,347,503">
+<area shape="rect" id="node47" href="../inventario_dominios/tables/tipo_poro.html" target="_top" title="inventario_dominios.tipo_poro" alt="" coords="33,520,352,760">
+<area shape="rect" id="node4" href="tables/acuiferos_imagenes.html" target="_top" title="acuiferos_imagenes" alt="" coords="803,233,1038,356">
+<area shape="rect" id="node5" href="tables/barragens.html" target="_top" title="barragens" alt="" coords="506,1695,669,2697">
+<area shape="rect" id="node19" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="49,2667,336,2936">
+<area shape="rect" id="node24" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="41,2093,344,2363">
+<area shape="rect" id="node26" href="../inventario_dominios/tables/estado_ampliado.html" target="_top" title="inventario_dominios.estado_ampliado" alt="" coords="5,3211,380,3451">
+<area shape="rect" id="node27" href="../inventario_dominios/tables/fiab_info.html" target="_top" title="inventario_dominios.fiab_info" alt="" coords="37,1292,348,1532">
+<area shape="rect" id="node29" href="../inventario_dominios/tables/gestao.html" target="_top" title="inventario_dominios.gestao" alt="" coords="45,1035,340,1275">
+<area shape="rect" id="node32" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="49,2380,337,2649">
+<area shape="rect" id="node35" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="33,1807,352,2076">
+<area shape="rect" id="node38" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="41,3983,345,4252">
+<area shape="rect" id="node39" href="../inventario_dominios/tables/tip_barra.html" target="_top" title="inventario_dominios.tip_barra" alt="" coords="35,777,351,1017">
+<area shape="rect" id="node6" href="tables/barragens_imagenes.html" target="_top" title="barragens_imagenes" alt="" coords="801,1753,1041,1876">
+<area shape="rect" id="node7" href="tables/dados_hidrometricos.html" target="_top" title="dados_hidrometricos" alt="" coords="798,7625,1043,11239">
+<area shape="rect" id="node9" href="tables/estacoes.html" target="_top" title="estacoes" alt="" coords="505,5901,670,7197">
+<area shape="rect" id="node8" href="tables/dados_pluviometricos.html" target="_top" title="dados_pluviometricos" alt="" coords="795,11256,1047,13021">
+<area shape="rect" id="node25" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="44,4269,341,4509">
+<area shape="rect" id="node28" href="../inventario_dominios/tables/frecuencia.html" target="_top" title="inventario_dominios.frecuencia" alt="" coords="29,6488,356,6728">
+<area shape="rect" id="node30" href="../inventario_dominios/tables/gestao_estacoes.html" target="_top" title="inventario_dominios.gestao_estacoes" alt="" coords="9,6231,376,6471">
+<area shape="rect" id="node33" href="../inventario_dominios/tables/precisao.html" target="_top" title="inventario_dominios.precisao" alt="" coords="37,6745,348,6985">
+<area shape="rect" id="node37" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="51,7260,334,7500">
+<area shape="rect" id="node40" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="35,5960,350,6200">
+<area shape="rect" id="node42" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="36,7003,349,7243">
+<area shape="rect" id="node10" href="tables/estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="815,5585,1026,7468">
+<area shape="rect" id="node11" href="tables/estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="806,7485,1035,7608">
+<area shape="rect" id="node12" href="tables/exploracoes.html" target="_top" title="exploracoes" alt="" coords="499,704,676,1677">
+<area shape="rect" id="node13" href="tables/fontes.html" target="_top" title="fontes" alt="" coords="498,2715,677,4597">
+<area shape="rect" id="node34" href="../inventario_dominios/tables/propiedad.html" target="_top" title="inventario_dominios.propiedad" alt="" coords="30,3468,355,3708">
+<area shape="rect" id="node36" href="../inventario_dominios/tables/red_monit.html" target="_top" title="inventario_dominios.red_monit" alt="" coords="31,2953,355,3193">
+<area shape="rect" id="node41" href="../inventario_dominios/tables/tip_fonte.html" target="_top" title="inventario_dominios.tip_fonte" alt="" coords="35,1549,350,1789">
+<area shape="rect" id="node48" href="../inventario_dominios/tables/tipo_pozo.html" target="_top" title="inventario_dominios.tipo_pozo" alt="" coords="33,3725,352,3965">
+<area shape="rect" id="node49" href="../inventario_dominios/tables/unidade.html" target="_top" title="inventario_dominios.unidade" alt="" coords="38,4784,347,5053">
+<area shape="rect" id="node14" href="tables/fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="823,3223,1018,5252">
+<area shape="rect" id="node20" href="../inventario_dominios/tables/c_nitrat.html" target="_top" title="inventario_dominios.c_nitrat" alt="" coords="435,4615,740,4855">
+<area shape="rect" id="node21" href="../inventario_dominios/tables/c_nitrit.html" target="_top" title="inventario_dominios.c_nitrit" alt="" coords="437,4872,738,5112">
+<area shape="rect" id="node23" href="../inventario_dominios/tables/cond_most.html" target="_top" title="inventario_dominios.cond_most" alt="" coords="424,5129,751,5369">
+<area shape="rect" id="node43" href="../inventario_dominios/tables/tipo_aqui.html" target="_top" title="inventario_dominios.tipo_aqui" alt="" coords="429,5387,746,5627">
+<area shape="rect" id="node15" href="tables/fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="807,5269,1035,5568">
+<area shape="rect" id="node44" href="../inventario_dominios/tables/tipo_cama.html" target="_top" title="inventario_dominios.tipo_cama" alt="" coords="425,5644,749,5884">
+<area shape="rect" id="node16" href="tables/fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="815,2627,1027,2749">
+<area shape="rect" id="node17" href="tables/fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="819,13039,1022,13367">
+<area shape="rect" id="node22" href="../inventario_dominios/tables/carac_lit.html" target="_top" title="inventario_dominios.carac_lit" alt="" coords="432,13328,743,13568">
+<area shape="rect" id="node31" href="../inventario_dominios/tables/litologia.html" target="_top" title="inventario_dominios.litologia" alt="" coords="433,13071,741,13311">
+<area shape="rect" id="node18" href="tables/quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="812,2767,1029,3153">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

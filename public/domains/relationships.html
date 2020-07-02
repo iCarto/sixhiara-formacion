@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/actividade.html" target="_top" title="actividade" alt="" coords="98,4491,265,4608">
+<area shape="rect" id="node2" href="tables/actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="5,4356,357,4473">
+<area shape="rect" id="node3" href="tables/animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="93,3817,269,3935">
+<area shape="rect" id="node4" href="tables/bacia.html" target="_top" title="bacia" alt="" coords="110,1979,253,2125">
+<area shape="rect" id="node5" href="tables/boolean.html" target="_top" title="boolean" alt="" coords="108,4087,255,4204">
+<area shape="rect" id="node6" href="tables/cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="93,948,269,1065">
+<area shape="rect" id="node7" href="tables/distrito.html" target="_top" title="distrito" alt="" coords="110,1352,253,1499">
+<area shape="rect" id="node8" href="tables/energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="91,813,271,931">
+<area shape="rect" id="node9" href="tables/facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="42,2547,321,2664">
+<area shape="rect" id="node10" href="tables/facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="51,2143,312,2260">
+<area shape="rect" id="node11" href="tables/facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="61,2277,302,2395">
+<area shape="rect" id="node12" href="tables/fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="99,3085,263,3232">
+<area shape="rect" id="node13" href="tables/fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="88,3384,275,3501">
+<area shape="rect" id="node14" href="tables/fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="78,3249,285,3367">
+<area shape="rect" id="node15" href="tables/groups.html" target="_top" title="groups" alt="" coords="113,3519,250,3636">
+<area shape="rect" id="node16" href="tables/industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="85,679,278,796">
+<area shape="rect" id="node17" href="tables/licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="80,2412,283,2529">
+<area shape="rect" id="node18" href="tables/licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="38,2681,325,2799">
+<area shape="rect" id="node19" href="tables/licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="69,2951,293,3068">
+<area shape="rect" id="node20" href="tables/licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="78,2816,285,2933">
+<area shape="rect" id="node21" href="tables/piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="50,4221,313,4339">
+<area shape="rect" id="node22" href="tables/piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="54,3952,309,4069">
+<area shape="rect" id="node23" href="tables/posto.html" target="_top" title="posto" alt="" coords="110,1516,253,1663">
+<area shape="rect" id="node24" href="tables/provincia.html" target="_top" title="provincia" alt="" coords="102,1217,261,1335">
+<area shape="rect" id="node25" href="tables/rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="103,1083,259,1200">
+<area shape="rect" id="node26" href="tables/subacia.html" target="_top" title="subacia" alt="" coords="109,1815,253,1961">
+<area shape="rect" id="node27" href="tables/tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="38,275,325,392">
+<area shape="rect" id="node28" href="tables/tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="46,140,317,257">
+<area shape="rect" id="node29" href="tables/tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="36,544,327,661">
+<area shape="rect" id="node30" href="tables/tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="35,409,327,527">
+<area shape="rect" id="node31" href="tables/tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="56,5,307,123">
+<area shape="rect" id="node32" href="tables/unidade.html" target="_top" title="unidade" alt="" coords="107,3653,256,3771">
+<area shape="rect" id="node33" href="tables/utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="69,1680,293,1797">
+<area shape="rect" id="node34" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="485,2976,704,3123">
+<area shape="rect" id="node35" href="../utentes/tables/actividades.html" target="_top" title="utentes.actividades" alt="" coords="476,4491,713,4608">
+<area shape="rect" id="node36" href="../utentes/tables/actividades_cultivos.html" target="_top" title="utentes.actividades_cultivos" alt="" coords="443,1001,746,1148">
+<area shape="rect" id="node37" href="../utentes/tables/actividades_industria.html" target="_top" title="utentes.actividades_industria" alt="" coords="438,679,751,796">
+<area shape="rect" id="node38" href="../utentes/tables/actividades_piscicultura.html" target="_top" title="utentes.actividades_piscicultura" alt="" coords="427,4013,762,4336">
+<area shape="rect" id="node39" href="../utentes/tables/actividades_produccao_energia.html" target="_top" title="utentes.actividades_produccao_energia" alt="" coords="401,813,788,931">
+<area shape="rect" id="node40" href="../utentes/tables/actividades_reses.html" target="_top" title="utentes.actividades_reses" alt="" coords="453,3817,736,3935">
+<area shape="rect" id="node41" href="../utentes/tables/actividades_tanques_piscicolas.html" target="_top" title="utentes.actividades_tanques_piscicolas" alt="" coords="403,216,787,451">
+<area shape="rect" id="node42" href="../utentes/tables/documentos.html" target="_top" title="utentes.documentos" alt="" coords="473,3653,716,3800">
+<area shape="rect" id="node43" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="475,1756,715,2108">
+<area shape="rect" id="node44" href="../utentes/tables/facturacao.html" target="_top" title="utentes.facturacao" alt="" coords="479,2253,710,2459">
+<area shape="rect" id="node45" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="496,3140,693,3345">
+<area shape="rect" id="node46" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="487,2493,702,2699">
+<area shape="rect" id="node47" href="../utentes/tables/renovacoes.html" target="_top" title="utentes.renovacoes" alt="" coords="477,2724,712,2959">
+<area shape="rect" id="node48" href="../utentes/tables/users.html" target="_top" title="utentes.users" alt="" coords="500,3489,689,3636">
+<area shape="rect" id="node49" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="491,1420,699,1625">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/actividade.html" target="_top" title="actividade" alt="" coords="98,12559,265,12799">
+<area shape="rect" id="node2" href="tables/actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="5,12301,357,12541">
+<area shape="rect" id="node3" href="tables/animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="93,11272,269,11512">
+<area shape="rect" id="node4" href="tables/bacia.html" target="_top" title="bacia" alt="" coords="110,3769,253,4039">
+<area shape="rect" id="node5" href="tables/boolean.html" target="_top" title="boolean" alt="" coords="108,11787,255,12027">
+<area shape="rect" id="node6" href="tables/cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="93,1851,269,2091">
+<area shape="rect" id="node7" href="tables/distrito.html" target="_top" title="distrito" alt="" coords="110,2652,253,2921">
+<area shape="rect" id="node8" href="tables/energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="91,1549,271,1789">
+<area shape="rect" id="node9" href="tables/facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="42,5500,321,5769">
+<area shape="rect" id="node10" href="tables/facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="51,4572,312,4841">
+<area shape="rect" id="node11" href="tables/facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="61,5172,302,5441">
+<area shape="rect" id="node12" href="tables/fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="99,10096,263,10336">
+<area shape="rect" id="node13" href="tables/fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="88,10353,275,10593">
+<area shape="rect" id="node14" href="tables/fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="78,9839,285,10079">
+<area shape="rect" id="node15" href="tables/groups.html" target="_top" title="groups" alt="" coords="113,10897,250,11137">
+<area shape="rect" id="node16" href="tables/industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="85,1292,278,1532">
+<area shape="rect" id="node17" href="tables/licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="80,4876,283,5145">
+<area shape="rect" id="node18" href="tables/licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="38,6895,325,7164">
+<area shape="rect" id="node19" href="tables/licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="69,9581,293,9821">
+<area shape="rect" id="node20" href="tables/licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="78,7569,285,7839">
+<area shape="rect" id="node21" href="tables/piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="50,12044,313,12284">
+<area shape="rect" id="node22" href="tables/piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="54,11529,309,11769">
+<area shape="rect" id="node23" href="tables/posto.html" target="_top" title="posto" alt="" coords="110,3196,253,3465">
+<area shape="rect" id="node24" href="tables/provincia.html" target="_top" title="provincia" alt="" coords="102,2365,261,2635">
+<area shape="rect" id="node25" href="tables/rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="103,2108,259,2348">
+<area shape="rect" id="node26" href="tables/subacia.html" target="_top" title="subacia" alt="" coords="109,3483,253,3752">
+<area shape="rect" id="node27" href="tables/tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="38,520,325,760">
+<area shape="rect" id="node28" href="tables/tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="46,263,317,503">
+<area shape="rect" id="node29" href="tables/tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="36,1035,327,1275">
+<area shape="rect" id="node30" href="tables/tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="35,777,327,1017">
+<area shape="rect" id="node31" href="tables/tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="56,5,307,245">
+<area shape="rect" id="node32" href="tables/unidade.html" target="_top" title="unidade" alt="" coords="107,10611,256,10880">
+<area shape="rect" id="node33" href="tables/utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="69,2939,293,3179">
+<area shape="rect" id="node34" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="485,8091,704,9973">
+<area shape="rect" id="node35" href="../utentes/tables/actividades.html" target="_top" title="utentes.actividades" alt="" coords="476,12529,713,12711">
+<area shape="rect" id="node36" href="../utentes/tables/actividades_cultivos.html" target="_top" title="utentes.actividades_cultivos" alt="" coords="443,1899,746,2256">
+<area shape="rect" id="node37" href="../utentes/tables/actividades_industria.html" target="_top" title="utentes.actividades_industria" alt="" coords="438,1292,751,1532">
+<area shape="rect" id="node38" href="../utentes/tables/actividades_piscicultura.html" target="_top" title="utentes.actividades_piscicultura" alt="" coords="427,11527,762,12177">
+<area shape="rect" id="node39" href="../utentes/tables/actividades_produccao_energia.html" target="_top" title="utentes.actividades_produccao_energia" alt="" coords="401,1549,788,1789">
+<area shape="rect" id="node40" href="../utentes/tables/actividades_reses.html" target="_top" title="utentes.actividades_reses" alt="" coords="453,11213,736,11483">
+<area shape="rect" id="node41" href="../utentes/tables/actividades_tanques_piscicolas.html" target="_top" title="utentes.actividades_tanques_piscicolas" alt="" coords="403,227,787,1053">
+<area shape="rect" id="node42" href="../utentes/tables/documentos.html" target="_top" title="utentes.documentos" alt="" coords="473,10868,716,11196">
+<area shape="rect" id="node43" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="475,3189,715,4984">
+<area shape="rect" id="node44" href="../utentes/tables/facturacao.html" target="_top" title="utentes.facturacao" alt="" coords="479,5001,710,6033">
+<area shape="rect" id="node45" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="496,10031,693,10505">
+<area shape="rect" id="node46" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="487,6051,702,6789">
+<area shape="rect" id="node47" href="../utentes/tables/renovacoes.html" target="_top" title="utentes.renovacoes" alt="" coords="477,6807,712,8073">
+<area shape="rect" id="node48" href="../utentes/tables/users.html" target="_top" title="utentes.users" alt="" coords="500,10523,689,10851">
+<area shape="rect" id="node49" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="491,2580,699,3172">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

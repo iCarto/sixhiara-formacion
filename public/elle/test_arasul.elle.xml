@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="test_arasul" schema="elle" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
+   <tables>
+      <table name="_map" numRows="54" remarks="" schema="elle" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="mapa" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre_capa" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nombre_tabla" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="posicion" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="4" name="visible" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="max_escala" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="min_escala" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="grupo" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="schema" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="9" name="localizador" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <primaryKey column="mapa" sequenceNumberInPK="1"/>
+         <primaryKey column="nombre_capa" sequenceNumberInPK="2"/>
+         <index name="_map_pkey" unique="true">
+            <column ascending="true" name="mapa"/>
+            <column ascending="true" name="nombre_capa"/>
+         </index>
+      </table>
+      <table name="_map_overview" numRows="0" remarks="" schema="elle" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="mapa" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre_capa" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="schema" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="posicion" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="nombre_tabla" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="mapa" sequenceNumberInPK="1"/>
+         <primaryKey column="nombre_capa" sequenceNumberInPK="2"/>
+         <index name="_map_overview_pkey" unique="true">
+            <column ascending="true" name="mapa"/>
+            <column ascending="true" name="nombre_capa"/>
+         </index>
+      </table>
+      <table name="_map_overview_style" numRows="0" remarks="" schema="elle" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="nombre_capa" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre_estilo" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tipo" nullable="true" remarks="" size="3" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definicion" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="nombre_capa" sequenceNumberInPK="1"/>
+         <primaryKey column="nombre_estilo" sequenceNumberInPK="2"/>
+         <index name="_map_overview_style_pkey" unique="true">
+            <column ascending="true" name="nombre_capa"/>
+            <column ascending="true" name="nombre_estilo"/>
+         </index>
+      </table>
+      <table name="_map_style" numRows="54" remarks="" schema="elle" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="nombre_capa" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nombre_estilo" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="type" nullable="true" remarks="" size="3" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="definicion" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="label" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="nombre_capa" sequenceNumberInPK="1"/>
+         <primaryKey column="nombre_estilo" sequenceNumberInPK="2"/>
+         <index name="_map_style_pkey" unique="true">
+            <column ascending="true" name="nombre_capa"/>
+            <column ascending="true" name="nombre_estilo"/>
+         </index>
+      </table>
+   </tables>
+</database>

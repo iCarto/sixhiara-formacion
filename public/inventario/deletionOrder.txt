@@ -1,0 +1,17 @@
+version
+exploracoes
+fontes_analise
+fontes_litologia
+fontes_carac_hidro
+quantidade_agua
+fontes_imagenes
+estacoes_imagenes
+estacoes_analise
+dados_pluviometricos
+dados_hidrometricos
+barragens_imagenes
+acuiferos_imagenes
+barragens
+acuiferos
+estacoes
+fontes

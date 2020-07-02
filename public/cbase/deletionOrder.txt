@@ -1,0 +1,15 @@
+batimetria
+unidades
+rios
+postos
+paises_limitrofes
+oceanos
+lagos
+estradas
+entidades_populacao
+distritos
+bacias_representacion
+bacias
+aras
+albufeiras
+provincias

@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="test_arasul" schema="inventario" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
+   <tables>
+      <table name="acuiferos" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="acuifero" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod_acuif" nullable="false" remarks="" size="50" type="varchar" typeCode="12">
+            <child column="cod_acuif" foreignKey="acuiferos_imagenes_cod_acuif_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="acuiferos_imagenes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tipo_hidr" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="acuiferos_tipo_hidr_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_hidr"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tipo_lito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="acuiferos_tipo_lito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_lito"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tipo_poro" nullable="true" remarks="" size="50" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="acuiferos_tipo_poro_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_poro"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="geologia" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="profundid" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="cumprimen" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="coment" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="acuiferos_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="acuiferos_cod_acuif_key" unique="true">
+            <column ascending="true" name="cod_acuif"/>
+         </index>
+         <index name="acuiferos_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="acuiferos_imagenes" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cod_acuif" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cod_acuif" foreignKey="acuiferos_imagenes_cod_acuif_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="acuiferos"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="image" nullable="true" remarks="" size="2147483647" type="bytea" typeCode="-2"/>
+         <primaryKey column="cod_acuif" sequenceNumberInPK="1"/>
+         <index name="acuiferos_imagenes_pkey" unique="true">
+            <column ascending="true" name="cod_acuif"/>
+         </index>
+      </table>
+      <table name="barragens" numRows="45" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="barragem" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod_barra" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <child column="cod_barra" foreignKey="barragens_imagenes_cod_barra_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="barragens_imagenes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tip_barra" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_tip_barra_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_barra"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="key" foreignKey="barragens_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="parent" foreignKey="barragens_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="posto_adm" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nucleo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="altitude" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+            <parent column="key" foreignKey="barragens_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="rio" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="estado" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="estado_ampliado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="ano_const" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="gestao" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_gestao_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="gestao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="responsab" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="telefone" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="capacidad" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="h_altitud" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="u_hidroel" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="u_irriga" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="u_abast" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="estrutura" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="inspecoes" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="n_inspec" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="fonte_loc" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="fonte_inf" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="fiab_info" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="barragens_fiab_info_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="fiab_info"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="observacio" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="comprimen" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="npa" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="barragens_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="barragens_cod_barra_key" unique="true">
+            <column ascending="true" name="cod_barra"/>
+         </index>
+         <index name="barragens_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="barragens_imagenes" numRows="8" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cod_barra" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cod_barra" foreignKey="barragens_imagenes_cod_barra_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="barragens"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="image" nullable="true" remarks="" size="2147483647" type="bytea" typeCode="-2"/>
+         <primaryKey column="cod_barra" sequenceNumberInPK="1"/>
+         <index name="barragens_imagenes_pkey" unique="true">
+            <column ascending="true" name="cod_barra"/>
+         </index>
+      </table>
+      <table name="dados_hidrometricos" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cod_estac" nullable="false" remarks="" size="50" type="varchar" typeCode="12">
+            <parent column="cod_estac" foreignKey="dados_hidrometricos_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="estazon" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ano" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="n_med_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="n_max_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="n_min_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="n_med_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="n_max_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="n_min_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="n_med_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="n_max_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="n_min_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="n_med_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="n_max_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="n_min_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="n_med_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="n_max_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="n_min_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="n_med_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="n_max_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="n_min_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="n_med_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="n_max_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="n_min_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="25" name="n_med_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="26" name="n_max_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="27" name="n_min_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="28" name="n_med_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="n_max_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="n_min_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="31" name="n_med_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="n_max_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="33" name="n_min_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="34" name="n_med_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="35" name="n_max_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="36" name="n_min_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="37" name="n_med_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="38" name="n_max_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="39" name="n_min_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="40" name="n_med_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="41" name="n_max_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="42" name="n_min_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="43" name="q_med_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="44" name="q_max_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="45" name="q_min_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="46" name="q_med_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="47" name="q_max_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="48" name="q_min_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="49" name="q_med_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="q_max_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="51" name="q_min_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="52" name="q_med_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="53" name="q_max_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="54" name="q_min_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="55" name="q_med_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="56" name="q_max_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="57" name="q_min_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="58" name="q_med_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="59" name="q_max_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="60" name="q_min_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="61" name="q_med_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="62" name="q_max_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="63" name="q_min_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="64" name="q_med_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="65" name="q_max_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="66" name="q_min_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="67" name="q_med_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="68" name="q_max_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="69" name="q_min_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="70" name="q_med_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="71" name="q_max_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="72" name="q_min_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="73" name="q_med_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="74" name="q_max_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="75" name="q_min_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="76" name="q_med_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="77" name="q_max_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="78" name="q_min_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="79" name="q_med_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="80" name="q_max_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="81" name="q_min_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="82" name="e_med_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="83" name="e_max_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="84" name="e_min_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="85" name="e_med_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="86" name="e_max_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="87" name="e_min_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="88" name="e_med_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="89" name="e_max_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="90" name="e_min_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="91" name="e_med_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="92" name="e_max_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="93" name="e_min_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="94" name="e_med_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="95" name="e_max_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="96" name="e_min_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="97" name="e_med_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="98" name="e_max_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="99" name="e_min_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="100" name="e_med_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="101" name="e_max_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="102" name="e_min_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="103" name="e_med_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="104" name="e_max_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="105" name="e_min_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="106" name="e_med_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="107" name="e_max_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="108" name="e_min_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="109" name="e_med_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="110" name="e_max_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="111" name="e_min_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="112" name="e_med_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="113" name="e_max_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="114" name="e_min_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="115" name="e_med_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="116" name="e_max_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="117" name="e_min_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="118" name="e_med_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="119" name="e_max_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="120" name="e_min_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="dados_hidrometricos_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="dados_pluviometricos" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cod_estac" nullable="false" remarks="" size="50" type="varchar" typeCode="12">
+            <parent column="cod_estac" foreignKey="dados_pluviometricos_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="estazon" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ano" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="to_mes_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="d_chuv_ja" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="media_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="max_d_ja" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="to_mes_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="d_chuv_fe" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="media_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="max_d_fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="to_mes_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="d_chuv_ma" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="media_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="max_d_ma" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="to_mes_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="d_chuv_ab" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="media_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="max_d_ab" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="to_mes_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="d_chuv_mo" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="media_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="max_d_mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="to_mes_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="d_chuv_ju" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="26" name="media_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="27" name="max_d_ju" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="28" name="to_mes_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="d_chuv_jl" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="media_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="31" name="max_d_jl" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="to_mes_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="d_chuv_ag" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="34" name="media_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="35" name="max_d_ag" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="36" name="to_mes_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="d_chuv_se" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="38" name="media_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="39" name="max_d_se" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="40" name="to_mes_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="d_chuv_ou" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="42" name="media_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="43" name="max_d_ou" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="44" name="to_mes_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="d_chuv_no" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="46" name="media_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="47" name="max_d_no" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="48" name="to_mes_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="d_chuv_de" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="media_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="51" name="max_d_de" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="52" name="c_tot_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="53" name="d_chu_tot" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="54" name="c_med_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="55" name="c_max_ano" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="56" name="d_chu_con" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="57" name="d_no_chu" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="dados_pluviometricos_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="estacoes" numRows="442" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="estazon" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod_estac" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <child column="cod_estac" foreignKey="dados_hidrometricos_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="dados_hidrometricos"/>
+            <child column="cod_estac" foreignKey="dados_pluviometricos_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="dados_pluviometricos"/>
+            <child column="cod_estac" foreignKey="analise_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes_analise"/>
+            <child column="cod_estac" foreignKey="estacoes_imagenes_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes_imagenes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="tip_estac" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_tip_estac_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_estac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="key" foreignKey="estacoes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="parent" foreignKey="estacoes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="posto_adm" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nucleo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="altitude" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+            <parent column="key" foreignKey="estacoes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="rio" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="estado" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="ano_const" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="gestao" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_gestao_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="gestao_estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="n_tecnico" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="responsab" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="telefone" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="ano_inici" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="ano_fin" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="n_anos" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="frec_toma" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_frec_toma_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="frecuencia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="frec_regi" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_frec_regi_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="frecuencia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="nivel" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="n_precis" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_n_precis_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="precisao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="lin_em" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="n_lin_em" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="n_outros" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="n_t_outro" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="velocidad" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="v_precis" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_v_precis_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="precisao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="molinetes" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="n_molinet" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="v_outros" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="v_t_outro" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="caudal" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="pluviomet" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="tip_pluvi" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="estacoes_tip_pluvi_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_pluvi"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="n_pluviom" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="coment" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="sac" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="estacoes_sac_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="si_no"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="estacoes_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="estacoes_cod_estac_key" unique="true">
+            <column ascending="true" name="cod_estac"/>
+         </index>
+         <index name="estacoes_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="estacoes_analise" numRows="1561" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cod_estac" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cod_estac" foreignKey="analise_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="estazon" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="data_med" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="hora_med" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="laborator" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="temperat" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="cor" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="turbidez" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="conductiv" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="ph" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="11" name="alcalin_f" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="alcalinid" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="13" name="carbonato" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="bicarbona" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="hidroxido" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="dureza" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="oxigeno_d" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="dbo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="dqo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="sol_suspe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="sol_disol" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="sol_total" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="nitratos" nullable="true" remarks="Nitratos (mg/l)" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="nitritos" nullable="true" remarks="Nitritos (mg/l)" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="coli_feca" nullable="true" remarks="Col. fec. (NMP/100ml):" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="coli_tot" nullable="true" remarks="Coli. t (NMP/100ml):" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="28" name="e_coli" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="bac_het_t" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="cl_resid" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="31" name="cloruros" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="fosfatos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="33" name="sulfatos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="34" name="fluoreto" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="35" name="ca" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="36" name="mg" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="amonio" nullable="true" remarks="Amoniaco" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="38" name="arsenico" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="39" name="k" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="40" name="na" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="41" name="si" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="42" name="fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="43" name="mn" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="44" name="al" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="45" name="b" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="46" name="cd" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="47" name="co" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="48" name="cr3" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="49" name="cr6" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="cu" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="51" name="hg" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="52" name="ni" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="53" name="pb" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="54" name="zn" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="55" name="comen_lab" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="56" name="alt_hidro" nullable="true" remarks="Altura hidrometrica (m)" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="57" name="oxigeno_c" nullable="true" remarks="Oxigénio Consumido (mg/l)" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="58" name="dioxido_l" nullable="true" remarks="CO2 Livre (mgCO2/l)" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="59" name="silica" nullable="true" remarks="Silica (mgSiO2/ l)" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="60" name="res_seco" nullable="true" remarks="Resíduo Seco (18%) (mg/ l )" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="61" name="deposito" nullable="true" remarks="Deposito" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="estacoes_analise_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="estacoes_imagenes" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cod_estac" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cod_estac" foreignKey="estacoes_imagenes_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="image" nullable="true" remarks="" size="2147483647" type="bytea" typeCode="-2"/>
+         <primaryKey column="cod_estac" sequenceNumberInPK="1"/>
+         <index name="estacoes_imagenes_pkey" unique="true">
+            <column ascending="true" name="cod_estac"/>
+         </index>
+      </table>
+      <table name="exploracoes" numRows="0" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="exp_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="exp_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="d_soli" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="parent" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="key" foreignKey="exploracoes_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="loc_distri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="parent" foreignKey="exploracoes_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="loc_post" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="exploracoes_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="loc_nucleo" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="loc_endere" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="loc_bacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="exploracoes_loc_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="loc_subaci" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="rio" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="utente" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="uten_nuit" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="abastecem" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="saneament" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="agricultu" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="pecuaria" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="piscicult" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="industria" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="pro_energ" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="tipo_subt" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="tipo_supe" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="con_l_su" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="con_l_sb" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="25" name="con_l_to" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="est_l_su" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="est_l_sb" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="pagamento" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="observacio" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="exploracoes_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="fontes" numRows="2312" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <child column="cadastro" foreignKey="fontes_analise_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes_analise"/>
+            <child column="cadastro" foreignKey="fontes_carac_hidro_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes_carac_hidro"/>
+            <child column="cadastro" foreignKey="fontes_imagenes_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes_imagenes"/>
+            <child column="cadastro" foreignKey="fontes_litologia_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes_litologia"/>
+            <child column="cadastro" foreignKey="quantidade_agua_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="quantidade_agua"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tip_fonte" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_tip_fonte_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_fonte"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="red_monit" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="red_monit"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="entidade" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tecnico" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="d_dado" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="hora" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="key" foreignKey="fontes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
+            <parent column="parent" foreignKey="fontes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="posto_adm" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="posto"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="nucleo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="12" name="altitude" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="propiedad" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_propiedad_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="propiedad"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="nome_prop" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="telefone" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="escritura" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="abastecim" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="habitant" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="agricult" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="superf" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="ganaderia" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="n_reses" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="industria" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="tip_indus" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="outros" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="coment_otr" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="estado_fon" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_estado_fon_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="estado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="tipo_pozo" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_tipo_pozo_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_pozo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="prof_pozo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="diametro" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="31" name="alt_brocal" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="bombeo" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="tip_bomba" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="tip_motor" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="marca" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="36" name="alt_bomba" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="37" name="caudal" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="t_bombeo" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="39" name="potencia" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="estado" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_estado_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="estado_ampliado"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="reperfor" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="42" name="rep_dista" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="limpezas" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="observacio" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="metodo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="n_limpeza" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="parent" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+            <parent column="key" foreignKey="fontes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="50" name="cadastro_a" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="51" name="lat_lon" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="52" name="metodo_est" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="53" name="c_max" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="54" name="c_soli" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="8" id="55" name="c_real" nullable="true" remarks="" size="8" type="float4" typeCode="7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="56" name="exp_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="57" name="lic_nro" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="58" name="n_licen_a" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="59" name="tipo_agua" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="domains" table="licencia_tipo_agua"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="60" name="loc_unidad" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_loc_unidad_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="unidade"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="61" name="sist_med" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_sist_med_fkey" implied="false" onDeleteCascade="false" schema="domains" table="fontes_sist_med"/>
+         </column>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="fontes_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="fontes_cadastro_key" unique="true">
+            <column ascending="true" name="cadastro"/>
+         </index>
+         <index name="fontes_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="fontes_analise" numRows="957" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cadastro" foreignKey="fontes_analise_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="data_most" nullable="false" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="hora_most" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="c_tempera" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="c_conduct" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="c_cor" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="c_cheiro" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="c_ph" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="c_nitrat" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_analise_c_nitrat_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="c_nitrat"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="c_nitrit" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_analise_c_nitrit_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="c_nitrit"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="par_rango" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="cond_most" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_analise_cond_most_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="cond_most"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="com_most" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="laborator" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="data_anal" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="temperat" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="cor" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="turbidez" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="conductiv" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="ph" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="alcalin_f" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="alcalinid" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="carbonato" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="bicarbona" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="25" name="hidroxido" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="26" name="dureza" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="27" name="oxigeno_d" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="28" name="dbo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="29" name="dqo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="30" name="mo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="31" name="sol_suspe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="32" name="sol_disol" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="33" name="sol_total" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="34" name="nitratos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="35" name="nitritos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="36" name="coli_feca" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="37" name="coli_tot" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="38" name="e_coli" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="39" name="bac_het_t" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="40" name="cl_resid" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="41" name="cloruros" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="42" name="fosfatos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="43" name="ca" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="44" name="mg" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="45" name="amonio" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="46" name="arsenico" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="47" name="k" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="48" name="na" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="49" name="si" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="50" name="fe" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="51" name="mn" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="52" name="al" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="53" name="b" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="54" name="cd" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="55" name="co" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="56" name="cr3" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="57" name="cr6" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="58" name="cu" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="59" name="hg" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="60" name="ni" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="61" name="pb" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="62" name="zn" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="63" name="obser_lab" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="64" name="sulfatos" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="65" name="fluoreto" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="66" name="tipo_aqui" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_analise_tipo_aqui_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_aqui"/>
+         </column>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="fontes_analise_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="fontes_carac_hidro" numRows="76" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="cadastro" foreignKey="fontes_carac_hidro_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="data_lit" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="hora_lit" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="tipo_cama" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_carac_hidro_tipo_cama_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_cama"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tipo_aqui" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_carac_hidro_tipo_aqui_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tipo_aqui"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="q_aquifer" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="conductiv" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="fontes_carac_hidro_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="fontes_imagenes" numRows="21" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cadastro" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="cadastro" foreignKey="fontes_imagenes_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="image" nullable="true" remarks="" size="2147483647" type="bytea" typeCode="-2"/>
+         <primaryKey column="cadastro" sequenceNumberInPK="1"/>
+         <index name="fontes_imagenes_pkey" unique="true">
+            <column ascending="true" name="cadastro"/>
+         </index>
+      </table>
+      <table name="fontes_litologia" numRows="410" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="cadastro" foreignKey="fontes_litologia_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="data_lit" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="hora_lit" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="camada" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="litologia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_litologia_litologia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="litologia"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="profundid" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="descricao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="carac_lit" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_litologia_carac_lit_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="carac_lit"/>
+         </column>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="fontes_litologia_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="quantidade_agua" numRows="550" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="cadastro" foreignKey="quantidade_agua_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="data_ens" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="hora_ens" nullable="true" remarks="" size="6" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="4" name="quan_agua" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="5" name="nivel_agua" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="6" name="prof_campo" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="n_estatic" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="n_freatic" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="9" name="n_semi_co" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="10" name="q_extraer" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="quantidade_agua_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+      </table>
+      <table name="version" numRows="1" remarks="" schema="inventario" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="version" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <primaryKey column="version" sequenceNumberInPK="1"/>
+         <index name="version_pkey" unique="true">
+            <column ascending="true" name="version"/>
+         </index>
+      </table>
+   </tables>
+   <routines>
+      <routine dataAccess="MODIFIES" deterministic="false" name="calcular_quan_agua" returnType="trigger" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="PLPGSQL"><![CDATA[
+BEGIN
+    NEW.quan_agua = GREATEST(NEW.prof_campo - NEW.nivel_agua, 0);
+    RETURN NEW;
+END;
+]]></definition>
+      </routine>
+   </routines>
+</database>

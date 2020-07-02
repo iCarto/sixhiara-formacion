@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>All Relationships</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Diagrams</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <h5>By default only columns that are primary keys, foreign keys or indexes are shown.</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#compactDegreeImg-chart" data-toggle="tab" aria-expanded="true">Compact</a></li>
+                                    <li class=""><a href="#largeDegreeImg-chart" data-toggle="tab" aria-expanded="true">Large</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="compactDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="compactRelationshipsDiagram" name="compactRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/albufeiras.html" target="_top" title="albufeiras" alt="" coords="52,2228,215,2375">
+<area shape="rect" id="node2" href="tables/aras.html" target="_top" title="aras" alt="" coords="71,2064,196,2211">
+<area shape="rect" id="node3" href="tables/bacias.html" target="_top" title="bacias" alt="" coords="62,1900,205,2047">
+<area shape="rect" id="node4" href="tables/bacias_representacion.html" target="_top" title="bacias_representacion" alt="" coords="5,1736,261,1883">
+<area shape="rect" id="node5" href="tables/distritos.html" target="_top" title="distritos" alt="" coords="58,1572,209,1719">
+<area shape="rect" id="node6" href="tables/entidades_populacao.html" target="_top" title="entidades_populacao" alt="" coords="10,1408,257,1555">
+<area shape="rect" id="node7" href="tables/estradas.html" target="_top" title="estradas" alt="" coords="58,1244,209,1391">
+<area shape="rect" id="node8" href="tables/lagos.html" target="_top" title="lagos" alt="" coords="62,1080,205,1227">
+<area shape="rect" id="node9" href="tables/oceanos.html" target="_top" title="oceanos" alt="" coords="60,916,207,1063">
+<area shape="rect" id="node10" href="tables/paises_limitrofes.html" target="_top" title="paises_limitrofes" alt="" coords="26,752,241,899">
+<area shape="rect" id="node11" href="tables/postos.html" target="_top" title="postos" alt="" coords="62,588,205,735">
+<area shape="rect" id="node12" href="tables/provincias.html" target="_top" title="provincias" alt="" coords="51,379,216,525">
+<area shape="rect" id="node13" href="tables/rios.html" target="_top" title="rios" alt="" coords="55,169,211,316">
+<area shape="rect" id="node14" href="tables/unidades.html" target="_top" title="unidades" alt="" coords="55,5,211,152">
+<area shape="rect" id="node15" href="../cbase_ara/tables/albufeiras.html" target="_top" title="cbase_ara.albufeiras" alt="" coords="352,2228,593,2345">
+<area shape="rect" id="node16" href="../cbase_ara/tables/aras.html" target="_top" title="cbase_ara.aras" alt="" coords="375,2064,571,2181">
+<area shape="rect" id="node17" href="../cbase_ara/tables/bacias.html" target="_top" title="cbase_ara.bacias" alt="" coords="367,1900,579,2017">
+<area shape="rect" id="node18" href="../cbase_ara/tables/bacias_representacion.html" target="_top" title="cbase_ara.bacias_representacion" alt="" coords="305,1736,640,1853">
+<area shape="rect" id="node19" href="../cbase_ara/tables/distritos.html" target="_top" title="cbase_ara.distritos" alt="" coords="359,1572,587,1689">
+<area shape="rect" id="node20" href="../cbase_ara/tables/entidades_populacao.html" target="_top" title="cbase_ara.entidades_populacao" alt="" coords="310,1408,635,1525">
+<area shape="rect" id="node21" href="../cbase_ara/tables/estradas.html" target="_top" title="cbase_ara.estradas" alt="" coords="358,1244,587,1361">
+<area shape="rect" id="node22" href="../cbase_ara/tables/lagos.html" target="_top" title="cbase_ara.lagos" alt="" coords="371,1080,574,1197">
+<area shape="rect" id="node23" href="../cbase_ara/tables/oceanos.html" target="_top" title="cbase_ara.oceanos" alt="" coords="360,916,585,1033">
+<area shape="rect" id="node24" href="../cbase_ara/tables/paises_limitrofes.html" target="_top" title="cbase_ara.paises_limitrofes" alt="" coords="327,752,619,869">
+<area shape="rect" id="node25" href="../cbase_ara/tables/postos.html" target="_top" title="cbase_ara.postos" alt="" coords="366,588,579,705">
+<area shape="rect" id="node26" href="../cbase_ara/tables/provincias.html" target="_top" title="cbase_ara.provincias" alt="" coords="351,319,594,436">
+<area shape="rect" id="node27" href="../cbase_ara/tables/provincias_outras.html" target="_top" title="cbase_ara.provincias_outras" alt="" coords="323,453,622,571">
+<area shape="rect" id="node28" href="../cbase_ara/tables/rios.html" target="_top" title="cbase_ara.rios" alt="" coords="377,169,569,287">
+<area shape="rect" id="node29" href="../cbase_ara/tables/unidades.html" target="_top" title="cbase_ara.unidades" alt="" coords="355,5,590,123">
+</map>
+                                        <a name='diagram'><img id="compactDegreeImg" src="diagrams/summary/relationships.real.compact.png" usemap="#compactRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="largeDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="largeRelationshipsDiagram" name="largeRelationshipsDiagram">
+<area shape="rect" id="node1" href="tables/albufeiras.html" target="_top" title="albufeiras" alt="" coords="52,3843,215,4171">
+<area shape="rect" id="node2" href="tables/aras.html" target="_top" title="aras" alt="" coords="71,3585,196,3825">
+<area shape="rect" id="node3" href="tables/bacias.html" target="_top" title="bacias" alt="" coords="62,3035,205,3568">
+<area shape="rect" id="node4" href="tables/bacias_representacion.html" target="_top" title="bacias_representacion" alt="" coords="5,2836,261,3017">
+<area shape="rect" id="node5" href="tables/distritos.html" target="_top" title="distritos" alt="" coords="58,2579,209,2819">
+<area shape="rect" id="node6" href="tables/entidades_populacao.html" target="_top" title="entidades_populacao" alt="" coords="10,2292,257,2561">
+<area shape="rect" id="node7" href="tables/estradas.html" target="_top" title="estradas" alt="" coords="58,2005,209,2275">
+<area shape="rect" id="node8" href="tables/lagos.html" target="_top" title="lagos" alt="" coords="62,1748,205,1988">
+<area shape="rect" id="node9" href="tables/oceanos.html" target="_top" title="oceanos" alt="" coords="60,1549,207,1731">
+<area shape="rect" id="node10" href="tables/paises_limitrofes.html" target="_top" title="paises_limitrofes" alt="" coords="26,1351,241,1532">
+<area shape="rect" id="node11" href="tables/postos.html" target="_top" title="postos" alt="" coords="62,1064,205,1333">
+<area shape="rect" id="node12" href="tables/provincias.html" target="_top" title="provincias" alt="" coords="51,723,216,933">
+<area shape="rect" id="node13" href="tables/rios.html" target="_top" title="rios" alt="" coords="55,321,211,591">
+<area shape="rect" id="node14" href="tables/unidades.html" target="_top" title="unidades" alt="" coords="55,5,211,304">
+<area shape="rect" id="node15" href="../cbase_ara/tables/albufeiras.html" target="_top" title="cbase_ara.albufeiras" alt="" coords="352,3843,593,4171">
+<area shape="rect" id="node16" href="../cbase_ara/tables/aras.html" target="_top" title="cbase_ara.aras" alt="" coords="375,3585,571,3825">
+<area shape="rect" id="node17" href="../cbase_ara/tables/bacias.html" target="_top" title="cbase_ara.bacias" alt="" coords="367,3035,579,3568">
+<area shape="rect" id="node18" href="../cbase_ara/tables/bacias_representacion.html" target="_top" title="cbase_ara.bacias_representacion" alt="" coords="305,2836,640,3017">
+<area shape="rect" id="node19" href="../cbase_ara/tables/distritos.html" target="_top" title="cbase_ara.distritos" alt="" coords="359,2579,587,2819">
+<area shape="rect" id="node20" href="../cbase_ara/tables/entidades_populacao.html" target="_top" title="cbase_ara.entidades_populacao" alt="" coords="310,2292,635,2561">
+<area shape="rect" id="node21" href="../cbase_ara/tables/estradas.html" target="_top" title="cbase_ara.estradas" alt="" coords="358,2005,587,2275">
+<area shape="rect" id="node22" href="../cbase_ara/tables/lagos.html" target="_top" title="cbase_ara.lagos" alt="" coords="371,1748,574,1988">
+<area shape="rect" id="node23" href="../cbase_ara/tables/oceanos.html" target="_top" title="cbase_ara.oceanos" alt="" coords="360,1549,585,1731">
+<area shape="rect" id="node24" href="../cbase_ara/tables/paises_limitrofes.html" target="_top" title="cbase_ara.paises_limitrofes" alt="" coords="327,1351,619,1532">
+<area shape="rect" id="node25" href="../cbase_ara/tables/postos.html" target="_top" title="cbase_ara.postos" alt="" coords="366,1064,579,1333">
+<area shape="rect" id="node26" href="../cbase_ara/tables/provincias.html" target="_top" title="cbase_ara.provincias" alt="" coords="351,608,594,819">
+<area shape="rect" id="node27" href="../cbase_ara/tables/provincias_outras.html" target="_top" title="cbase_ara.provincias_outras" alt="" coords="323,836,622,1047">
+<area shape="rect" id="node28" href="../cbase_ara/tables/rios.html" target="_top" title="cbase_ara.rios" alt="" coords="377,321,569,591">
+<area shape="rect" id="node29" href="../cbase_ara/tables/unidades.html" target="_top" title="cbase_ara.unidades" alt="" coords="355,5,590,304">
+</map>
+                                        <a name='diagram'><img id="largeDegreeImg" src="diagrams/summary/relationships.real.large.png" usemap="#largeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="relationships.js"></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>
