@@ -1,5 +1,5 @@
 batimetria
-unidades
+unidades_weap
 rios
 provincias_outras
 provincias
@@ -9,6 +9,7 @@ oceanos
 lagos
 estradas
 entidades_populacao
+divisoes
 distritos
 bacias_representacion
 bacias

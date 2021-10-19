@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <database name="test_arasul" schema="sqitch" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
    <tables>
-      <table name="changes" numRows="176" remarks="Tracks the changes currently deployed to the database." schema="sqitch" type="TABLE">
+      <table name="changes" numRows="201" remarks="Tracks the changes currently deployed to the database." schema="sqitch" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="change_id" nullable="false" remarks="Change primary key." size="2147483647" type="text" typeCode="12">
             <child column="change_id" foreignKey="dependencies_change_id_fkey" implied="false" onDeleteCascade="true" schema="sqitch" table="dependencies"/>
             <child column="dependency_id" foreignKey="dependencies_dependency_id_fkey" implied="false" onDeleteCascade="false" schema="sqitch" table="dependencies"/>
@@ -45,7 +45,7 @@
          </index>
          <checkConstraint constraint="((((type = 'require'::text) AND (dependency_id IS NOT NULL)) OR ((type = 'conflict'::text) AND (dependency_id IS NULL))))" name="dependencies_check"/>
       </table>
-      <table name="events" numRows="176" remarks="Contains full history of all deployment events." schema="sqitch" type="TABLE">
+      <table name="events" numRows="201" remarks="Contains full history of all deployment events." schema="sqitch" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="event" nullable="false" remarks="Type of event." size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="change_id" nullable="false" remarks="Change ID." size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="change" nullable="false" remarks="Change name." size="2147483647" type="text" typeCode="12"/>
@@ -98,7 +98,7 @@
             <column ascending="true" name="version"/>
          </index>
       </table>
-      <table name="tags" numRows="9" remarks="Tracks the tags currently applied to the database." schema="sqitch" type="TABLE">
+      <table name="tags" numRows="14" remarks="Tracks the tags currently applied to the database." schema="sqitch" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="tag_id" nullable="false" remarks="Tag primary key." size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="tag" nullable="false" remarks="Project-unique tag name." size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="project" nullable="false" remarks="Name of the Sqitch project to which the tag belongs." size="2147483647" type="text" typeCode="12">

@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>estacoes</h1><p><span id="recordNumber">442</span> rows</p><br />
+                    <h1>estacoes</h1><p><span id="recordNumber">447</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -204,12 +204,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="estacoes.[provincia, distrito] references inventario_dominios.distrito.[parent, key] via estacoes_provincia_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">estacoes_provincia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="estacoes.provincia references inventario_dominios.provincia.key via estacoes_provincia_fkey"><a href='../../inventario_dominios/tables/provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">estacoes_provincia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="estacoes.[provincia, distrito] references inventario_dominios.distrito.[parent, key] via estacoes_provincia_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">estacoes_provincia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -309,12 +309,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="estacoes.[bacia, subacia] references inventario_dominios.subacia.[parent, key] via estacoes_bacia_fkey1"><a href='../../inventario_dominios/tables/subacia.html'>subacia</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">estacoes_bacia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="estacoes.bacia references inventario_dominios.bacia.key via estacoes_bacia_fkey"><a href='../../inventario_dominios/tables/bacia.html'>bacia</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">estacoes_bacia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="estacoes.[bacia, subacia] references inventario_dominios.subacia.[parent, key] via estacoes_bacia_fkey1"><a href='../../inventario_dominios/tables/subacia.html'>subacia</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">estacoes_bacia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -900,6 +900,27 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="recolha">recolha</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="estacoes.recolha references domains.estacoes_recolha.key via estacoes_recolha_fkey"><a href='../../domains/tables/estacoes_recolha.html'>estacoes_recolha</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">estacoes_recolha_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -966,7 +987,7 @@
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
 <area shape="rect" id="node1" href="dados_hidrometricos.html" target="_top" title="dados_hidrometricos" alt="" coords="779,5,1025,152">
-<area shape="rect" id="node2" href="estacoes.html" target="_top" title="estacoes" alt="" coords="416,219,732,1520">
+<area shape="rect" id="node2" href="estacoes.html" target="_top" title="estacoes" alt="" coords="416,219,732,1549">
 <area shape="rect" id="node4" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="45,479,332,567">
 <area shape="rect" id="node5" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="37,584,341,672">
 <area shape="rect" id="node6" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="37,268,340,356">
@@ -976,12 +997,13 @@
 <area shape="rect" id="node10" href="../inventario_dominios/tables/gestao_estacoes.html" target="_top" title="inventario_dominios.gestao_estacoes" alt="" coords="5,795,372,883">
 <area shape="rect" id="node11" href="../inventario_dominios/tables/precisao.html" target="_top" title="inventario_dominios.precisao" alt="" coords="33,1056,344,1144">
 <area shape="rect" id="node12" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="29,163,348,251">
-<area shape="rect" id="node13" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="47,1408,330,1496">
-<area shape="rect" id="node14" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="31,57,346,145">
-<area shape="rect" id="node15" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="32,1303,345,1391">
+<area shape="rect" id="node13" href="../domains/tables/estacoes_recolha.html" target="_top" title="domains.estacoes_recolha" alt="" coords="47,1505,330,1593">
+<area shape="rect" id="node14" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="47,1400,330,1488">
+<area shape="rect" id="node15" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="31,57,346,145">
+<area shape="rect" id="node16" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="32,1295,345,1383">
 <area shape="rect" id="node3" href="dados_pluviometricos.html" target="_top" title="dados_pluviometricos" alt="" coords="776,169,1028,316">
-<area shape="rect" id="node16" href="estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="797,333,1007,480">
-<area shape="rect" id="node17" href="estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="787,497,1017,615">
+<area shape="rect" id="node17" href="estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="797,333,1007,480">
+<area shape="rect" id="node18" href="estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="787,497,1017,615">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/estacoes.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
@@ -994,19 +1016,20 @@
 <area shape="rect" id="node5" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="45,219,333,307">
 <area shape="rect" id="node6" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="29,8,348,96">
 <area shape="rect" id="node7" href="dados_hidrometricos.html" target="_top" title="dados_hidrometricos" alt="" coords="779,108,1025,255">
-<area shape="rect" id="node8" href="estacoes.html" target="_top" title="estacoes" alt="" coords="416,321,732,1623">
+<area shape="rect" id="node8" href="estacoes.html" target="_top" title="estacoes" alt="" coords="416,321,732,1652">
 <area shape="rect" id="node10" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="40,535,337,623">
 <area shape="rect" id="node11" href="../inventario_dominios/tables/frecuencia.html" target="_top" title="inventario_dominios.frecuencia" alt="" coords="25,960,352,1048">
 <area shape="rect" id="node12" href="../inventario_dominios/tables/gestao_estacoes.html" target="_top" title="inventario_dominios.gestao_estacoes" alt="" coords="5,745,372,833">
-<area shape="rect" id="node13" href="../inventario_dominios/tables/precisao.html" target="_top" title="inventario_dominios.precisao" alt="" coords="33,1137,344,1225">
-<area shape="rect" id="node14" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="47,1511,330,1599">
-<area shape="rect" id="node15" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="31,640,346,728">
-<area shape="rect" id="node16" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="32,1405,345,1493">
+<area shape="rect" id="node13" href="../inventario_dominios/tables/precisao.html" target="_top" title="inventario_dominios.precisao" alt="" coords="33,1131,344,1219">
+<area shape="rect" id="node14" href="../domains/tables/estacoes_recolha.html" target="_top" title="domains.estacoes_recolha" alt="" coords="47,1608,330,1696">
+<area shape="rect" id="node15" href="../inventario_dominios/tables/si_no.html" target="_top" title="inventario_dominios.si_no" alt="" coords="47,1503,330,1591">
+<area shape="rect" id="node16" href="../inventario_dominios/tables/tip_estac.html" target="_top" title="inventario_dominios.tip_estac" alt="" coords="31,640,346,728">
+<area shape="rect" id="node17" href="../inventario_dominios/tables/tip_pluvi.html" target="_top" title="inventario_dominios.tip_pluvi" alt="" coords="32,1397,345,1485">
 <area shape="rect" id="node9" href="dados_pluviometricos.html" target="_top" title="dados_pluviometricos" alt="" coords="776,272,1028,419">
-<area shape="rect" id="node17" href="estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="797,436,1007,583">
-<area shape="rect" id="node18" href="estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="787,600,1017,717">
-<area shape="rect" id="node19" href="exploracoes.html" target="_top" title="exploracoes" alt="" coords="485,5,663,93">
-<area shape="rect" id="node20" href="fontes.html" target="_top" title="fontes" alt="" coords="485,216,663,304">
+<area shape="rect" id="node18" href="estacoes_analise.html" target="_top" title="estacoes_analise" alt="" coords="797,436,1007,583">
+<area shape="rect" id="node19" href="estacoes_imagenes.html" target="_top" title="estacoes_imagenes" alt="" coords="787,600,1017,717">
+<area shape="rect" id="node20" href="exploracoes.html" target="_top" title="exploracoes" alt="" coords="485,5,663,93">
+<area shape="rect" id="node21" href="fontes.html" target="_top" title="fontes" alt="" coords="491,216,657,304">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/estacoes.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

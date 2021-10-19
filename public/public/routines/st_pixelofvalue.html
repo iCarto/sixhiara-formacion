@@ -245,7 +245,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">RASTER_pixelOfValue</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;"> SELECT val, x, y FROM public.ST_PixelOfValue($1, 1, $2, $3) </textarea>
                         </div>
                     </div>
                 </section>

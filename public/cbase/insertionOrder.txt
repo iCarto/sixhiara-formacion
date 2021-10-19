@@ -4,6 +4,7 @@ aras
 bacias
 bacias_representacion
 distritos
+divisoes
 entidades_populacao
 estradas
 lagos
@@ -11,5 +12,5 @@ oceanos
 paises_limitrofes
 postos
 rios
-unidades
+unidades_weap
 batimetria

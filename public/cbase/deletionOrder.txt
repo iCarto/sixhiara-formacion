@@ -1,5 +1,5 @@
 batimetria
-unidades
+unidades_weap
 rios
 postos
 paises_limitrofes
@@ -7,6 +7,7 @@ oceanos
 lagos
 estradas
 entidades_populacao
+divisoes
 distritos
 bacias_representacion
 bacias

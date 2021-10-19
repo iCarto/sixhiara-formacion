@@ -155,7 +155,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">RASTER_intersects</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">&#10;&#9;DECLARE&#10;&#9;&#9;hasnodata boolean := TRUE;&#10;&#9;&#9;_geom geometry;&#10;&#9;BEGIN&#10;&#9;&#9;IF ST_SRID(rast) != ST_SRID(geom) THEN&#10;&#9;&#9;&#9;RAISE EXCEPTION &#39;Raster and geometry do not have the same SRID&#39;;&#10;&#9;&#9;END IF;&#10;&#10;&#9;&#9;_geom := ST_ConvexHull(rast);&#10;&#9;&#9;IF nband IS NOT NULL THEN&#10;&#9;&#9;&#9;SELECT CASE WHEN bmd.nodatavalue IS NULL THEN FALSE ELSE NULL END INTO hasnodata FROM public.ST_BandMetaData(rast, nband) AS bmd;&#10;&#9;&#9;END IF;&#10;&#10;&#9;&#9;IF ST_Intersects(geom, _geom) IS NOT TRUE THEN&#10;&#9;&#9;&#9;RETURN FALSE;&#10;&#9;&#9;ELSEIF nband IS NULL OR hasnodata IS FALSE THEN&#10;&#9;&#9;&#9;RETURN TRUE;&#10;&#9;&#9;END IF;&#10;&#10;&#9;&#9;SELECT public.ST_Collect(t.geom) INTO _geom FROM public.ST_PixelAsPolygons(rast, nband) AS t;&#10;&#9;&#9;RETURN public.ST_Intersects(geom, _geom);&#10;&#9;END;&#10;&#9;</textarea>
                         </div>
                     </div>
                 </section>

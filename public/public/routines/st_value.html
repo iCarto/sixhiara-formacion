@@ -205,7 +205,7 @@
                             </div>
                         </div>
                         <div class="box-body">
-                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">RASTER_getPixelValue</textarea>
+                            <textarea id="sql-script-codemirror" name="sql-script-codemirror" rows="" style="display: none;">&#10;    DECLARE&#10;        x float8;&#10;        y float8;&#10;        gtype text;&#10;    BEGIN&#10;        gtype := public.ST_GeometryType(pt);&#10;        IF ( gtype != &#39;ST_Point&#39; ) THEN&#10;            RAISE EXCEPTION &#39;Attempting to get the value of a pixel with a non-point geometry&#39;;&#10;        END IF;&#10;&#10;&#9;&#9;&#9;&#9;IF public.ST_SRID(pt) != public.ST_SRID(rast) THEN&#10;            RAISE EXCEPTION &#39;Raster and geometry do not have the same SRID&#39;;&#10;&#9;&#9;&#9;&#9;END IF;&#10;&#10;        x := public.ST_x(pt);&#10;        y := public.ST_y(pt);&#10;        RETURN public.ST_value(rast,&#10;                        band,&#10;                        public.ST_worldtorastercoordx(rast, x, y),&#10;                        public.ST_worldtorastercoordy(rast, x, y),&#10;                        exclude_nodata_value);&#10;    END;&#10;    </textarea>
                         </div>
                     </div>
                 </section>

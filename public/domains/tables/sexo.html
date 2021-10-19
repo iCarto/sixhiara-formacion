@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>sexo - test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>sexo</h1><p><span id="recordNumber">3</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id="category">category</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>&#39;sexo&#39;::text</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="key">key</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="actividade.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='actividade.html'>actividade</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="actividades_piscicultura_tipo_aqua.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='actividades_piscicultura_tipo_aqua.html'>actividades_piscicultura_tipo_aqua</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="animal_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='animal_tipo.html'>animal_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="ara.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='ara.html'>ara</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="bacia.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='bacia.html'>bacia</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="boolean.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='boolean.html'>boolean</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="cultivo_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='cultivo_tipo.html'>cultivo_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="distrito.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='distrito.html'>distrito</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="divisao.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='divisao.html'>divisao</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="domains.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='domains.html'>domains</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="energia_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='energia_tipo.html'>energia_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="estacoes_recolha.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='estacoes_recolha.html'>estacoes_recolha</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_consumo_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='facturacao_consumo_tipo.html'>facturacao_consumo_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_fact_estado.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='facturacao_fact_estado.html'>facturacao_fact_estado</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_fact_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='facturacao_fact_tipo.html'>facturacao_fact_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fonte_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes_disp_a.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='fontes_disp_a.html'>fontes_disp_a</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes_sist_med.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='fontes_sist_med.html'>fontes_sist_med</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="groups.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='groups.html'>groups</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="industria_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='industria_tipo.html'>industria_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_estado.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='licencia_estado.html'>licencia_estado</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_estado_renovacao.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='licencia_estado_renovacao.html'>licencia_estado_renovacao</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_tipo_agua.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_tipo_lic.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='licencia_tipo_lic.html'>licencia_tipo_lic</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pagamentos.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='pagamentos.html'>pagamentos</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="piscicultura_gaio_subm.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='piscicultura_gaio_subm.html'>piscicultura_gaio_subm</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="piscicultura_tipo_proc.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='piscicultura_tipo_proc.html'>piscicultura_tipo_proc</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="posto.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='posto.html'>posto</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="provincia.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="red_monit.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='red_monit.html'>red_monit</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="rega_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='rega_tipo.html'>rega_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="subacia.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='subacia.html'>subacia</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_esp_culti.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_esp_culti.html'>tanque_piscicola_esp_culti</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_estado.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_estado.html'>tanque_piscicola_estado</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_fert_agua.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_fert_agua.html'>tanque_piscicola_fert_agua</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_prov_alev.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_prov_alev.html'>tanque_piscicola_prov_alev</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_tipo.html'>tanque_piscicola_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_tipo_alim.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='tanque_piscicola_tipo_alim.html'>tanque_piscicola_tipo_alim</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="utentes_uten_tipo.key&#39;s name implies that it&#39;s a child of sexo.key, but it doesn&#39;t reference that column."><a href='utentes_uten_tipo.html'>utentes_uten_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="exploracaos.sexo_gerente references sexo.key via exploracaos_sexo_gerente_fkey"><a href='../../utentes/tables/exploracaos.html'>exploracaos</a><span class='relatedKey'>.sexo_gerente</span></td>
+                                                <td class="constraint detail">exploracaos_sexo_gerente_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="utentes.sexo_gerente references sexo.key via utentes_sexo_gerente_fkey"><a href='../../utentes/tables/utentes.html'>utentes</a><span class='relatedKey'>.sexo_gerente</span></td>
+                                                <td class="constraint detail">utentes_sexo_gerente_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="value">value</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="ordering">ordering</span></td>
+                                    <td>int4</td>
+                                    <td>10</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="parent">parent</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="tooltip">tooltip</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> sexo_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>key</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="308,5,548,357">
+<area shape="rect" id="node2" href="sexo.html" target="_top" title="sexo" alt="" coords="5,335,264,580">
+<area shape="rect" id="node3" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="324,375,532,609">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/sexo.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="308,372,548,724">
+<area shape="rect" id="node2" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="33,743,236,831">
+<area shape="rect" id="node3" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="14,848,255,936">
+<area shape="rect" id="node4" href="bacia.html" target="_top" title="bacia" alt="" coords="63,532,206,620">
+<area shape="rect" id="node5" href="subacia.html" target="_top" title="subacia" alt="" coords="63,427,207,515">
+<area shape="rect" id="node6" href="distrito.html" target="_top" title="distrito" alt="" coords="63,111,206,199">
+<area shape="rect" id="node7" href="posto.html" target="_top" title="posto" alt="" coords="63,216,206,304">
+<area shape="rect" id="node8" href="divisao.html" target="_top" title="divisao" alt="" coords="65,637,205,725">
+<area shape="rect" id="node9" href="provincia.html" target="_top" title="provincia" alt="" coords="55,5,214,93">
+<area shape="rect" id="node10" href="sexo.html" target="_top" title="sexo" alt="" coords="5,953,264,1199">
+<area shape="rect" id="node11" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="324,120,532,355">
+<area shape="rect" id="node12" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="23,321,247,409">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/sexo.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="401,5,567,123">
+<area shape="rect" id="node2" href="sexo.html" target="_top" title="sexo" alt="" coords="5,2563,264,2808">
+<area shape="rect" id="node3" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="308,140,660,257">
+<area shape="rect" id="node4" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="396,275,572,392">
+<area shape="rect" id="node5" href="ara.html" target="_top" title="ara" alt="" coords="425,409,543,527">
+<area shape="rect" id="node6" href="bacia.html" target="_top" title="bacia" alt="" coords="406,1341,562,1488">
+<area shape="rect" id="node7" href="boolean.html" target="_top" title="boolean" alt="" coords="411,1945,557,2063">
+<area shape="rect" id="node8" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="396,2080,572,2197">
+<area shape="rect" id="node9" href="distrito.html" target="_top" title="distrito" alt="" coords="406,679,562,825">
+<area shape="rect" id="node10" href="divisao.html" target="_top" title="divisao" alt="" coords="410,1505,558,1623">
+<area shape="rect" id="node11" href="domains.html" target="_top" title="domains" alt="" coords="410,2215,558,2308">
+<area shape="rect" id="node12" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="394,2325,574,2443">
+<area shape="rect" id="node13" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="377,2460,591,2577">
+<area shape="rect" id="node14" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="345,2595,623,2712">
+<area shape="rect" id="node15" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="353,2729,615,2847">
+<area shape="rect" id="node16" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="363,1775,605,1892">
+<area shape="rect" id="node17" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="402,2864,566,3011">
+<area shape="rect" id="node18" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="391,3028,577,3145">
+<area shape="rect" id="node19" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="381,3163,587,3280">
+<area shape="rect" id="node20" href="groups.html" target="_top" title="groups" alt="" coords="415,3297,553,3415">
+<area shape="rect" id="node21" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="387,3432,581,3549">
+<area shape="rect" id="node22" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="383,1640,585,1757">
+<area shape="rect" id="node23" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="341,3567,627,3684">
+<area shape="rect" id="node24" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="372,3701,596,3819">
+<area shape="rect" id="node25" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="381,3836,587,3953">
+<area shape="rect" id="node26" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="395,3971,573,4088">
+<area shape="rect" id="node27" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="353,4105,615,4223">
+<area shape="rect" id="node28" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="357,4240,611,4357">
+<area shape="rect" id="node29" href="posto.html" target="_top" title="posto" alt="" coords="406,843,562,989">
+<area shape="rect" id="node30" href="provincia.html" target="_top" title="provincia" alt="" coords="405,544,563,661">
+<area shape="rect" id="node31" href="red_monit.html" target="_top" title="red_monit" alt="" coords="402,4375,566,4492">
+<area shape="rect" id="node32" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="406,4509,562,4627">
+<area shape="rect" id="node33" href="subacia.html" target="_top" title="subacia" alt="" coords="406,1177,562,1324">
+<area shape="rect" id="node34" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="341,4644,627,4761">
+<area shape="rect" id="node35" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="349,4779,619,4896">
+<area shape="rect" id="node36" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="339,4913,629,5031">
+<area shape="rect" id="node37" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="338,5048,630,5165">
+<area shape="rect" id="node38" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="359,5183,609,5300">
+<area shape="rect" id="node39" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="339,5317,629,5435">
+<area shape="rect" id="node40" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="372,1007,596,1124">
+<area shape="rect" id="node41" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="704,1119,944,1471">
+<area shape="rect" id="node42" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="720,784,928,1019">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/sexo.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="401,5317,567,5435">
+<area shape="rect" id="node2" href="sexo.html" target="_top" title="sexo" alt="" coords="5,2587,264,2832">
+<area shape="rect" id="node3" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="308,409,660,527">
+<area shape="rect" id="node4" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="396,544,572,661">
+<area shape="rect" id="node5" href="ara.html" target="_top" title="ara" alt="" coords="425,679,543,796">
+<area shape="rect" id="node6" href="bacia.html" target="_top" title="bacia" alt="" coords="406,1611,562,1757">
+<area shape="rect" id="node7" href="boolean.html" target="_top" title="boolean" alt="" coords="411,5,557,123">
+<area shape="rect" id="node8" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="396,3725,572,3843">
+<area shape="rect" id="node9" href="distrito.html" target="_top" title="distrito" alt="" coords="406,948,562,1095">
+<area shape="rect" id="node10" href="divisao.html" target="_top" title="divisao" alt="" coords="410,1811,558,1928">
+<area shape="rect" id="node11" href="domains.html" target="_top" title="domains" alt="" coords="410,3860,558,3953">
+<area shape="rect" id="node12" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="394,3971,574,4088">
+<area shape="rect" id="node13" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="377,4105,591,4223">
+<area shape="rect" id="node14" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="345,2484,623,2601">
+<area shape="rect" id="node15" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="353,2349,615,2467">
+<area shape="rect" id="node16" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="363,2080,605,2197">
+<area shape="rect" id="node17" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="402,3157,566,3304">
+<area shape="rect" id="node18" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="391,3456,577,3573">
+<area shape="rect" id="node19" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="381,3321,587,3439">
+<area shape="rect" id="node20" href="groups.html" target="_top" title="groups" alt="" coords="415,2215,553,2332">
+<area shape="rect" id="node21" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="387,4240,581,4357">
+<area shape="rect" id="node22" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="383,1945,585,2063">
+<area shape="rect" id="node23" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="341,2753,627,2871">
+<area shape="rect" id="node24" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="372,2888,596,3005">
+<area shape="rect" id="node25" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="381,2619,587,2736">
+<area shape="rect" id="node26" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="395,4375,573,4492">
+<area shape="rect" id="node27" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="353,140,615,257">
+<area shape="rect" id="node28" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="357,275,611,392">
+<area shape="rect" id="node29" href="posto.html" target="_top" title="posto" alt="" coords="406,1283,562,1429">
+<area shape="rect" id="node30" href="provincia.html" target="_top" title="provincia" alt="" coords="405,813,563,931">
+<area shape="rect" id="node31" href="red_monit.html" target="_top" title="red_monit" alt="" coords="402,3023,566,3140">
+<area shape="rect" id="node32" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="406,3591,562,3708">
+<area shape="rect" id="node33" href="subacia.html" target="_top" title="subacia" alt="" coords="406,1447,562,1593">
+<area shape="rect" id="node34" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="341,4913,627,5031">
+<area shape="rect" id="node35" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="349,5048,619,5165">
+<area shape="rect" id="node36" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="339,4509,629,4627">
+<area shape="rect" id="node37" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="338,4644,630,4761">
+<area shape="rect" id="node38" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="359,4779,609,4896">
+<area shape="rect" id="node39" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="339,5183,629,5300">
+<area shape="rect" id="node40" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="372,1112,596,1229">
+<area shape="rect" id="node41" href="../inventario/tables/estacoes.html" target="_top" title="inventario.estacoes" alt="" coords="780,4108,1015,4196">
+<area shape="rect" id="node42" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="788,3084,1007,3172">
+<area shape="rect" id="node43" href="../utentes/tables/actividades.html" target="_top" title="utentes.actividades" alt="" coords="779,5320,1016,5408">
+<area shape="rect" id="node44" href="../utentes/tables/actividades_cultivos.html" target="_top" title="utentes.actividades_cultivos" alt="" coords="746,3661,1049,3749">
+<area shape="rect" id="node45" href="../utentes/tables/actividades_industria.html" target="_top" title="utentes.actividades_industria" alt="" coords="741,4243,1054,4331">
+<area shape="rect" id="node46" href="../utentes/tables/actividades_piscicultura.html" target="_top" title="utentes.actividades_piscicultura" alt="" coords="730,8,1065,96">
+<area shape="rect" id="node47" href="../utentes/tables/actividades_produccao_energia.html" target="_top" title="utentes.actividades_produccao_energia" alt="" coords="704,3973,1091,4061">
+<area shape="rect" id="node48" href="../utentes/tables/actividades_reses.html" target="_top" title="utentes.actividades_reses" alt="" coords="756,547,1039,635">
+<area shape="rect" id="node49" href="../utentes/tables/actividades_tanques_piscicolas.html" target="_top" title="utentes.actividades_tanques_piscicolas" alt="" coords="705,4781,1089,4869">
+<area shape="rect" id="node50" href="../utentes/tables/documentos.html" target="_top" title="utentes.documentos" alt="" coords="776,2143,1019,2231">
+<area shape="rect" id="node51" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="777,1388,1017,1740">
+<area shape="rect" id="node52" href="../utentes/tables/facturacao.html" target="_top" title="utentes.facturacao" alt="" coords="782,2373,1013,2461">
+<area shape="rect" id="node53" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="799,3189,996,3277">
+<area shape="rect" id="node54" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="790,2501,1005,2589">
+<area shape="rect" id="node55" href="../utentes/tables/renovacoes.html" target="_top" title="utentes.renovacoes" alt="" coords="780,2621,1015,2709">
+<area shape="rect" id="node56" href="../utentes/tables/users.html" target="_top" title="utentes.users" alt="" coords="803,1963,992,2051">
+<area shape="rect" id="node57" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="793,1024,1001,1259">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/sexo.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

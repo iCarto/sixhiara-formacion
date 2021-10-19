@@ -42,7 +42,7 @@
             <column ascending="true" name="cod_acuif"/>
          </index>
       </table>
-      <table name="barragens" numRows="45" remarks="" schema="inventario" type="TABLE">
+      <table name="barragens" numRows="54" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="barragem" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod_barra" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
@@ -52,8 +52,8 @@
             <parent column="key" foreignKey="barragens_tip_barra_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_barra"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
             <parent column="key" foreignKey="barragens_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+            <parent column="parent" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
             <parent column="key" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
@@ -65,8 +65,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nucleo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="altitude" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
             <parent column="key" foreignKey="barragens_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+            <parent column="parent" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
@@ -109,7 +109,7 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="barragens_imagenes" numRows="8" remarks="" schema="inventario" type="TABLE">
+      <table name="barragens_imagenes" numRows="15" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cod_barra" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="cod_barra" foreignKey="barragens_imagenes_cod_barra_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="barragens"/>
          </column>
@@ -314,7 +314,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="estacoes" numRows="442" remarks="" schema="inventario" type="TABLE">
+      <table name="estacoes" numRows="447" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="estazon" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="cod_estac" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
@@ -327,8 +327,8 @@
             <parent column="key" foreignKey="estacoes_tip_estac_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_estac"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
             <parent column="key" foreignKey="estacoes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+            <parent column="parent" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
             <parent column="key" foreignKey="estacoes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
@@ -340,8 +340,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="nucleo" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="8" name="altitude" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
             <parent column="key" foreignKey="estacoes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+            <parent column="parent" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="estacoes_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
@@ -393,6 +393,9 @@
             <parent column="key" foreignKey="estacoes_sac_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="si_no"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="recolha" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="estacoes_recolha_fkey" implied="false" onDeleteCascade="false" schema="domains" table="estacoes_recolha"/>
+         </column>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="estacoes_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -474,7 +477,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="estacoes_imagenes" numRows="0" remarks="" schema="inventario" type="TABLE">
+      <table name="estacoes_imagenes" numRows="5" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="cod_estac" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="cod_estac" foreignKey="estacoes_imagenes_cod_estac_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="estacoes"/>
          </column>
@@ -490,8 +493,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="exp_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="d_soli" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="parent" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
             <parent column="key" foreignKey="exploracoes_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+            <parent column="parent" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="loc_distri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="exploracoes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
@@ -531,7 +534,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="fontes" numRows="2312" remarks="" schema="inventario" type="TABLE">
+      <table name="fontes" numRows="398" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
             <child column="cadastro" foreignKey="fontes_analise_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes_analise"/>
@@ -541,18 +544,18 @@
             <child column="cadastro" foreignKey="quantidade_agua_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="quantidade_agua"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tip_fonte" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="key" foreignKey="fontes_tip_fonte_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="tip_fonte"/>
+            <parent column="key" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="fonte_tipo"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="red_monit" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="key" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="red_monit"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="red_monit" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
+            <parent column="key" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="domains" table="red_monit"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="entidade" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tecnico" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="d_dado" nullable="true" remarks="" size="100" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="hora" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="provincia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
             <parent column="key" foreignKey="fontes_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="provincia"/>
+            <parent column="parent" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="distrito" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
             <parent column="key" foreignKey="fontes_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="distrito"/>
@@ -607,8 +610,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="n_limpeza" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="bacia" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
-            <parent column="parent" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
             <parent column="key" foreignKey="fontes_bacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="bacia"/>
+            <parent column="parent" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="subacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="fontes_subacia_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="subacia"/>
@@ -624,9 +627,10 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="58" name="n_licen_a" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="59" name="tipo_agua" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="domains" table="licencia_tipo_agua"/>
+            <parent column="parent" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="fonte_tipo"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="60" name="loc_unidad" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="key" foreignKey="fontes_loc_unidad_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="unidade"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="60" name="loc_divisao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="fontes_loc_divisao_fkey" implied="false" onDeleteCascade="false" schema="inventario_dominios" table="divisao"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="61" name="sist_med" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="fontes_sist_med_fkey" implied="false" onDeleteCascade="false" schema="domains" table="fontes_sist_med"/>
@@ -642,7 +646,7 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="fontes_analise" numRows="957" remarks="" schema="inventario" type="TABLE">
+      <table name="fontes_analise" numRows="687" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="cadastro" foreignKey="fontes_analise_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
@@ -725,7 +729,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="fontes_carac_hidro" numRows="76" remarks="" schema="inventario" type="TABLE">
+      <table name="fontes_carac_hidro" numRows="77" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="false" remarks="" size="254" type="varchar" typeCode="12">
             <parent column="cadastro" foreignKey="fontes_carac_hidro_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>
@@ -776,7 +780,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="quantidade_agua" numRows="550" remarks="" schema="inventario" type="TABLE">
+      <table name="quantidade_agua" numRows="551" remarks="" schema="inventario" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cadastro" nullable="true" remarks="" size="254" type="varchar" typeCode="12">
             <parent column="cadastro" foreignKey="quantidade_agua_cadastro_fkey" implied="false" onDeleteCascade="true" schema="inventario" table="fontes"/>

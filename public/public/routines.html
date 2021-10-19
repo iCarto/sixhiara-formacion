@@ -214,6 +214,15 @@
                                         <td><p>args: geomA - Convert the geometry into a GEOMETRYCOLLECTION.</p></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/gtrgm_distance.html">gtrgm_distance</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>double precision</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/st_addpoint.html">st_addpoint</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -475,6 +484,15 @@
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/gtrgm_compress.html">gtrgm_compress</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/geometry_gist_union_nd.html">geometry_gist_union_nd</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -590,6 +608,15 @@
                                         <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td><p>args: geohash, precision=full_precision_of_geohash - Return a point from a GeoHash string.</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/similarity_dist.html">similarity_dist</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>real</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td><a href="routines/geom3d_brin_inclusion_add_value.html">geom3d_brin_inclusion_add_value</a></td>
@@ -951,6 +978,15 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/_st_dwithinuncached.html">_st_dwithinuncached</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/pgis_geometry_clusterwithin_finalfn.html">pgis_geometry_clusterwithin_finalfn</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -960,11 +996,11 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_st_dwithinuncached.html">_st_dwithinuncached</a></td>
+                                        <td><a href="routines/gin_extract_query_trgm.html">gin_extract_query_trgm</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
-                                        <td>boolean</td>
+                                        <td>internal</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -1068,20 +1104,20 @@ fail_if_not_converged<br />
                                         <td><p>args: geomA - Toggle geometry coordinates between -180..180 and 0..360 ranges.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/st_mapalgebraexpr.html">st_mapalgebraexpr</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>raster</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/geometry_cmp.html">geometry_cmp</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>integer</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/st_mapalgebraexpr.html">st_mapalgebraexpr</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>raster</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -1266,20 +1302,20 @@ fail_if_not_converged<br />
                                         <td><p>args: catalog_name, schema_name, table_name, column_name, srid, type, dimension, use_typmod=true - Adds a geometry column to an existing table of attributes. By default uses type modifier to define rather than constraints. Pass in false for use_typmod to get old check constraint based behavior</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geography.html">geography</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>geography</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/pgis_geometry_makeline_finalfn.html">pgis_geometry_makeline_finalfn</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>false</td>
                                         <td>geometry</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/geography.html">geography</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>geography</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -1397,6 +1433,15 @@ fail_if_not_converged<br />
                                         <td>C</td>
                                         <td>true</td>
                                         <td>cstring</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gin_trgm_triconsistent.html">gin_trgm_triconsistent</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>&quot;char&quot;</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -1923,20 +1968,20 @@ fail_if_not_converged<br />
                                         <td><p>args: gdaldata, srid=NULL - Returns a raster from a supported GDAL raster file.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/st_force_collection.html">st_force_collection</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>true</td>
-                                        <td>geometry</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/geometry_le.html">geometry_le</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/st_force_collection.html">st_force_collection</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>SQL</td>
+                                        <td>true</td>
+                                        <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -2049,6 +2094,24 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/gtrgm_penalty.html">gtrgm_penalty</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/word_similarity_dist_commutator_op.html">word_similarity_dist_commutator_op</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>real</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/_st_linecrossingdirection.html">_st_linecrossingdirection</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -2076,20 +2139,20 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/gidx_in.html">gidx_in</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>gidx</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/_raster_constraint_info_srid.html">_raster_constraint_info_srid</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>false</td>
                                         <td>integer</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gidx_in.html">gidx_in</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>gidx</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -2276,7 +2339,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_value.html">st_value</a></td>
                                         <td>FUNCTION</td>
-                                        <td>C</td>
+                                        <td>PLPGSQL</td>
                                         <td>true</td>
                                         <td>double precision</td>
                                         <td>INVOKER</td>
@@ -2301,20 +2364,20 @@ fail_if_not_converged<br />
                                         <td><p>args: rast, pt, distanceX, distanceY, exclude_nodata_value=true - Returns a 2-D double precision array of the non-NODATA values around a given bands pixel specified by either a columnX and rowY or a geometric point expressed in the same spatial reference coordinate system as the raster.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_st_geomfromgml.html">_st_geomfromgml</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>geometry</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/geometry_gist_consistent_nd.html">geometry_gist_consistent_nd</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>false</td>
                                         <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/_st_geomfromgml.html">_st_geomfromgml</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -2420,8 +2483,8 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_setvalue.html">st_setvalue</a></td>
                                         <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>false</td>
+                                        <td>C</td>
+                                        <td>true</td>
                                         <td>raster</td>
                                         <td>INVOKER</td>
                                         <td><p>args: rast, columnx, rowy, newvalue - Returns modified raster resulting from setting the value of a given band in a given columnx, rowy pixel or the pixels that intersect a particular geometry. Band numbers start at 1 and assumed to be 1 if not specified.</p></td>
@@ -2445,11 +2508,29 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/word_similarity_op.html">word_similarity_op</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/raster_out.html">raster_out</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>cstring</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/show_trgm.html">show_trgm</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>ARRAY</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -2503,7 +2584,7 @@ fail_if_not_converged<br />
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>false</td>
-                                        <td>SETOF record</td>
+                                        <td>record</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -2587,6 +2668,15 @@ fail_if_not_converged<br />
                                         <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td><p>args: EWKB - Return a specified ST_Geometry value from Extended Well-Known Binary representation (EWKB).</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gtrgm_consistent.html">gtrgm_consistent</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td><a href="routines/_raster_constraint_pixel_types.html">_raster_constraint_pixel_types</a></td>
@@ -2706,6 +2796,15 @@ fail_if_not_converged<br />
                                         <td><p>args: geom, bounds, extent=4096, buffer=256, clip_geom=true - Transform a geometry into the coordinate space of a Mapbox Vector Tile.</p></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/word_similarity_dist_op.html">word_similarity_dist_op</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>real</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/st_geomfromgeojson.html">st_geomfromgeojson</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -2713,6 +2812,15 @@ fail_if_not_converged<br />
                                         <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td><p>args: geomjson - Takes as input a geojson representation of a geometry and outputs a PostGIS geometry object</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gtrgm_out.html">gtrgm_out</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>cstring</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td><a href="routines/st_multi.html">st_multi</a></td>
@@ -3102,6 +3210,15 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/show_limit.html">show_limit</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>real</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/spheroid_in.html">spheroid_in</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -3158,7 +3275,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_pixelofvalue.html">st_pixelofvalue</a></td>
                                         <td>FUNCTION</td>
-                                        <td>C</td>
+                                        <td>SQL</td>
                                         <td>true</td>
                                         <td>SETOF record</td>
                                         <td>INVOKER</td>
@@ -3192,20 +3309,20 @@ fail_if_not_converged<br />
                                         <td><p>args: rast, scalex, scaley, algorithm=NearestNeighbour, maxerr=0.125 - Resample a raster by adjusting only its scale (or pixel size). New pixel values are computed using the NearestNeighbor (english or american spelling), Bilinear, Cubic, CubicSpline or Lanczos resampling algorithm. Default is NearestNeighbor.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/pgis_geometry_collect_finalfn.html">pgis_geometry_collect_finalfn</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>false</td>
-                                        <td>geometry</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/point.html">point</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>point</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/pgis_geometry_collect_finalfn.html">pgis_geometry_collect_finalfn</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -3264,20 +3381,20 @@ fail_if_not_converged<br />
                                         <td><p>args: geom - Returns a MultiPoint containing all of the coordinates of a geometry.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/polygon.html">polygon</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>polygon</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/geometry_send.html">geometry_send</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>bytea</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/polygon.html">polygon</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>polygon</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -3327,7 +3444,7 @@ fail_if_not_converged<br />
                                         <td><p>args: aGeomorBox2DorBox3D - Returns Y maxima of a bounding box 2d or 3d or a geometry.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/st_force_3dm.html">st_force_3dm</a></td>
+                                        <td><a href="routines/st_line_substring.html">st_line_substring</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>true</td>
@@ -3336,7 +3453,7 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/st_line_substring.html">st_line_substring</a></td>
+                                        <td><a href="routines/st_force_3dm.html">st_force_3dm</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>true</td>
@@ -3644,7 +3761,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_makeemptyraster.html">st_makeemptyraster</a></td>
                                         <td>FUNCTION</td>
-                                        <td>C</td>
+                                        <td>PLPGSQL</td>
                                         <td>true</td>
                                         <td>raster</td>
                                         <td>INVOKER</td>
@@ -3655,7 +3772,7 @@ fail_if_not_converged<br />
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>false</td>
-                                        <td>record</td>
+                                        <td>SETOF record</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -3678,20 +3795,20 @@ fail_if_not_converged<br />
                                         <td><p>args: geomA - Returns TRUE if the bbox of this geometry is cached, FALSE otherwise.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_raster_constraint_out_db.html">_raster_constraint_out_db</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>true</td>
-                                        <td>ARRAY</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/st_polyfromwkb.html">st_polyfromwkb</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>true</td>
                                         <td>geometry</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/_raster_constraint_out_db.html">_raster_constraint_out_db</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>SQL</td>
+                                        <td>true</td>
+                                        <td>ARRAY</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -3797,7 +3914,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_bandmetadata.html">st_bandmetadata</a></td>
                                         <td>FUNCTION</td>
-                                        <td>SQL</td>
+                                        <td>C</td>
                                         <td>true</td>
                                         <td>record</td>
                                         <td>INVOKER</td>
@@ -3807,7 +3924,7 @@ fail_if_not_converged<br />
                                         <td><a href="routines/st_approxhistogram.html">st_approxhistogram</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
-                                        <td>true</td>
+                                        <td>false</td>
                                         <td>SETOF record</td>
                                         <td>INVOKER</td>
                                         <td></td>
@@ -3852,7 +3969,7 @@ fail_if_not_converged<br />
                                         <td><a href="routines/st_approxcount.html">st_approxcount</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
-                                        <td>false</td>
+                                        <td>true</td>
                                         <td>bigint</td>
                                         <td>INVOKER</td>
                                         <td></td>
@@ -3867,20 +3984,20 @@ fail_if_not_converged<br />
                                         <td><p>args: geom, max_vertices=256 - Returns a set of geometry where no geometry in the set has more than the specified number of vertices.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_st_convertarray4ma.html">_st_convertarray4ma</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>PLPGSQL</td>
-                                        <td>true</td>
-                                        <td>ARRAY</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/st_minconvexhull.html">st_minconvexhull</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>geometry</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/_st_convertarray4ma.html">_st_convertarray4ma</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>PLPGSQL</td>
+                                        <td>true</td>
+                                        <td>ARRAY</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -3896,7 +4013,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/lockrow.html">lockrow</a></td>
                                         <td>FUNCTION</td>
-                                        <td>PLPGSQL</td>
+                                        <td>SQL</td>
                                         <td>false</td>
                                         <td>integer</td>
                                         <td>INVOKER</td>
@@ -4092,15 +4209,6 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geometry_right.html">geometry_right</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>boolean</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/st_slope.html">st_slope</a></td>
                                         <td>FUNCTION</td>
                                         <td>PLPGSQL</td>
@@ -4115,6 +4223,15 @@ fail_if_not_converged<br />
                                         <td>C</td>
                                         <td>false</td>
                                         <td>double precision</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/geometry_right.html">geometry_right</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>boolean</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -4209,9 +4326,18 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/set_limit.html">set_limit</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>real</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/st_samealignment.html">st_samealignment</a></td>
                                         <td>AGGREGATE</td>
-                                        <td>C</td>
+                                        <td>INTERNAL</td>
                                         <td>true</td>
                                         <td>boolean</td>
                                         <td>INVOKER</td>
@@ -4297,6 +4423,15 @@ fail_if_not_converged<br />
                                         <td>bytea</td>
                                         <td>INVOKER</td>
                                         <td><p>args: rast, format, options=NULL, srid=sameassource - Return the raster tile in the designated GDAL Raster format. Raster formats are one of those supported by your compiled library. Use ST_GDALDrivers() to get a list of formats supported by your library.</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gtrgm_picksplit.html">gtrgm_picksplit</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td><a href="routines/st_tile.html">st_tile</a></td>
@@ -4436,7 +4571,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/_st_intersects.html">_st_intersects</a></td>
                                         <td>FUNCTION</td>
-                                        <td>C</td>
+                                        <td>PLPGSQL</td>
                                         <td>true</td>
                                         <td>boolean</td>
                                         <td>INVOKER</td>
@@ -4515,20 +4650,20 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geography_eq.html">geography_eq</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>boolean</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/postgis_libprotobuf_version.html">postgis_libprotobuf_version</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>text</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/geography_eq.html">geography_eq</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>boolean</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -4569,20 +4704,20 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_raster_constraint_info_nodata_values.html">_raster_constraint_info_nodata_values</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>false</td>
-                                        <td>ARRAY</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/geography_distance_knn.html">geography_distance_knn</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>double precision</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/_raster_constraint_info_nodata_values.html">_raster_constraint_info_nodata_values</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>SQL</td>
+                                        <td>false</td>
+                                        <td>ARRAY</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -4596,20 +4731,20 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geography_recv.html">geography_recv</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>true</td>
-                                        <td>geography</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/postgis_typmod_dims.html">postgis_typmod_dims</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>integer</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/geography_recv.html">geography_recv</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>geography</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -4641,7 +4776,7 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geometry_below.html">geometry_below</a></td>
+                                        <td><a href="routines/geometry_eq.html">geometry_eq</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
@@ -4650,7 +4785,7 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geometry_eq.html">geometry_eq</a></td>
+                                        <td><a href="routines/geometry_below.html">geometry_below</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
@@ -4823,7 +4958,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_aspect.html">st_aspect</a></td>
                                         <td>FUNCTION</td>
-                                        <td>SQL</td>
+                                        <td>PLPGSQL</td>
                                         <td>true</td>
                                         <td>raster</td>
                                         <td>INVOKER</td>
@@ -4911,20 +5046,20 @@ fail_if_not_converged<br />
                                         <td><p>args: rast, xcolumn, yrow - Returns the rasters upper left corner as geometric X and Y (longitude and latitude) given a column and row. Column and row starts at 1.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geography_gist_distance.html">geography_gist_distance</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>C</td>
-                                        <td>false</td>
-                                        <td>double precision</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/_raster_constraint_info_coverage_tile.html">_raster_constraint_info_coverage_tile</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>false</td>
                                         <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/geography_gist_distance.html">geography_gist_distance</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>double precision</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -4952,6 +5087,15 @@ fail_if_not_converged<br />
                                         <td>C</td>
                                         <td>true</td>
                                         <td>integer</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gtrgm_same.html">gtrgm_same</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -5118,11 +5262,38 @@ fail_if_not_converged<br />
                                         <td><p>args: g1, g2, densifyFrac = -1 - Returns the Fréchet distance between two geometries. This is a measure of similarity between curves that takes into account the location and ordering of the points along the curves. Units are in the units of the spatial reference system of the geometries.</p></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/word_similarity_commutator_op.html">word_similarity_commutator_op</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/postgis_getbbox.html">postgis_getbbox</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
                                         <td>true</td>
                                         <td>box2d</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gtrgm_union.html">gtrgm_union</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>gtrgm</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/word_similarity.html">word_similarity</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>real</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -5181,20 +5352,20 @@ fail_if_not_converged<br />
                                         <td><p>args: g - Returns TRUE if the LINESTRINGs start and end points are coincident. For Polyhedral surface is closed (volumetric).</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/st_pointfromwkb.html">st_pointfromwkb</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>true</td>
-                                        <td>geometry</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/_st_countagg_transfn.html">_st_countagg_transfn</a></td>
                                         <td>FUNCTION</td>
                                         <td>PLPGSQL</td>
                                         <td>true</td>
                                         <td>agg_count</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/st_pointfromwkb.html">st_pointfromwkb</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>SQL</td>
+                                        <td>true</td>
+                                        <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -5633,7 +5804,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_addband.html">st_addband</a></td>
                                         <td>FUNCTION</td>
-                                        <td>SQL</td>
+                                        <td>C</td>
                                         <td>true</td>
                                         <td>raster</td>
                                         <td>INVOKER</td>
@@ -5645,6 +5816,24 @@ fail_if_not_converged<br />
                                         <td>C</td>
                                         <td>false</td>
                                         <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gin_extract_value_trgm.html">gin_extract_value_trgm</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/gin_trgm_consistent.html">gin_trgm_consistent</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>boolean</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -6020,7 +6209,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/dropoverviewconstraints.html">dropoverviewconstraints</a></td>
                                         <td>FUNCTION</td>
-                                        <td>PLPGSQL</td>
+                                        <td>SQL</td>
                                         <td>false</td>
                                         <td>boolean</td>
                                         <td>INVOKER</td>
@@ -6072,6 +6261,15 @@ fail_if_not_converged<br />
                                         <td></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/gtrgm_in.html">gtrgm_in</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>gtrgm</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/st_envelope.html">st_envelope</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -6115,6 +6313,15 @@ fail_if_not_converged<br />
                                         <td>geometry</td>
                                         <td>INVOKER</td>
                                         <td><p>args: geomgml, srid - Return a specified ST_Geometry value from GML representation. This is an alias name for ST_GeomFromGML</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/similarity_op.html">similarity_op</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>false</td>
+                                        <td>boolean</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td><a href="routines/st_zmflag.html">st_zmflag</a></td>
@@ -6189,18 +6396,18 @@ fail_if_not_converged<br />
                                         <td><p>args: g1, tolerance, extend_to - Returns the cells of the Voronoi diagram constructed from the vertices of a geometry.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/raster_right.html">raster_right</a></td>
+                                        <td><a href="routines/geometry_overleft.html">geometry_overleft</a></td>
                                         <td>FUNCTION</td>
-                                        <td>SQL</td>
+                                        <td>C</td>
                                         <td>true</td>
                                         <td>boolean</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/geometry_overleft.html">geometry_overleft</a></td>
+                                        <td><a href="routines/raster_right.html">raster_right</a></td>
                                         <td>FUNCTION</td>
-                                        <td>C</td>
+                                        <td>SQL</td>
                                         <td>true</td>
                                         <td>boolean</td>
                                         <td>INVOKER</td>
@@ -6315,20 +6522,20 @@ fail_if_not_converged<br />
                                         <td><p>args: rast, x, y - Sets the value of the upper left corner of the pixel of the raster to projected X and Y coordinates.</p></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="routines/_drop_raster_constraint_out_db.html">_drop_raster_constraint_out_db</a></td>
-                                        <td>FUNCTION</td>
-                                        <td>SQL</td>
-                                        <td>false</td>
-                                        <td>boolean</td>
-                                        <td>INVOKER</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
                                         <td><a href="routines/st_multilinefromwkb.html">st_multilinefromwkb</a></td>
                                         <td>FUNCTION</td>
                                         <td>SQL</td>
                                         <td>true</td>
                                         <td>geometry</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/_drop_raster_constraint_out_db.html">_drop_raster_constraint_out_db</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>SQL</td>
+                                        <td>false</td>
+                                        <td>boolean</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>
@@ -6396,6 +6603,15 @@ fail_if_not_converged<br />
                                         <td><p>args: tilewidth, tileheight, width, height, upperleftx, upperlefty, scalex, scaley, skewx, skewy, srid=unknown - Cover georeferenced area with a grid of empty raster tiles.</p></td>
                                     </tr>
                                     <tr>
+                                        <td><a href="routines/gtrgm_decompress.html">gtrgm_decompress</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>internal</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <td><a href="routines/st_closestpoint.html">st_closestpoint</a></td>
                                         <td>FUNCTION</td>
                                         <td>C</td>
@@ -6434,7 +6650,7 @@ fail_if_not_converged<br />
                                     <tr>
                                         <td><a href="routines/st_colormap.html">st_colormap</a></td>
                                         <td>FUNCTION</td>
-                                        <td>PLPGSQL</td>
+                                        <td>SQL</td>
                                         <td>true</td>
                                         <td>raster</td>
                                         <td>INVOKER</td>
@@ -6491,6 +6707,15 @@ fail_if_not_converged<br />
                                         <td>C</td>
                                         <td>true</td>
                                         <td>cstring</td>
+                                        <td>INVOKER</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="routines/similarity.html">similarity</a></td>
+                                        <td>FUNCTION</td>
+                                        <td>C</td>
+                                        <td>true</td>
+                                        <td>real</td>
                                         <td>INVOKER</td>
                                         <td></td>
                                     </tr>

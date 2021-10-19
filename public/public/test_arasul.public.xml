@@ -1632,7 +1632,30 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="_st_intersects" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="C"><![CDATA[RASTER_intersects]]></definition>
+         <definition language="PLPGSQL"><![CDATA[
+	DECLARE
+		hasnodata boolean := TRUE;
+		_geom geometry;
+	BEGIN
+		IF ST_SRID(rast) != ST_SRID(geom) THEN
+			RAISE EXCEPTION 'Raster and geometry do not have the same SRID';
+		END IF;
+
+		_geom := ST_ConvexHull(rast);
+		IF nband IS NOT NULL THEN
+			SELECT CASE WHEN bmd.nodatavalue IS NULL THEN FALSE ELSE NULL END INTO hasnodata FROM public.ST_BandMetaData(rast, nband) AS bmd;
+		END IF;
+
+		IF ST_Intersects(geom, _geom) IS NOT TRUE THEN
+			RETURN FALSE;
+		ELSEIF nband IS NULL OR hasnodata IS FALSE THEN
+			RETURN TRUE;
+		END IF;
+
+		SELECT public.ST_Collect(t.geom) INTO _geom FROM public.ST_PixelAsPolygons(rast, nband) AS t;
+		RETURN public.ST_Intersects(geom, _geom);
+	END;
+	]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="_st_linecrossingdirection" returnType="integer" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -1644,7 +1667,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="_st_mapalgebra" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="C"><![CDATA[RASTER_nMapAlgebraExpr]]></definition>
+         <definition language="C"><![CDATA[RASTER_nMapAlgebra]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="_st_maxdistance" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -2444,57 +2467,127 @@ END;
          <comment><![CDATA[args: rastschema, rasttable, rastcolumn, srid=true, scale_x=true, scale_y=true, blocksize_x=true, blocksize_y=true, same_alignment=true, regular_blocking=false, num_bands=true, pixel_types=true, nodata_values=true, out_db=true, extent=true - Adds raster constraints to a loaded raster table for a specific column that constrains spatial ref, scaling, blocksize, alignment, bands, band type and a flag to denote if raster column is regularly blocked. The table must be loaded with data for the constraints to be inferred. Returns true of the constraint setting was accomplished and if issues a notice.]]></comment>
          <definition language="PLPGSQL"><![CDATA[
 	DECLARE
-		constraints text[];
+		max int;
+		cnt int;
+		sql text;
+		schema name;
+		x int;
+		kw text;
+		rtn boolean;
 	BEGIN
-		IF srid IS TRUE THEN
-			constraints := constraints || 'srid'::text;
+		cnt := 0;
+		max := array_length(constraints, 1);
+		IF max < 1 THEN
+			RAISE NOTICE 'No constraints indicated to be added.  Doing nothing';
+			RETURN TRUE;
 		END IF;
 
-		IF scale_x IS TRUE THEN
-			constraints := constraints || 'scale_x'::text;
+		-- validate schema
+		schema := NULL;
+		IF length($1) > 0 THEN
+			sql := 'SELECT nspname FROM pg_namespace '
+				|| 'WHERE nspname = ' || quote_literal($1)
+				|| 'LIMIT 1';
+			EXECUTE sql INTO schema;
+
+			IF schema IS NULL THEN
+				RAISE EXCEPTION 'The value provided for schema is invalid';
+				RETURN FALSE;
+			END IF;
 		END IF;
 
-		IF scale_y IS TRUE THEN
-			constraints := constraints || 'scale_y'::text;
+		IF schema IS NULL THEN
+			sql := 'SELECT n.nspname AS schemaname '
+				|| 'FROM pg_catalog.pg_class c '
+				|| 'JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace '
+				|| 'WHERE c.relkind = ' || quote_literal('r')
+				|| ' AND n.nspname NOT IN (' || quote_literal('pg_catalog')
+				|| ', ' || quote_literal('pg_toast')
+				|| ') AND pg_catalog.pg_table_is_visible(c.oid)'
+				|| ' AND c.relname = ' || quote_literal($2);
+			EXECUTE sql INTO schema;
+
+			IF schema IS NULL THEN
+				RAISE EXCEPTION 'The table % does not occur in the search_path', quote_literal($2);
+				RETURN FALSE;
+			END IF;
 		END IF;
 
-		IF blocksize_x IS TRUE THEN
-			constraints := constraints || 'blocksize_x'::text;
+		<<kwloop>>
+		FOR x in 1..max LOOP
+			kw := trim(both from lower(constraints[x]));
+
+			BEGIN
+				CASE
+					WHEN kw = 'srid' THEN
+						RAISE NOTICE 'Adding SRID constraint';
+						rtn :=  public._add_raster_constraint_srid(schema, $2, $3);
+					WHEN kw IN ('scale_x', 'scalex') THEN
+						RAISE NOTICE 'Adding scale-X constraint';
+						rtn :=  public._add_raster_constraint_scale(schema, $2, $3, 'x');
+					WHEN kw IN ('scale_y', 'scaley') THEN
+						RAISE NOTICE 'Adding scale-Y constraint';
+						rtn :=  public._add_raster_constraint_scale(schema, $2, $3, 'y');
+					WHEN kw = 'scale' THEN
+						RAISE NOTICE 'Adding scale-X constraint';
+						rtn :=  public._add_raster_constraint_scale(schema, $2, $3, 'x');
+						RAISE NOTICE 'Adding scale-Y constraint';
+						rtn :=  public._add_raster_constraint_scale(schema, $2, $3, 'y');
+					WHEN kw IN ('blocksize_x', 'blocksizex', 'width') THEN
+						RAISE NOTICE 'Adding blocksize-X constraint';
+						rtn :=  public._add_raster_constraint_blocksize(schema, $2, $3, 'width');
+					WHEN kw IN ('blocksize_y', 'blocksizey', 'height') THEN
+						RAISE NOTICE 'Adding blocksize-Y constraint';
+						rtn :=  public._add_raster_constraint_blocksize(schema, $2, $3, 'height');
+					WHEN kw = 'blocksize' THEN
+						RAISE NOTICE 'Adding blocksize-X constraint';
+						rtn :=  public._add_raster_constraint_blocksize(schema, $2, $3, 'width');
+						RAISE NOTICE 'Adding blocksize-Y constraint';
+						rtn :=  public._add_raster_constraint_blocksize(schema, $2, $3, 'height');
+					WHEN kw IN ('same_alignment', 'samealignment', 'alignment') THEN
+						RAISE NOTICE 'Adding alignment constraint';
+						rtn :=  public._add_raster_constraint_alignment(schema, $2, $3);
+					WHEN kw IN ('regular_blocking', 'regularblocking') THEN
+						RAISE NOTICE 'Adding coverage tile constraint required for regular blocking';
+						rtn :=  public._add_raster_constraint_coverage_tile(schema, $2, $3);
+						IF rtn IS NOT FALSE THEN
+							RAISE NOTICE 'Adding spatially unique constraint required for regular blocking';
+							rtn :=  public._add_raster_constraint_spatially_unique(schema, $2, $3);
+						END IF;
+					WHEN kw IN ('num_bands', 'numbands') THEN
+						RAISE NOTICE 'Adding number of bands constraint';
+						rtn :=  public._add_raster_constraint_num_bands(schema, $2, $3);
+					WHEN kw IN ('pixel_types', 'pixeltypes') THEN
+						RAISE NOTICE 'Adding pixel type constraint';
+						rtn :=  public._add_raster_constraint_pixel_types(schema, $2, $3);
+					WHEN kw IN ('nodata_values', 'nodatavalues', 'nodata') THEN
+						RAISE NOTICE 'Adding nodata value constraint';
+						rtn :=  public._add_raster_constraint_nodata_values(schema, $2, $3);
+					WHEN kw IN ('out_db', 'outdb') THEN
+						RAISE NOTICE 'Adding out-of-database constraint';
+						rtn :=  public._add_raster_constraint_out_db(schema, $2, $3);
+					WHEN kw = 'extent' THEN
+						RAISE NOTICE 'Adding maximum extent constraint';
+						rtn :=  public._add_raster_constraint_extent(schema, $2, $3);
+					ELSE
+						RAISE NOTICE 'Unknown constraint: %.  Skipping', quote_literal(constraints[x]);
+						CONTINUE kwloop;
+				END CASE;
+			END;
+
+			IF rtn IS FALSE THEN
+				cnt := cnt + 1;
+				RAISE WARNING 'Unable to add constraint: %.  Skipping', quote_literal(constraints[x]);
+			END IF;
+
+		END LOOP kwloop;
+
+		IF cnt = max THEN
+			RAISE EXCEPTION 'None of the constraints specified could be added.  Is the schema name, table name or column name incorrect?';
+			RETURN FALSE;
 		END IF;
 
-		IF blocksize_y IS TRUE THEN
-			constraints := constraints || 'blocksize_y'::text;
-		END IF;
-
-		IF same_alignment IS TRUE THEN
-			constraints := constraints || 'same_alignment'::text;
-		END IF;
-
-		IF regular_blocking IS TRUE THEN
-			constraints := constraints || 'regular_blocking'::text;
-		END IF;
-
-		IF num_bands IS TRUE THEN
-			constraints := constraints || 'num_bands'::text;
-		END IF;
-
-		IF pixel_types IS TRUE THEN
-			constraints := constraints || 'pixel_types'::text;
-		END IF;
-
-		IF nodata_values IS TRUE THEN
-			constraints := constraints || 'nodata_values'::text;
-		END IF;
-
-		IF out_db IS TRUE THEN
-			constraints := constraints || 'out_db'::text;
-		END IF;
-
-		IF extent IS TRUE THEN
-			constraints := constraints || 'extent'::text;
-		END IF;
-
-		RETURN public.AddRasterConstraints($1, $2, $3, VARIADIC constraints);
+		RETURN TRUE;
 	END;
 	]]></definition>
       </routine>
@@ -2618,10 +2711,48 @@ END;
          <comment><![CDATA[args: catalog_name, schema_name, table_name, column_name - Removes a geometry column from a spatial table.]]></comment>
          <definition language="PLPGSQL"><![CDATA[
 DECLARE
-	ret text;
+	myrec RECORD;
+	okay boolean;
+	real_schema name;
+
 BEGIN
-	SELECT public.DropGeometryColumn('','',$1,$2) into ret;
-	RETURN ret;
+
+
+	-- Find, check or fix schema_name
+	IF ( schema_name != '' ) THEN
+		okay = false;
+
+		FOR myrec IN SELECT nspname FROM pg_namespace WHERE text(nspname) = schema_name LOOP
+			okay := true;
+		END LOOP;
+
+		IF ( okay <>  true ) THEN
+			RAISE NOTICE 'Invalid schema name - using current_schema()';
+			SELECT current_schema() into real_schema;
+		ELSE
+			real_schema = schema_name;
+		END IF;
+	ELSE
+		SELECT current_schema() into real_schema;
+	END IF;
+
+	-- Find out if the column is in the geometry_columns table
+	okay = false;
+	FOR myrec IN SELECT * from public.geometry_columns where f_table_schema = text(real_schema) and f_table_name = table_name and f_geometry_column = column_name LOOP
+		okay := true;
+	END LOOP;
+	IF (okay <> true) THEN
+		RAISE EXCEPTION 'column not found in geometry_columns table';
+		RETURN false;
+	END IF;
+
+	-- Remove table column
+	EXECUTE 'ALTER TABLE ' || quote_ident(real_schema) || '.' ||
+		quote_ident(table_name) || ' DROP COLUMN ' ||
+		quote_ident(column_name);
+
+	RETURN real_schema || '.' || table_name || '.' || column_name ||' effectively removed.';
+
 END;
 ]]></definition>
       </routine>
@@ -2654,52 +2785,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="dropoverviewconstraints" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: ovtable, ovcolumn - Untag a raster column from being an overview of another.]]></comment>
-         <definition language="PLPGSQL"><![CDATA[
-	DECLARE
-		schema name;
-		sql text;
-		rtn boolean;
-	BEGIN
-		-- validate schema
-		schema := NULL;
-		IF length($1) > 0 THEN
-			sql := 'SELECT nspname FROM pg_namespace '
-				|| 'WHERE nspname = ' || quote_literal($1)
-				|| 'LIMIT 1';
-			EXECUTE sql INTO schema;
-
-			IF schema IS NULL THEN
-				RAISE EXCEPTION 'The value provided for schema is invalid';
-				RETURN FALSE;
-			END IF;
-		END IF;
-
-		IF schema IS NULL THEN
-			sql := 'SELECT n.nspname AS schemaname '
-				|| 'FROM pg_catalog.pg_class c '
-				|| 'JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace '
-				|| 'WHERE c.relkind = ' || quote_literal('r')
-				|| ' AND n.nspname NOT IN (' || quote_literal('pg_catalog')
-				|| ', ' || quote_literal('pg_toast')
-				|| ') AND pg_catalog.pg_table_is_visible(c.oid)'
-				|| ' AND c.relname = ' || quote_literal($2);
-			EXECUTE sql INTO schema;
-
-			IF schema IS NULL THEN
-				RAISE EXCEPTION 'The table % does not occur in the search_path', quote_literal($2);
-				RETURN FALSE;
-			END IF;
-		END IF;
-
-		rtn :=  public._drop_overview_constraint(schema, $2, $3);
-		IF rtn IS FALSE THEN
-			RAISE EXCEPTION 'Unable to drop the overview constraint .  Is the schema name, table name or column name incorrect?';
-			RETURN FALSE;
-		END IF;
-
-		RETURN TRUE;
-	END;
-	]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT  public.DropOverviewConstraints('', $1, $2) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="droprasterconstraints" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -3256,6 +3342,22 @@ END;
          <comment/>
          <definition language="C"><![CDATA[gidx_out]]></definition>
       </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gin_extract_query_trgm" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gin_extract_query_trgm]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gin_extract_value_trgm" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gin_extract_value_trgm]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gin_trgm_consistent" returnType="boolean" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gin_trgm_consistent]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gin_trgm_triconsistent" returnType="&quot;char&quot;" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gin_trgm_triconsistent]]></definition>
+      </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="gserialized_gist_joinsel_2d" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="C"><![CDATA[gserialized_gist_joinsel_2d]]></definition>
@@ -3272,58 +3374,53 @@ END;
          <comment/>
          <definition language="C"><![CDATA[gserialized_gist_sel_nd]]></definition>
       </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_compress" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_compress]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_consistent" returnType="boolean" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_consistent]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_decompress" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_decompress]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_distance" returnType="double precision" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_distance]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_in" returnType="gtrgm" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_in]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_out" returnType="cstring" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_out]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_penalty" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_penalty]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_picksplit" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_picksplit]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_same" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_same]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="gtrgm_union" returnType="gtrgm" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[gtrgm_union]]></definition>
+      </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="is_contained_2d" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="C"><![CDATA[gserialized_within_box2df_geom_2d]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="lockrow" returnType="integer" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="PLPGSQL"><![CDATA[ 
-DECLARE
-	myschema alias for $1;
-	mytable alias for $2;
-	myrid   alias for $3;
-	authid alias for $4;
-	expires alias for $5;
-	ret int;
-	mytoid oid;
-	myrec RECORD;
-	
-BEGIN
-
-	IF NOT LongTransactionsEnabled() THEN
-		RAISE EXCEPTION 'Long transaction support disabled, use EnableLongTransaction() to enable.';
-	END IF;
-
-	EXECUTE 'DELETE FROM authorization_table WHERE expires < now()'; 
-
-	SELECT c.oid INTO mytoid FROM pg_class c, pg_namespace n
-		WHERE c.relname = mytable
-		AND c.relnamespace = n.oid
-		AND n.nspname = myschema;
-
-	-- RAISE NOTICE 'toid: %', mytoid;
-
-	FOR myrec IN SELECT * FROM authorization_table WHERE 
-		toid = mytoid AND rid = myrid
-	LOOP
-		IF myrec.authid != authid THEN
-			RETURN 0;
-		ELSE
-			RETURN 1;
-		END IF;
-	END LOOP;
-
-	EXECUTE 'INSERT INTO authorization_table VALUES ('||
-		quote_literal(mytoid::text)||','||quote_literal(myrid)||
-		','||quote_literal(expires::text)||
-		','||quote_literal(authid) ||')';
-
-	GET DIAGNOSTICS ret = ROW_COUNT;
-
-	RETURN ret;
-END;
-]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT LockRow($1, $2, $3, $4, now()::timestamp+'1:00'); ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="longtransactionsenabled" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -3965,6 +4062,30 @@ END
          <comment/>
          <definition language="SQL"><![CDATA[select $1::geometry ~= $2::geometry]]></definition>
       </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="set_limit" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[set_limit]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="show_limit" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[show_limit]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="show_trgm" returnType="ARRAY" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[show_trgm]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="similarity" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[similarity]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="similarity_dist" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[similarity_dist]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="similarity_op" returnType="boolean" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[similarity_op]]></definition>
+      </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="spheroid_in" returnType="spheroid" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="C"><![CDATA[ellipsoid_in]]></definition>
@@ -4033,7 +4154,7 @@ END
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_addband" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, outdbfile, outdbindex, index=at_end, nodataval=NULL - Returns a raster with the new band(s) of given type added with given initial value in the given index location. If no index is specified, the band is added to the end.]]></comment>
-         <definition language="SQL"><![CDATA[ SELECT  public.ST_addband($1, ARRAY[ROW($2, $3, $4, $5)]::addbandarg[]) ]]></definition>
+         <definition language="C"><![CDATA[RASTER_addBand]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_addmeasure" returnType="geometry" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: geom_mline, measure_start, measure_end - Return a derived geometry with measure elements linearly interpolated between the start and end points.]]></comment>
@@ -4047,17 +4168,17 @@ END
          <comment><![CDATA[args: geomA, a, b, d, e, xoff, yoff - Apply a 3d affine transformation to a geometry.]]></comment>
          <definition language="C"><![CDATA[LWGEOM_affine]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxcount" returnType="bigint" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="true" name="st_approxcount" returnType="bigint" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_count($1, $2, $3, $4, $5) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_count($1, 1, $2, $3) ]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="true" name="st_approxhistogram" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxhistogram" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT min, max, count, percent FROM public._ST_histogram($1, $2, TRUE, $3, $4, NULL, $5) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_histogram($1, $2, $3, TRUE, $4, $5, NULL, $6) ]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxquantile" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxquantile" returnType="record" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_quantile($1, $2, $3, $4, $5, $6) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_quantile($1, $2, $3, TRUE, $4, $5) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_approxsummarystats" returnType="summarystats" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -4159,7 +4280,53 @@ END
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_aspect" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public.ST_aspect($1, $2, NULL::raster, $3, $4, $5) ]]></definition>
+         <definition language="PLPGSQL"><![CDATA[
+	DECLARE
+		_rast raster;
+		_nband integer;
+		_pixtype text;
+		_width integer;
+		_height integer;
+		_customextent raster;
+		_extenttype text;
+	BEGIN
+		_customextent := customextent;
+		IF _customextent IS NULL THEN
+			_extenttype := 'FIRST';
+		ELSE
+			_extenttype := 'CUSTOM';
+		END IF;
+
+		IF interpolate_nodata IS TRUE THEN
+			_rast := public.ST_MapAlgebra(
+				ARRAY[ROW(rast, nband)]::rastbandarg[],
+				'st_invdistweight4ma(double precision[][][], integer[][], text[])'::regprocedure,
+				pixeltype,
+				'FIRST', NULL,
+				1, 1
+			);
+			_nband := 1;
+			_pixtype := NULL;
+		ELSE
+			_rast := rast;
+			_nband := nband;
+			_pixtype := pixeltype;
+		END IF;
+
+		-- get properties
+		SELECT width, height INTO _width, _height FROM public.ST_Metadata(_rast);
+
+		RETURN public.ST_MapAlgebra(
+			ARRAY[ROW(_rast, _nband)]::rastbandarg[],
+			' public._ST_aspect4ma(double precision[][][], integer[][], text[])'::regprocedure,
+			_pixtype,
+			_extenttype, _customextent,
+			1, 1,
+			_width::text, _height::text,
+			units::text
+		);
+	END;
+	]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_aspng" returnType="bytea" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, nbands, options=NULL - Return the raster tile selected bands as a single portable network graphics (PNG) image (byte array). If 1, 3, or 4 bands in raster and no bands are specified, then all bands are used. If more 2 or more than 4 bands and no bands specified, then only band 1 is used. Bands are mapped to RGB or RGBA space.]]></comment>
@@ -4199,7 +4366,7 @@ END
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_asraster" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: geom, width, height, pixeltype, value=ARRAY[1], nodataval=ARRAY[0], upperleftx=NULL, upperlefty=NULL, skewx=0, skewy=0, touched=false - Converts a PostGIS geometry to a PostGIS raster.]]></comment>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_asraster($1, $2, $3, NULL, NULL, ARRAY[$4]::text[], ARRAY[$5]::double precision[], ARRAY[$6]::double precision[], $7, $8, NULL, NULL, $9, $10, $11) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_asraster($1, $2, $3, NULL, NULL, $6, $7, $8, NULL, NULL, $4, $5, $9, $10, $11) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_assvg" returnType="text" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -4213,83 +4380,28 @@ END
          <comment><![CDATA[args: rast, nbands, options, srid=sameassource - Return the raster selected bands as a single TIFF image (byte array). If no band is specified, then will try to use all bands.]]></comment>
          <definition language="PLPGSQL"><![CDATA[
 	DECLARE
-		compression2 text;
-		c_type text;
-		c_level int;
 		i int;
 		num_bands int;
-		options text[];
+		nodata double precision;
+		last_nodata double precision;
 	BEGIN
 		IF rast IS NULL THEN
 			RETURN NULL;
 		END IF;
 
-		compression2 := trim(both from upper(compression));
+		num_bands := st_numbands($1);
 
-		IF length(compression2) > 0 THEN
-			-- JPEG
-			IF position('JPEG' in compression2) != 0 THEN
-				c_type := 'JPEG';
-				c_level := substring(compression2 from '[0-9]+$');
-
-				IF c_level IS NOT NULL THEN
-					IF c_level > 100 THEN
-						c_level := 100;
-					ELSEIF c_level < 1 THEN
-						c_level := 1;
-					END IF;
-
-					options := array_append(options, 'JPEG_QUALITY=' || c_level);
-				END IF;
-
-				-- per band pixel type check
-				num_bands := st_numbands($1);
-				FOR i IN 1..num_bands LOOP
-					IF public.ST_BandPixelType($1, i) != '8BUI' THEN
-						RAISE EXCEPTION 'The pixel type of band % in the raster is not 8BUI.  JPEG compression can only be used with the 8BUI pixel type.', i;
-					END IF;
-				END LOOP;
-
-			-- DEFLATE
-			ELSEIF position('DEFLATE' in compression2) != 0 THEN
-				c_type := 'DEFLATE';
-				c_level := substring(compression2 from '[0-9]+$');
-
-				IF c_level IS NOT NULL THEN
-					IF c_level > 9 THEN
-						c_level := 9;
-					ELSEIF c_level < 1 THEN
-						c_level := 1;
-					END IF;
-
-					options := array_append(options, 'ZLEVEL=' || c_level);
-				END IF;
-
-			ELSE
-				c_type := compression2;
-
-				-- CCITT
-				IF position('CCITT' in compression2) THEN
-					-- per band pixel type check
-					num_bands := st_numbands($1);
-					FOR i IN 1..num_bands LOOP
-						IF public.ST_BandPixelType($1, i) != '1BB' THEN
-							RAISE EXCEPTION 'The pixel type of band % in the raster is not 1BB.  CCITT compression can only be used with the 1BB pixel type.', i;
-						END IF;
-					END LOOP;
-				END IF;
-
+		-- TIFF only allows one NODATA value for ALL bands
+		FOR i IN 1..num_bands LOOP
+			nodata := st_bandnodatavalue($1, i);
+			IF last_nodata IS NULL THEN
+				last_nodata := nodata;
+			ELSEIF nodata != last_nodata THEN
+				RAISE NOTICE 'The TIFF format only permits one NODATA value for all bands.  The value used will be the last band with a NODATA value.';
 			END IF;
+		END LOOP;
 
-			-- compression type check
-			IF ARRAY[c_type] <@ ARRAY['JPEG', 'LZW', 'PACKBITS', 'DEFLATE', 'CCITTRLE', 'CCITTFAX3', 'CCITTFAX4', 'NONE'] THEN
-				options := array_append(options, 'COMPRESS=' || c_type);
-			ELSE
-				RAISE NOTICE 'Unknown compression type: %.  The outputted TIFF will not be COMPRESSED.', c_type;
-			END IF;
-		END IF;
-
-		RETURN st_astiff($1, options, $3);
+		RETURN st_asgdalraster($1, 'GTiff', $2, $3);
 	END;
 	]]></definition>
       </routine>
@@ -4315,7 +4427,7 @@ END
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_bandmetadata" returnType="record" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT pixeltype, nodatavalue, isoutdb, path FROM public.ST_BandMetaData($1, ARRAY[$2]::int[]) LIMIT 1 ]]></definition>
+         <definition language="C"><![CDATA[RASTER_bandmetadata]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_bandnodatavalue" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, bandnum=1 - Returns the value in a given band that represents no data. If no band num 1 is assumed.]]></comment>
@@ -4461,93 +4573,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_colormap" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="PLPGSQL"><![CDATA[
-	DECLARE
-		_ismap boolean;
-		_colormap text;
-		_element text[];
-	BEGIN
-		_ismap := TRUE;
-
-		-- clean colormap to see what it is
-		_colormap := split_part(colormap, E'\n', 1);
-		_colormap := regexp_replace(_colormap, E':+', ' ', 'g');
-		_colormap := regexp_replace(_colormap, E',+', ' ', 'g');
-		_colormap := regexp_replace(_colormap, E'\\t+', ' ', 'g');
-		_colormap := regexp_replace(_colormap, E' +', ' ', 'g');
-		_element := regexp_split_to_array(_colormap, ' ');
-
-		-- treat as colormap
-		IF (array_length(_element, 1) > 1) THEN
-			_colormap := colormap;
-		-- treat as keyword
-		ELSE
-			method := 'INTERPOLATE';
-			CASE lower(trim(both from _colormap))
-				WHEN 'grayscale', 'greyscale' THEN
-					_colormap := '
-100%   0
-  0% 254
-  nv 255
-					';
-				WHEN 'pseudocolor' THEN
-					_colormap := '
-100% 255   0   0 255
- 50%   0 255   0 255
-  0%   0   0 255 255
-  nv   0   0   0   0
-					';
-				WHEN 'fire' THEN
-					_colormap := '
-  100% 243 255 221 255
-93.75% 242 255 178 255
- 87.5% 255 255 135 255
-81.25% 255 228  96 255
-   75% 255 187  53 255
-68.75% 255 131   7 255
- 62.5% 255  84   0 255
-56.25% 255  42   0 255
-   50% 255   0   0 255
-43.75% 255  42   0 255
- 37.5% 224  74   0 255
-31.25% 183  91   0 255
-   25% 140  93   0 255
-18.75%  99  82   0 255
- 12.5%  58  58   1 255
- 6.25%  12  15   0 255
-    0%   0   0   0 255
-    nv   0   0   0   0
-					';
-				WHEN 'bluered' THEN
-					_colormap := '
-100.00% 165   0  33 255
- 94.12% 216  21  47 255
- 88.24% 247  39  53 255
- 82.35% 255  61  61 255
- 76.47% 255 120  86 255
- 70.59% 255 172 117 255
- 64.71% 255 214 153 255
- 58.82% 255 241 188 255
- 52.94% 255 255 234 255
- 47.06% 234 255 255 255
- 41.18% 188 249 255 255
- 35.29% 153 234 255 255
- 29.41% 117 211 255 255
- 23.53%  86 176 255 255
- 17.65%  61 135 255 255
- 11.76%  40  87 255 255
-  5.88%  24  28 247 255
-  0.00%  36   0 216 255
-     nv   0   0   0   0
-					';
-				ELSE
-					RAISE EXCEPTION 'Unknown colormap keyword: %', colormap;
-			END CASE;
-		END IF;
-
-		RETURN public._ST_colormap($1, $2, _colormap, $4);
-	END;
-	]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public.ST_ColorMap($1, 1, $2, $3) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_combine_bbox" returnType="box3d" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -5286,11 +5312,11 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_intersection" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT st_intersection($1, 1, $2, 1, $3, $4) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT st_intersection($1, $2, $3, $4, 'BOTH', ARRAY[$5, $5]) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_intersects" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT $1::geometry OPERATOR(public.&&) $2 AND public._st_intersects($2, $1, $3) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public.st_intersects($1, NULL::integer, $2, NULL::integer) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_invdistweight4ma" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -5799,7 +5825,22 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_makeemptyraster" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: width, height, upperleftx, upperlefty, pixelsize - Returns an empty raster (having no bands) of given dimensions (width & height), upperleft X and Y, pixel size and rotation (scalex, scaley, skewx & skewy) and reference system (srid). If a raster is passed in, returns a new raster with the same size, alignment and SRID. If srid is left out, the spatial ref is set to unknown (0).]]></comment>
-         <definition language="C"><![CDATA[RASTER_makeEmpty]]></definition>
+         <definition language="PLPGSQL"><![CDATA[
+		DECLARE
+			w int;
+			h int;
+			ul_x double precision;
+			ul_y double precision;
+			scale_x double precision;
+			scale_y double precision;
+			skew_x double precision;
+			skew_y double precision;
+			sr_id int;
+		BEGIN
+			SELECT width, height, upperleftx, upperlefty, scalex, scaley, skewx, skewy, srid INTO w, h, ul_x, ul_y, scale_x, scale_y, skew_x, skew_y, sr_id FROM public.ST_Metadata(rast);
+			RETURN  public.ST_makeemptyraster(w, h, ul_x, ul_y, scale_x, scale_y, skew_x, skew_y, sr_id);
+		END;
+    ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_makeenvelope" returnType="geometry" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: xmin, ymin, xmax, ymax, srid=unknown - Creates a rectangular Polygon formed from the given minimums and maximums. Input values must be in SRS specified by the SRID.]]></comment>
@@ -5827,7 +5868,9 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebra" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_MapAlgebra(ARRAY[ROW($1, $2), ROW($3, $4)]::rastbandarg[], $5, $6, $9, $10, $7, $8,NULL::double precision [],NULL::boolean, VARIADIC $11) ]]></definition>
+         <definition language="SQL"><![CDATA[
+	select public._ST_mapalgebra(ARRAY[ROW($1,$2)]::rastbandarg[],$3,$6,NULL::integer,NULL::integer,$7,$8,$4,$5,VARIADIC $9)
+	]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebraexpr" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -5835,7 +5878,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebrafct" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public.ST_mapalgebrafct($1, 1, NULL, $2, NULL) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public.ST_mapalgebrafct($1, 1, NULL, $2, VARIADIC $3) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebrafctngb" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -5844,27 +5887,54 @@ END;
       <routine dataAccess="MODIFIES" deterministic="true" name="st_max4ma" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="PLPGSQL"><![CDATA[
-    DECLARE
-        _matrix float[][];
-        max float;
-    BEGIN
-        _matrix := matrix;
-        max := '-Infinity'::float;
-        FOR x in array_lower(_matrix, 1)..array_upper(_matrix, 1) LOOP
-            FOR y in array_lower(_matrix, 2)..array_upper(_matrix, 2) LOOP
-                IF _matrix[x][y] IS NULL THEN
-                    IF NOT nodatamode = 'ignore' THEN
-                        _matrix[x][y] := nodatamode::float;
-                    END IF;
-                END IF;
-                IF max < _matrix[x][y] THEN
-                    max := _matrix[x][y];
-                END IF;
-            END LOOP;
-        END LOOP;
-        RETURN max;
-    END;
-    ]]></definition>
+	DECLARE
+		_value double precision[][][];
+		max double precision;
+		x int;
+		y int;
+		z int;
+		ndims int;
+	BEGIN
+		max := '-Infinity'::double precision;
+
+		ndims := array_ndims(value);
+		-- add a third dimension if 2-dimension
+		IF ndims = 2 THEN
+			_value := public._ST_convertarray4ma(value);
+		ELSEIF ndims != 3 THEN
+			RAISE EXCEPTION 'First parameter of function must be a 3-dimension array';
+		ELSE
+			_value := value;
+		END IF;
+
+		-- raster
+		FOR z IN array_lower(_value, 1)..array_upper(_value, 1) LOOP
+			-- row
+			FOR y IN array_lower(_value, 2)..array_upper(_value, 2) LOOP
+				-- column
+				FOR x IN array_lower(_value, 3)..array_upper(_value, 3) LOOP
+					IF _value[z][y][x] IS NULL THEN
+						IF array_length(userargs, 1) > 0 THEN
+							_value[z][y][x] = userargs[array_lower(userargs, 1)]::double precision;
+						ELSE
+							CONTINUE;
+						END IF;
+					END IF;
+
+					IF _value[z][y][x] > max THEN
+						max := _value[z][y][x];
+					END IF;
+				END LOOP;
+			END LOOP;
+		END LOOP;
+
+		IF max = '-Infinity'::double precision THEN
+			RETURN NULL;
+		END IF;
+
+		RETURN max;
+	END;
+	]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_maxdistance" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: g1, g2 - Returns the 2-dimensional largest distance between two geometries in projected units.]]></comment>
@@ -6325,7 +6395,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_pixelofvalue" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, search, exclude_nodata_value=true - Get the columnx, rowy coordinates of the pixel whose value equals the search value.]]></comment>
-         <definition language="C"><![CDATA[RASTER_pixelOfValue]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT val, x, y FROM public.ST_PixelOfValue($1, 1, $2, $3) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_pixelwidth" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast - Returns the pixel width in geometric units of the spatial reference system.]]></comment>
@@ -6417,7 +6487,7 @@ END;
          <comment><![CDATA[args: g1, distance, azimuth - Returns a POINT projected from a start point using a distance in meters and bearing (azimuth) in radians.]]></comment>
          <definition language="C"><![CDATA[geography_project]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_quantile" returnType="record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_quantile" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT public._ST_quantile($1, $2, $3, $4, 1, $5) ]]></definition>
       </routine>
@@ -6527,7 +6597,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_resample" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, ref, usescale, algorithm=NearestNeighbour, maxerr=0.125 - Resample a raster using a specified resampling algorithm, new dimensions, an arbitrary grid corner and a set of raster georeferencing attributes defined or borrowed from another raster.]]></comment>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_gdalwarp($1, $8,	$9, NULL, $2, $3, $4, $5, $6, $7) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public.st_resample($1, $2, $4, $5, $3) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_rescale" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, scalex, scaley, algorithm=NearestNeighbour, maxerr=0.125 - Resample a raster by adjusting only its scale (or pixel size). New pixel values are computed using the NearestNeighbor (english or american spelling), Bilinear, Cubic, CubicSpline or Lanczos resampling algorithm. Default is NearestNeighbor.]]></comment>
@@ -6751,7 +6821,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_samealignment" returnType="boolean" securityType="INVOKER" type="AGGREGATE">
          <comment><![CDATA[args: rastfield - Returns true if rasters have same skew, scale, spatial ref, and offset (pixels can be put on same grid without cutting into pixels) and false if they dont with notice detailing issue.]]></comment>
-         <definition language="C"><![CDATA[RASTER_sameAlignment]]></definition>
+         <definition language="INTERNAL"><![CDATA[aggregate_dummy]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_scale" returnType="geometry" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: geom, factor - Scale a geometry by given factors.]]></comment>
@@ -6852,9 +6922,9 @@ END;
          <comment><![CDATA[args: rast, x, y - Sets the value of the upper left corner of the pixel of the raster to projected X and Y coordinates.]]></comment>
          <definition language="C"><![CDATA[RASTER_setUpperLeftXY]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_setvalue" returnType="raster" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="true" name="st_setvalue" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, columnx, rowy, newvalue - Returns modified raster resulting from setting the value of a given band in a given columnx, rowy pixel or the pixels that intersect a particular geometry. Band numbers start at 1 and assumed to be 1 if not specified.]]></comment>
-         <definition language="SQL"><![CDATA[ SELECT public.ST_SetValue($1, 1, $2, $3, $4) ]]></definition>
+         <definition language="C"><![CDATA[RASTER_setPixelValue]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_setvalues" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, nband, geomvalset, keepnodata=FALSE - Returns modified raster resulting from setting the values of a given band.]]></comment>
@@ -7112,7 +7182,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_transform" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_gdalwarp($1, $4, $5, $2, $3, $3) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_gdalwarp($1, $3, $4, $2, $5, $6) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_translate" returnType="geometry" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: g1, deltax, deltay, deltaz - Translate a geometry by given offsets.]]></comment>
@@ -7192,11 +7262,34 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_value" returnType="double precision" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rast, band, x, y, exclude_nodata_value=true - Returns the value of a given band in a given columnx, rowy pixel or at a particular geometric point. Band numbers start at 1 and assumed to be 1 if not specified. If exclude_nodata_value is set to false, then all pixels include nodata pixels are considered to intersect and return value. If exclude_nodata_value is not passed in then reads it from metadata of raster.]]></comment>
-         <definition language="C"><![CDATA[RASTER_getPixelValue]]></definition>
+         <definition language="PLPGSQL"><![CDATA[
+    DECLARE
+        x float8;
+        y float8;
+        gtype text;
+    BEGIN
+        gtype := public.ST_GeometryType(pt);
+        IF ( gtype != 'ST_Point' ) THEN
+            RAISE EXCEPTION 'Attempting to get the value of a pixel with a non-point geometry';
+        END IF;
+
+				IF public.ST_SRID(pt) != public.ST_SRID(rast) THEN
+            RAISE EXCEPTION 'Raster and geometry do not have the same SRID';
+				END IF;
+
+        x := public.ST_x(pt);
+        y := public.ST_y(pt);
+        RETURN public.ST_value(rast,
+                        band,
+                        public.ST_worldtorastercoordx(rast, x, y),
+                        public.ST_worldtorastercoordy(rast, x, y),
+                        exclude_nodata_value);
+    END;
+    ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="st_valuecount" returnType="integer" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: rastertable, rastercolumn, nband, searchvalue, roundto=0 - Returns a set of records containing a pixel band value and count of the number of pixels in a given band of a raster (or a raster coverage) that have a given set of values. If no band is specified defaults to band 1. By default nodata value pixels are not counted. and all other values in the pixel are output and pixel band values are rounded to the nearest integer.]]></comment>
-         <definition language="SQL"><![CDATA[ SELECT ( public._ST_valuecount($1, $2, $3, TRUE, ARRAY[$4]::double precision[], $5)).count ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT ( public._ST_valuecount($1, $2, $3, $4, ARRAY[$5]::double precision[], $6)).count ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="st_valuepercent" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -7400,6 +7493,26 @@ END;
       <routine dataAccess="MODIFIES" deterministic="false" name="updaterastersrid" returnType="boolean" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: table_name, column_name, new_srid - Change the SRID of all rasters in the user-specified column and table.]]></comment>
          <definition language="SQL"><![CDATA[ SELECT  public._UpdateRasterSRID($1, $2, $3, $4) ]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="word_similarity" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[word_similarity]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="word_similarity_commutator_op" returnType="boolean" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[word_similarity_commutator_op]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="word_similarity_dist_commutator_op" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[word_similarity_dist_commutator_op]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="word_similarity_dist_op" returnType="real" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[word_similarity_dist_op]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="word_similarity_op" returnType="boolean" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[word_similarity_op]]></definition>
       </routine>
    </routines>
 </database>

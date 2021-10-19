@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>fontes</h1><p><span id="recordNumber">2312</span> rows</p><br />
+                    <h1>fontes</h1><p><span id="recordNumber">398</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -170,8 +170,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.tip_fonte references inventario_dominios.tip_fonte.key via fontes_tip_fonte_fkey"><a href='../../inventario_dominios/tables/tip_fonte.html'>tip_fonte</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">fontes_tip_fonte_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="fontes.[tipo_agua, tip_fonte] references domains.fonte_tipo.[parent, key] via fontes_tipo_agua_fkey1"><a href='../../domains/tables/fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">fontes_tipo_agua_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -181,7 +181,7 @@
                                     <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="red_monit">red_monit</span></td>
                                     <td>varchar</td>
                                     <td>254</td>
-                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
                                     <td title=''></td>
                                     <td>null</td>
                                     <td>
@@ -191,7 +191,7 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.red_monit references inventario_dominios.red_monit.key via fontes_red_monit_fkey"><a href='../../inventario_dominios/tables/red_monit.html'>red_monit</a><span class='relatedKey'>.key</span></td>
+                                                <td title="fontes.red_monit references domains.red_monit.key via fontes_red_monit_fkey"><a href='../../domains/tables/red_monit.html'>red_monit</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">fontes_red_monit_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
@@ -280,12 +280,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.[provincia, distrito] references inventario_dominios.distrito.[parent, key] via fontes_provincia_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">fontes_provincia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="fontes.provincia references inventario_dominios.provincia.key via fontes_provincia_fkey"><a href='../../inventario_dominios/tables/provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">fontes_provincia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes.[provincia, distrito] references inventario_dominios.distrito.[parent, key] via fontes_provincia_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">fontes_provincia_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -996,12 +996,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.[bacia, subacia] references inventario_dominios.subacia.[parent, key] via fontes_subacia_fkey"><a href='../../inventario_dominios/tables/subacia.html'>subacia</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">fontes_subacia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="fontes.bacia references inventario_dominios.bacia.key via fontes_bacia_fkey"><a href='../../inventario_dominios/tables/bacia.html'>bacia</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">fontes_bacia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes.[bacia, subacia] references inventario_dominios.subacia.[parent, key] via fontes_subacia_fkey"><a href='../../inventario_dominios/tables/subacia.html'>subacia</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">fontes_subacia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -1198,12 +1198,16 @@
                                                 <td title="fontes.tipo_agua references domains.licencia_tipo_agua.key via fontes_tipo_agua_fkey"><a href='../../domains/tables/licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">fontes_tipo_agua_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
+                                            <tr>
+                                                <td title="fontes.[tipo_agua, tip_fonte] references domains.fonte_tipo.[parent, key] via fontes_tipo_agua_fkey1"><a href='../../domains/tables/fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">fontes_tipo_agua_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="loc_unidad">loc_unidad</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="loc_divisao">loc_divisao</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
                                     <td title='nullable'>√</td>
@@ -1216,8 +1220,8 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.loc_unidad references inventario_dominios.unidade.key via fontes_loc_unidad_fkey"><a href='../../inventario_dominios/tables/unidade.html'>unidade</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">fontes_loc_unidad_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                                <td title="fontes.loc_divisao references inventario_dominios.divisao.key via fontes_loc_divisao_fkey"><a href='../../inventario_dominios/tables/divisao.html'>divisao</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">fontes_loc_divisao_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -1309,61 +1313,61 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fontes.html" target="_top" title="fontes" alt="" coords="424,477,752,2365">
-<area shape="rect" id="node2" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="49,1817,336,1905">
-<area shape="rect" id="node3" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="41,1923,345,2011">
-<area shape="rect" id="node4" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="41,735,344,823">
-<area shape="rect" id="node5" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="49,840,337,928">
-<area shape="rect" id="node6" href="../inventario_dominios/tables/estado_ampliado.html" target="_top" title="inventario_dominios.estado_ampliado" alt="" coords="5,1659,380,1747">
+<area shape="rect" id="node1" href="fontes.html" target="_top" title="fontes" alt="" coords="424,477,745,2365">
+<area shape="rect" id="node2" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="49,1739,336,1827">
+<area shape="rect" id="node3" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="41,1949,345,2037">
+<area shape="rect" id="node4" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="41,720,344,808">
+<area shape="rect" id="node5" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="49,825,337,913">
+<area shape="rect" id="node6" href="../inventario_dominios/tables/estado_ampliado.html" target="_top" title="inventario_dominios.estado_ampliado" alt="" coords="5,1633,380,1721">
 <area shape="rect" id="node7" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="44,1239,341,1327">
-<area shape="rect" id="node8" href="../inventario_dominios/tables/unidade.html" target="_top" title="inventario_dominios.unidade" alt="" coords="38,2245,347,2333">
-<area shape="rect" id="node9" href="../inventario_dominios/tables/propiedad.html" target="_top" title="inventario_dominios.propiedad" alt="" coords="30,945,355,1033">
-<area shape="rect" id="node10" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="33,629,352,717">
-<area shape="rect" id="node11" href="../inventario_dominios/tables/red_monit.html" target="_top" title="inventario_dominios.red_monit" alt="" coords="31,524,355,612">
+<area shape="rect" id="node8" href="../inventario_dominios/tables/divisao.html" target="_top" title="inventario_dominios.divisao" alt="" coords="43,2245,343,2333">
+<area shape="rect" id="node9" href="../inventario_dominios/tables/propiedad.html" target="_top" title="inventario_dominios.propiedad" alt="" coords="30,931,355,1019">
+<area shape="rect" id="node10" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="33,615,352,703">
+<area shape="rect" id="node11" href="../domains/tables/red_monit.html" target="_top" title="domains.red_monit" alt="" coords="76,509,309,597">
 <area shape="rect" id="node12" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="55,2351,330,2439">
-<area shape="rect" id="node13" href="../inventario_dominios/tables/tip_fonte.html" target="_top" title="inventario_dominios.tip_fonte" alt="" coords="35,419,350,507">
+<area shape="rect" id="node13" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="76,1844,309,1932">
 <area shape="rect" id="node14" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="46,2140,339,2228">
 <area shape="rect" id="node15" href="../inventario_dominios/tables/tipo_pozo.html" target="_top" title="inventario_dominios.tipo_pozo" alt="" coords="33,1344,352,1432">
-<area shape="rect" id="node16" href="fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="813,5,1007,269">
-<area shape="rect" id="node17" href="fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="796,287,1024,492">
-<area shape="rect" id="node18" href="fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="804,509,1016,627">
-<area shape="rect" id="node19" href="fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="809,644,1011,849">
-<area shape="rect" id="node20" href="quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="801,867,1019,1013">
+<area shape="rect" id="node16" href="fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="806,5,1001,269">
+<area shape="rect" id="node17" href="fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="789,287,1017,492">
+<area shape="rect" id="node18" href="fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="797,509,1009,627">
+<area shape="rect" id="node19" href="fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="802,644,1005,849">
+<area shape="rect" id="node20" href="quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="795,867,1012,1013">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fontes.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="barragens.html" target="_top" title="barragens" alt="" coords="507,111,669,199">
+<area shape="rect" id="node1" href="barragens.html" target="_top" title="barragens" alt="" coords="506,111,669,199">
 <area shape="rect" id="node2" href="../inventario_dominios/tables/bacia.html" target="_top" title="inventario_dominios.bacia" alt="" coords="49,324,336,412">
 <area shape="rect" id="node3" href="../inventario_dominios/tables/subacia.html" target="_top" title="inventario_dominios.subacia" alt="" coords="41,535,345,623">
 <area shape="rect" id="node4" href="../inventario_dominios/tables/distrito.html" target="_top" title="inventario_dominios.distrito" alt="" coords="41,113,344,201">
 <area shape="rect" id="node5" href="../inventario_dominios/tables/posto.html" target="_top" title="inventario_dominios.posto" alt="" coords="49,219,337,307">
 <area shape="rect" id="node6" href="../inventario_dominios/tables/estado_ampliado.html" target="_top" title="inventario_dominios.estado_ampliado" alt="" coords="5,429,380,517">
 <area shape="rect" id="node7" href="../inventario_dominios/tables/provincia.html" target="_top" title="inventario_dominios.provincia" alt="" coords="33,8,352,96">
-<area shape="rect" id="node8" href="estacoes.html" target="_top" title="estacoes" alt="" coords="505,216,671,304">
-<area shape="rect" id="node9" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="44,745,341,833">
-<area shape="rect" id="node10" href="exploracoes.html" target="_top" title="exploracoes" alt="" coords="499,5,677,93">
-<area shape="rect" id="node11" href="fontes.html" target="_top" title="fontes" alt="" coords="424,321,752,2209">
-<area shape="rect" id="node12" href="../inventario_dominios/tables/unidade.html" target="_top" title="inventario_dominios.unidade" alt="" coords="38,2089,347,2177">
+<area shape="rect" id="node8" href="estacoes.html" target="_top" title="estacoes" alt="" coords="505,216,670,304">
+<area shape="rect" id="node9" href="../inventario_dominios/tables/estado.html" target="_top" title="inventario_dominios.estado" alt="" coords="44,640,341,728">
+<area shape="rect" id="node10" href="exploracoes.html" target="_top" title="exploracoes" alt="" coords="499,5,676,93">
+<area shape="rect" id="node11" href="fontes.html" target="_top" title="fontes" alt="" coords="427,321,748,2209">
+<area shape="rect" id="node12" href="../inventario_dominios/tables/divisao.html" target="_top" title="inventario_dominios.divisao" alt="" coords="43,2089,343,2177">
 <area shape="rect" id="node13" href="../inventario_dominios/tables/propiedad.html" target="_top" title="inventario_dominios.propiedad" alt="" coords="30,956,355,1044">
-<area shape="rect" id="node14" href="../inventario_dominios/tables/red_monit.html" target="_top" title="inventario_dominios.red_monit" alt="" coords="31,851,355,939">
+<area shape="rect" id="node14" href="../domains/tables/red_monit.html" target="_top" title="domains.red_monit" alt="" coords="76,851,309,939">
 <area shape="rect" id="node15" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="55,2195,330,2283">
-<area shape="rect" id="node16" href="../inventario_dominios/tables/tip_fonte.html" target="_top" title="inventario_dominios.tip_fonte" alt="" coords="35,640,350,728">
+<area shape="rect" id="node16" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="76,745,309,833">
 <area shape="rect" id="node17" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="46,1984,339,2072">
 <area shape="rect" id="node18" href="../inventario_dominios/tables/tipo_pozo.html" target="_top" title="inventario_dominios.tipo_pozo" alt="" coords="33,1151,352,1239">
-<area shape="rect" id="node19" href="fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="813,2180,1007,2444">
-<area shape="rect" id="node20" href="../inventario_dominios/tables/c_nitrat.html" target="_top" title="inventario_dominios.c_nitrat" alt="" coords="435,2227,741,2315">
-<area shape="rect" id="node21" href="../inventario_dominios/tables/c_nitrit.html" target="_top" title="inventario_dominios.c_nitrit" alt="" coords="437,2332,739,2420">
-<area shape="rect" id="node22" href="../inventario_dominios/tables/cond_most.html" target="_top" title="inventario_dominios.cond_most" alt="" coords="425,2437,751,2525">
-<area shape="rect" id="node23" href="../inventario_dominios/tables/tipo_aqui.html" target="_top" title="inventario_dominios.tipo_aqui" alt="" coords="429,2543,747,2631">
-<area shape="rect" id="node24" href="fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="796,2461,1024,2667">
-<area shape="rect" id="node25" href="../inventario_dominios/tables/tipo_cama.html" target="_top" title="inventario_dominios.tipo_cama" alt="" coords="426,2648,750,2736">
-<area shape="rect" id="node26" href="fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="804,421,1016,539">
-<area shape="rect" id="node27" href="fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="809,2692,1011,2897">
-<area shape="rect" id="node28" href="../inventario_dominios/tables/carac_lit.html" target="_top" title="inventario_dominios.carac_lit" alt="" coords="433,2859,743,2947">
-<area shape="rect" id="node29" href="../inventario_dominios/tables/litologia.html" target="_top" title="inventario_dominios.litologia" alt="" coords="434,2753,742,2841">
-<area shape="rect" id="node30" href="quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="801,257,1019,404">
+<area shape="rect" id="node19" href="fontes_analise.html" target="_top" title="fontes_analise" alt="" coords="811,2180,1006,2444">
+<area shape="rect" id="node20" href="../inventario_dominios/tables/c_nitrat.html" target="_top" title="inventario_dominios.c_nitrat" alt="" coords="435,2227,740,2315">
+<area shape="rect" id="node21" href="../inventario_dominios/tables/c_nitrit.html" target="_top" title="inventario_dominios.c_nitrit" alt="" coords="437,2332,738,2420">
+<area shape="rect" id="node22" href="../inventario_dominios/tables/cond_most.html" target="_top" title="inventario_dominios.cond_most" alt="" coords="424,2437,751,2525">
+<area shape="rect" id="node23" href="../inventario_dominios/tables/tipo_aqui.html" target="_top" title="inventario_dominios.tipo_aqui" alt="" coords="429,2543,746,2631">
+<area shape="rect" id="node24" href="fontes_carac_hidro.html" target="_top" title="fontes_carac_hidro" alt="" coords="795,2461,1023,2667">
+<area shape="rect" id="node25" href="../inventario_dominios/tables/tipo_cama.html" target="_top" title="inventario_dominios.tipo_cama" alt="" coords="425,2648,749,2736">
+<area shape="rect" id="node26" href="fontes_imagenes.html" target="_top" title="fontes_imagenes" alt="" coords="803,421,1015,539">
+<area shape="rect" id="node27" href="fontes_litologia.html" target="_top" title="fontes_litologia" alt="" coords="807,2692,1010,2897">
+<area shape="rect" id="node28" href="../inventario_dominios/tables/carac_lit.html" target="_top" title="inventario_dominios.carac_lit" alt="" coords="432,2859,743,2947">
+<area shape="rect" id="node29" href="../inventario_dominios/tables/litologia.html" target="_top" title="inventario_dominios.litologia" alt="" coords="433,2753,741,2841">
+<area shape="rect" id="node30" href="quantidade_agua.html" target="_top" title="quantidade_agua" alt="" coords="800,257,1017,404">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fontes.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

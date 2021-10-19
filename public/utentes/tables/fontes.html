@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>fontes</h1><p><span id="recordNumber">1537</span> rows</p><br />
+                    <h1>fontes</h1><p><span id="recordNumber">3391</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -133,12 +133,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.[tipo_agua, tipo_fonte] references domains.fonte_tipo.[parent, key] via fontes_tipo_agua_fkey1"><a href='../../domains/tables/fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">fontes_tipo_agua_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="fontes.tipo_agua references domains.licencia_tipo_agua.key via fontes_tipo_agua_fkey"><a href='../../domains/tables/licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">fontes_tipo_agua_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes.[tipo_agua, tipo_fonte] references domains.fonte_tipo.[parent, key] via fontes_tipo_agua_fkey1"><a href='../../domains/tables/fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">fontes_tipo_agua_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -364,6 +364,112 @@
                                     </td>
                                     <td></td>
                                 </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="red_monit">red_monit</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="fontes.red_monit references domains.red_monit.key via fontes_red_monit_fkey"><a href='../../domains/tables/red_monit.html'>red_monit</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">fontes_red_monit_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td><p>Red de monitoreo</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="bombeo">bombeo</span></td>
+                                    <td>bool</td>
+                                    <td>1</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Bombagem</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="prof_pozo">prof_pozo</span></td>
+                                    <td>numeric</td>
+                                    <td>10,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Profundidade (m)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="diametro">diametro</span></td>
+                                    <td>numeric</td>
+                                    <td>10,2</td>
+                                    <td title='nullable'>√</td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td><p>Diâmetro interior (m)</p></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="updated_at">updated_at</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>now()</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="created_at">created_at</span></td>
+                                    <td>timestamp</td>
+                                    <td>29,6</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>now()</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -417,38 +523,41 @@
                                 <div class="tab-content no-padding">
                                     <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
-<area shape="rect" id="node1" href="fontes.html" target="_top" title="fontes" alt="" coords="343,59,624,539">
+<area shape="rect" id="node1" href="fontes.html" target="_top" title="fontes" alt="" coords="343,73,624,729">
 <area shape="rect" id="node2" href="../domains/tables/fontes_disp_a.html" target="_top" title="domains.fontes_disp_a" alt="" coords="24,808,280,896">
 <area shape="rect" id="node3" href="exploracaos.html" target="_top" title="exploracaos" alt="" coords="41,216,263,685">
-<area shape="rect" id="node4" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="15,703,289,791">
-<area shape="rect" id="node5" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="35,111,269,199">
-<area shape="rect" id="node6" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="5,5,299,93">
+<area shape="rect" id="node4" href="../domains/tables/red_monit.html" target="_top" title="domains.red_monit" alt="" coords="35,913,269,1001">
+<area shape="rect" id="node5" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="15,703,289,791">
+<area shape="rect" id="node6" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="35,111,269,199">
+<area shape="rect" id="node7" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="5,5,299,93">
 </map>
                                         <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/fontes.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
-<area shape="rect" id="node1" href="actividades.html" target="_top" title="actividades" alt="" coords="1041,263,1216,351">
-<area shape="rect" id="node2" href="exploracaos.html" target="_top" title="exploracaos" alt="" coords="687,252,908,721">
-<area shape="rect" id="node4" href="../domains/tables/unidade.html" target="_top" title="domains.unidade" alt="" coords="332,245,551,333">
-<area shape="rect" id="node5" href="../domains/tables/licencia_estado.html" target="_top" title="domains.licencia_estado" alt="" coords="306,633,577,721">
-<area shape="rect" id="node6" href="../domains/tables/facturacao_fact_estado.html" target="_top" title="domains.facturacao_fact_estado" alt="" coords="276,739,607,827">
-<area shape="rect" id="node7" href="../domains/tables/facturacao_fact_tipo.html" target="_top" title="domains.facturacao_fact_tipo" alt="" coords="286,844,597,932">
-<area shape="rect" id="node8" href="../domains/tables/bacia.html" target="_top" title="domains.bacia" alt="" coords="343,528,539,616">
-<area shape="rect" id="node9" href="../domains/tables/subacia.html" target="_top" title="domains.subacia" alt="" coords="335,423,548,511">
-<area shape="rect" id="node10" href="../domains/tables/distrito.html" target="_top" title="domains.distrito" alt="" coords="13,131,225,219">
-<area shape="rect" id="node11" href="../domains/tables/posto.html" target="_top" title="domains.posto" alt="" coords="20,280,217,368">
-<area shape="rect" id="node12" href="../domains/tables/provincia.html" target="_top" title="domains.provincia" alt="" coords="5,5,232,93">
-<area shape="rect" id="node13" href="utentes.html" target="_top" title="utentes" alt="" coords="357,140,526,228">
-<area shape="rect" id="node3" href="documentos.html" target="_top" title="documentos" alt="" coords="1039,157,1219,245">
-<area shape="rect" id="node14" href="facturacao.html" target="_top" title="facturacao" alt="" coords="1045,643,1213,731">
-<area shape="rect" id="node15" href="fontes.html" target="_top" title="fontes" alt="" coords="988,875,1269,1355">
-<area shape="rect" id="node16" href="../domains/tables/fontes_disp_a.html" target="_top" title="domains.fontes_disp_a" alt="" coords="669,1272,925,1360">
-<area shape="rect" id="node17" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="660,1167,935,1255">
-<area shape="rect" id="node18" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="681,952,914,1040">
-<area shape="rect" id="node19" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="651,847,944,935">
-<area shape="rect" id="node20" href="licencias.html" target="_top" title="licencias" alt="" coords="1051,748,1207,836">
-<area shape="rect" id="node21" href="renovacoes.html" target="_top" title="renovacoes" alt="" coords="1043,368,1215,456">
+<area shape="rect" id="node1" href="actividades.html" target="_top" title="actividades" alt="" coords="1021,232,1196,320">
+<area shape="rect" id="node2" href="exploracaos.html" target="_top" title="exploracaos" alt="" coords="667,229,888,699">
+<area shape="rect" id="node4" href="../domains/tables/divisao.html" target="_top" title="domains.divisao" alt="" coords="327,245,536,333">
+<area shape="rect" id="node5" href="../domains/tables/licencia_estado.html" target="_top" title="domains.licencia_estado" alt="" coords="296,633,567,721">
+<area shape="rect" id="node6" href="../domains/tables/facturacao_fact_tipo.html" target="_top" title="domains.facturacao_fact_tipo" alt="" coords="276,1045,587,1133">
+<area shape="rect" id="node7" href="../domains/tables/bacia.html" target="_top" title="domains.bacia" alt="" coords="333,528,529,616">
+<area shape="rect" id="node8" href="../domains/tables/subacia.html" target="_top" title="domains.subacia" alt="" coords="325,423,538,511">
+<area shape="rect" id="node9" href="../domains/tables/distrito.html" target="_top" title="domains.distrito" alt="" coords="13,131,225,219">
+<area shape="rect" id="node10" href="../domains/tables/posto.html" target="_top" title="domains.posto" alt="" coords="20,275,217,363">
+<area shape="rect" id="node11" href="../domains/tables/provincia.html" target="_top" title="domains.provincia" alt="" coords="5,5,232,93">
+<area shape="rect" id="node12" href="../domains/tables/sexo.html" target="_top" title="domains.sexo" alt="" coords="24,521,213,609">
+<area shape="rect" id="node13" href="utentes.html" target="_top" title="utentes" alt="" coords="347,140,516,228">
+<area shape="rect" id="node3" href="documentos.html" target="_top" title="documentos" alt="" coords="1019,127,1199,215">
+<area shape="rect" id="node14" href="exploracaos_erp.html" target="_top" title="exploracaos_erp" alt="" coords="1004,337,1213,425">
+<area shape="rect" id="node15" href="facturacao.html" target="_top" title="facturacao" alt="" coords="1019,1388,1198,1476">
+<area shape="rect" id="node16" href="fontes.html" target="_top" title="fontes" alt="" coords="968,715,1249,1371">
+<area shape="rect" id="node17" href="../domains/tables/fontes_disp_a.html" target="_top" title="domains.fontes_disp_a" alt="" coords="649,1075,905,1163">
+<area shape="rect" id="node18" href="../domains/tables/red_monit.html" target="_top" title="domains.red_monit" alt="" coords="661,1180,894,1268">
+<area shape="rect" id="node19" href="../domains/tables/fontes_sist_med.html" target="_top" title="domains.fontes_sist_med" alt="" coords="640,969,915,1057">
+<area shape="rect" id="node20" href="../domains/tables/fonte_tipo.html" target="_top" title="domains.fonte_tipo" alt="" coords="661,857,894,945">
+<area shape="rect" id="node21" href="../domains/tables/licencia_tipo_agua.html" target="_top" title="domains.licencia_tipo_agua" alt="" coords="631,752,924,840">
+<area shape="rect" id="node22" href="licencias.html" target="_top" title="licencias" alt="" coords="1031,609,1187,697">
+<area shape="rect" id="node23" href="renovacoes.html" target="_top" title="renovacoes" alt="" coords="1023,443,1195,531">
 </map>
                                         <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/fontes.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
                                     </div>

@@ -24,15 +24,16 @@ digraph "oneDegreeRelationshipsDiagram" {
   "fontes":"distrito":w -> "inventario_dominios.posto":"parent":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"estado":w -> "inventario_dominios.estado_ampliado":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"estado_fon":w -> "inventario_dominios.estado":"key":e [arrowhead=none dir=back arrowtail=crowodot];
-  "fontes":"loc_unidad":w -> "inventario_dominios.unidade":"key":e [arrowhead=none dir=back arrowtail=crowodot];
+  "fontes":"loc_divisao":w -> "inventario_dominios.divisao":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"posto_adm":w -> "inventario_dominios.posto":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"propiedad":w -> "inventario_dominios.propiedad":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"provincia":w -> "inventario_dominios.distrito":"parent":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"provincia":w -> "inventario_dominios.provincia":"key":e [arrowhead=none dir=back arrowtail=crowodot];
-  "fontes":"red_monit":w -> "inventario_dominios.red_monit":"key":e [arrowhead=none dir=back arrowtail=crowodot];
+  "fontes":"red_monit":w -> "domains.red_monit":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"sist_med":w -> "domains.fontes_sist_med":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"subacia":w -> "inventario_dominios.subacia":"key":e [arrowhead=none dir=back arrowtail=crowodot];
-  "fontes":"tip_fonte":w -> "inventario_dominios.tip_fonte":"key":e [arrowhead=none dir=back arrowtail=crowodot];
+  "fontes":"tip_fonte":w -> "domains.fonte_tipo":"key":e [arrowhead=none dir=back arrowtail=crowodot];
+  "fontes":"tipo_agua":w -> "domains.fonte_tipo":"parent":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"tipo_agua":w -> "domains.licencia_tipo_agua":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes":"tipo_pozo":w -> "inventario_dominios.tipo_pozo":"key":e [arrowhead=none dir=back arrowtail=crowodot];
   "fontes_analise":"cadastro":w -> "fontes":"cadastro.type":e [arrowhead=none dir=back arrowtail=crowodot];
@@ -40,6 +41,17 @@ digraph "oneDegreeRelationshipsDiagram" {
   "fontes_imagenes":"cadastro":w -> "fontes":"cadastro.type":e [arrowhead=none dir=back arrowtail=teeodot];
   "fontes_litologia":"cadastro":w -> "fontes":"cadastro.type":e [arrowhead=none dir=back arrowtail=crowodot];
   "quantidade_agua":"cadastro":w -> "fontes":"cadastro.type":e [arrowhead=none dir=back arrowtail=crowodot];
+  "domains.fonte_tipo" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>domains.fonte_tipo</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2 &gt;</TD></TR>
+    </TABLE>>
+    URL="../domains/tables/fonte_tipo.html"
+    target="_top"
+    tooltip="domains.fonte_tipo"
+  ];
   "domains.fontes_sist_med" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -61,6 +73,17 @@ digraph "oneDegreeRelationshipsDiagram" {
     URL="../domains/tables/licencia_tipo_agua.html"
     target="_top"
     tooltip="domains.licencia_tipo_agua"
+  ];
+  "domains.red_monit" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>domains.red_monit</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
+    </TABLE>>
+    URL="../domains/tables/red_monit.html"
+    target="_top"
+    tooltip="domains.red_monit"
   ];
   "fontes" [
    label=<
@@ -126,9 +149,9 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="lic_nro" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">lic_nro</TD></TR></TABLE></TD><TD PORT="lic_nro.type" ALIGN="LEFT">text[2147483647]</TD></TR>
       <TR><TD PORT="n_licen_a" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">n_licen_a</TD></TR></TABLE></TD><TD PORT="n_licen_a.type" ALIGN="LEFT">text[2147483647]</TD></TR>
       <TR><TD PORT="tipo_agua" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">tipo_agua</TD></TR></TABLE></TD><TD PORT="tipo_agua.type" ALIGN="LEFT">text[2147483647]</TD></TR>
-      <TR><TD PORT="loc_unidad" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">loc_unidad</TD></TR></TABLE></TD><TD PORT="loc_unidad.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="loc_divisao" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">loc_divisao</TD></TR></TABLE></TD><TD PORT="loc_divisao.type" ALIGN="LEFT">text[2147483647]</TD></TR>
       <TR><TD PORT="sist_med" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="69" HEIGHT="16">sist_med</TD></TR></TABLE></TD><TD PORT="sist_med.type" ALIGN="LEFT">text[2147483647]</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 17</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2,312 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">5 &gt;</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 18</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">398 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">5 &gt;</TD></TR>
     </TABLE>>
     URL="fontes.html"
     target="_top"
@@ -145,7 +168,7 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="cond_most" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="85" HEIGHT="16">cond_most</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="tipo_aqui" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="85" HEIGHT="16">tipo_aqui</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 5</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">957 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 5</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">687 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
     URL="fontes_analise.html"
     target="_top"
@@ -160,7 +183,7 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="tipo_cama" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="112" HEIGHT="16">tipo_cama</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="tipo_aqui" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="112" HEIGHT="16">tipo_aqui</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">76 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 3</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">77 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
     URL="fontes_carac_hidro.html"
     target="_top"
@@ -200,7 +223,7 @@ digraph "oneDegreeRelationshipsDiagram" {
       <TR><TD PORT="gid" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="103" HEIGHT="16">gid</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="cadastro" COLSPAN="3" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/foreignKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="103" HEIGHT="16">cadastro</TD></TR></TABLE></TD></TR>
       <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">550 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 1</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">551 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">  </TD></TR>
     </TABLE>>
     URL="quantidade_agua.html"
     target="_top"
@@ -227,6 +250,17 @@ digraph "oneDegreeRelationshipsDiagram" {
     URL="../inventario_dominios/tables/distrito.html"
     target="_top"
     tooltip="inventario_dominios.distrito"
+  ];
+  "inventario_dominios.divisao" [
+   label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>inventario_dominios.divisao</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
+    </TABLE>>
+    URL="../inventario_dominios/tables/divisao.html"
+    target="_top"
+    tooltip="inventario_dominios.divisao"
   ];
   "inventario_dominios.estado" [
    label=<
@@ -283,17 +317,6 @@ digraph "oneDegreeRelationshipsDiagram" {
     target="_top"
     tooltip="inventario_dominios.provincia"
   ];
-  "inventario_dominios.red_monit" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>inventario_dominios.red_monit</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
-    </TABLE>>
-    URL="../inventario_dominios/tables/red_monit.html"
-    target="_top"
-    tooltip="inventario_dominios.red_monit"
-  ];
   "inventario_dominios.subacia" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -305,17 +328,6 @@ digraph "oneDegreeRelationshipsDiagram" {
     target="_top"
     tooltip="inventario_dominios.subacia"
   ];
-  "inventario_dominios.tip_fonte" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>inventario_dominios.tip_fonte</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
-    </TABLE>>
-    URL="../inventario_dominios/tables/tip_fonte.html"
-    target="_top"
-    tooltip="inventario_dominios.tip_fonte"
-  ];
   "inventario_dominios.tipo_pozo" [
    label=<
     <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
@@ -326,16 +338,5 @@ digraph "oneDegreeRelationshipsDiagram" {
     URL="../inventario_dominios/tables/tipo_pozo.html"
     target="_top"
     tooltip="inventario_dominios.tipo_pozo"
-  ];
-  "inventario_dominios.unidade" [
-   label=<
-    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
-      <TR><TD COLSPAN="3"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>inventario_dominios.unidade</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
-      <TR><TD PORT="elipses" COLSPAN="3" ALIGN="LEFT">...</TD></TR>
-      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">  </TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">1 &gt;</TD></TR>
-    </TABLE>>
-    URL="../inventario_dominios/tables/unidade.html"
-    target="_top"
-    tooltip="inventario_dominios.unidade"
   ];
 }
