@@ -34,6 +34,51 @@ O campo `status_lic` indica o status da exploraçaos.
 
 </details>
 
+# Lista de utentes com seus dados agregados nas explorações (número de explorações e soma do consumo licenciado)
+
+Um utente pode ter várias explorações. Portanto, devemos juntar a tabela de utentes com a de explorações.
+
+Agrupamos pelo pk do utente (gid) ou pelo nome do utente, contamos o número de fazendas e somamos o consumo licenciado.
+
+<details>
+  <summary>Lista de utentes com seus dados agregados nas explorações</summary>
+
+  ```sql
+  SELECT ...
+  ```
+</details>
+
+Para melhorar um pouco, geralmente o que nos interessa é que os dados sejam ordenados por:
+
+* O número de fazendas
+* Ou o consumo licenciado
+
+<details>
+  <summary>Ordenado por consumo licenciado</summary>
+
+  ```sql
+  SELECT ...
+  ```
+</details>
+
+
+Para facilitar a interpretação dos dados, também podemos filtrar por aqueles que têm duas ou mais explorações
+
+<details>
+  <summary>Filtro para aqueles com mais de duas explorações</summary>
+
+  ```sql
+  SELECT ...
+  ```
+</details>
+
+<details>
+  <summary>Filtre para listar os 10 com o maior consumo licenciado</summary>
+
+  ```sql
+  SELECT ...
+  ```
+</details>
 
 # Explorações perto de um rio
 
@@ -48,4 +93,44 @@ A table `cbase_ara.rios` tem os rios da região da ARA-Sul, IP.
 
 </details>
 
+# Lista de explorações é o período de faturamento (Mensal, Trimestral, Anual)
+
+É uma informação que pode ser do interesse do DHR e do DSU.
+
+É útil incluir na lista o tipo de água (da tabela `utentes.licencias`) e o nome do usuário (da tabela de `utentes.utentes`).+
+
+E deve-se levar em conta que somente as propriedades com estado de `Licenciada` e `Utente de facto` são faturáveis. 
+
+<details>
+  <summary>Lista de explorações é o período de faturamento (Mensal, Trimestral, Anual)</summary>
+  
+  ```sql
+SELECT
+        u.nome "Nome do cliente/utente" 
+        , e.exp_id "Nr. de exploraçào" 
+        , e.exp_name "Nome da exploração" 
+        , e.loc_divisao "Divisao" 
+        , e.loc_bacia "Bacia" 
+        , e.loc_provin "Provincia" 
+        , e.loc_distri "Distrito" 
+        , e.loc_posto "Posto" 
+        , e.fact_tipo "Tipo de facturação" 
+        , lic. "Tipo de Agua" 
+        , e.estado_lic "Estado" 
+    FROM
+        utentes.exploracaos e
+        JOIN utentes.utentes u ON e.utente = u.gid
+        JOIN (
+            SELECT
+                l.exploracao
+                , string_agg(l.tipo_agua , ', ') "Tipo de Agua" 
+            FROM
+                utentes.licencias l
+            GROUP BY
+                l.exploracao) lic ON lic.exploracao = e.gid
+        WHERE e.estado_lic IN ('Licenciada', 'Utente de facto')
+        ORDER BY
+            exp_name;  
+  ```
+</details>
 
