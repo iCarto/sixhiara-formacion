@@ -14,9 +14,15 @@ As principais entidades do banco de dados são:
   <summary>Quais são as consultas que permitem obter o número de elementos dessas entidades?</summary>
 
   ```sql
+  -- Conteo de utentes
+  SELECT ...
+  
+  -- Conteo de explorações
+  SELECT ...
+  
+  -- Conteo de licenças
   SELECT ...
   ```
-
 </details>
 
 Mas simplesmente contar as explorações não nos dá muitas informações. Podem estar em vias de obtenção de licença de uso de água, podem estar ativos e faturáveis, podem estar em estado irregular ou ter sido negada, ...
@@ -31,8 +37,23 @@ O campo `status_lic` indica o status da exploraçaos.
   ```sql
   SELECT ...
   ```
-
 </details>
+
+# Balanço hídrico
+
+Para conhecer o balanço hídrico é necessário conhecer a disponibilidade (oferta) e demanda. Podemos obter a demanda de certa forma conforme o consumo licenciado pelos usuários.
+
+<details>
+  <summary>Consumo licenciado das explorações de uma bacia</summary>
+  
+  Usaremos o agrupamento da tabela de exploração pelo campo `loc_bacia` e adicionando o campo` c_licencia` apenas para aquelas já concedidas Licenciadas, Utente de facto, Utente de usos comuns
+
+  ```sql
+  SELECT ...
+  ```
+</details>
+
+
 
 # Lista de utentes com seus dados agregados nas explorações (número de explorações e soma do consumo licenciado)
 
