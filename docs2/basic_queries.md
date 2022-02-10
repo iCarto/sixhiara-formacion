@@ -2,6 +2,25 @@ Neste documento, apresentamos algumas _queries_ básicas para obter informaçõe
 
 São indicados tanto para fins de treinamento quanto para fins práticos, para fazer relatórios que podem não ser fáceis de obter diretamente do aplicativo SIRHA.
 
+## Lista de recursos úteis
+
+* Tutorial online interativo. É no SQLite mas a maioria das instruções SQL seriam as mesmas. https://www.sqlitetutorial.net/tryit/query/sqlite-primary-key/#1
+* Ferramenta interativa para praticar consultas, compartilhá-las, comentá-las, ... http://sqlfiddle.com/
+* Tutorial interativo com exercícios PostgreSQL. É bom quando você conhece SQL e deseja melhorar alguns aspectos ou praticar consultas. https://pgexercises.com/
+* Instruções e ajuda para instalar o postgres no Windows. As instruções estão um pouco desatualizadas, mas podem ser usadas como um guia geral, para praticar localmente sem a necessidade de um servidor : https://gitlab.com/icarto/ikdb/-/tree/master/manuales/postgres/instalacion
+* Como fazer uma cópia do banco de dados de trabalho, por precaução antes de manipular os dados: https://gitlab.com/icarto/sixhiara-formacion/-/blob/master/docs2/precauciones_manipular_bd.md
+* Modelo de dados SIRHAS: https://icarto.gitlab.io/sixhiara-formacion/
+* Processo real. Como excluir com segurança vários explorações de uma vez. https://gitlab.com/icarto/sixhiara-formacion/-/blob/master/docs2/eliminar_explotaciones_bloque.md
+* Processo real. Converter uma licença existente em uma renovação de outra. https://gitlab.com/icarto/sixhiara-formacion/-/blob/master/docs2/pasar_a_renovacion.md
+* Processo real. As consultas denominadas "revision_xxx" são utilizadas durante as reuniões quinzenais de monitoramento para avaliar o uso do sistema e os resultados alcançados. https://gitlab.com/icarto/utentes-bd/-/tree/master/scripts/sql-functions
+* Uma breve apresentação sobre PostGIS: https://fpuga.github.io/talks/GPUL_Labs_20170629_PostGIS/#1 
+
+
+
+
+
+Exercícios online interativos focados no PostgreSQL. https://pgexercises.com/
+
 # Conte as principais entidades do banco de dados
 
 As principais entidades do banco de dados são:
