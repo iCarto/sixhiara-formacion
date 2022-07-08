@@ -14,4 +14,3 @@ fontes_carac_hidro
 fontes_litologia
 fontes_analise
 exploracoes
-version

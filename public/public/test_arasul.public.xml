@@ -4170,13 +4170,13 @@ END
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_approxcount" returnType="bigint" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[ SELECT public._ST_count($1, 1, $2, $3) ]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_count($1, $2, TRUE, $3) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="st_approxhistogram" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT public._ST_histogram($1, $2, $3, TRUE, $4, $5, NULL, $6) ]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxquantile" returnType="record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_approxquantile" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT public._ST_quantile($1, $2, $3, TRUE, $4, $5) ]]></definition>
       </routine>
@@ -5310,7 +5310,7 @@ END;
          <comment><![CDATA[args: line, point - Return the value of the measure dimension of a geometry at the point closed to the provided point.]]></comment>
          <definition language="C"><![CDATA[ST_InterpolatePoint]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="true" name="st_intersection" returnType="raster" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="true" name="st_intersection" returnType="SETOF raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT st_intersection($1, $2, $3, $4, 'BOTH', ARRAY[$5, $5]) ]]></definition>
       </routine>
@@ -5868,9 +5868,7 @@ END;
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebra" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
-         <definition language="SQL"><![CDATA[
-	select public._ST_mapalgebra(ARRAY[ROW($1,$2)]::rastbandarg[],$3,$6,NULL::integer,NULL::integer,$7,$8,$4,$5,VARIADIC $9)
-	]]></definition>
+         <definition language="SQL"><![CDATA[ SELECT public._ST_MapAlgebra(ARRAY[ROW($1, $2), ROW($3, $4)]::rastbandarg[], $5, $6, $9, $10, $7, $8,NULL::double precision [],NULL::boolean, VARIADIC $11) ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="true" name="st_mapalgebraexpr" returnType="raster" securityType="INVOKER" type="FUNCTION">
          <comment/>
@@ -6487,7 +6485,7 @@ END;
          <comment><![CDATA[args: g1, distance, azimuth - Returns a POINT projected from a start point using a distance in meters and bearing (azimuth) in radians.]]></comment>
          <definition language="C"><![CDATA[geography_project]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_quantile" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_quantile" returnType="record" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT public._ST_quantile($1, $2, $3, $4, 1, $5) ]]></definition>
       </routine>
@@ -7291,7 +7289,7 @@ END;
          <comment><![CDATA[args: rastertable, rastercolumn, nband, searchvalue, roundto=0 - Returns a set of records containing a pixel band value and count of the number of pixels in a given band of a raster (or a raster coverage) that have a given set of values. If no band is specified defaults to band 1. By default nodata value pixels are not counted. and all other values in the pixel are output and pixel band values are rounded to the nearest integer.]]></comment>
          <definition language="SQL"><![CDATA[ SELECT ( public._ST_valuecount($1, $2, $3, $4, ARRAY[$5]::double precision[], $6)).count ]]></definition>
       </routine>
-      <routine dataAccess="MODIFIES" deterministic="false" name="st_valuepercent" returnType="SETOF record" securityType="INVOKER" type="FUNCTION">
+      <routine dataAccess="MODIFIES" deterministic="false" name="st_valuepercent" returnType="record" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="SQL"><![CDATA[ SELECT value, percent FROM public._ST_valuecount($1, $2, $3, $4, $5, $6) ]]></definition>
       </routine>
@@ -7378,6 +7376,18 @@ END;
       <routine dataAccess="MODIFIES" deterministic="true" name="text" returnType="text" securityType="INVOKER" type="FUNCTION">
          <comment/>
          <definition language="C"><![CDATA[LWGEOM_to_text]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="unaccent" returnType="text" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[unaccent_dict]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="unaccent_init" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[unaccent_init]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="unaccent_lexize" returnType="internal" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="C"><![CDATA[unaccent_lexize]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="unlockrows" returnType="integer" securityType="INVOKER" type="FUNCTION">
          <comment><![CDATA[args: auth_token - Remove all locks held by specified authorization id. Returns the number of locks released.]]></comment>

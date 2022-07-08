@@ -13,5 +13,6 @@ postos
 provincias
 provincias_outras
 rios
+subacias
 unidades_weap
 batimetria

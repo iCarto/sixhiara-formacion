@@ -2,6 +2,7 @@ datos_aras
 tanque_piscicola_tipo_alim
 pagamentos
 ara
+size_category
 utentes_uten_tipo
 tanque_piscicola_tipo
 tanque_piscicola_prov_alev
@@ -27,13 +28,13 @@ provincia
 licencia_estado
 groups
 fontes_sist_med
-facturacao_fact_tipo
 bacia
 licencia_tipo_agua
-facturacao_consumo_tipo
+facturacao_fact_tipo
 divisao
 posto
 fonte_tipo
+facturacao_consumo_tipo
 distrito
 licencia_tipo_lic
 boolean

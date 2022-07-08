@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <database name="test_arasul" schema="utentes" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
    <tables>
-      <table name="actividades" numRows="2875" remarks="" schema="utentes" type="TABLE">
+      <table name="actividades" numRows="2949" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <child column="gid" foreignKey="actividades_abastecemento_gid_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades_abastecemento"/>
             <child column="gid" foreignKey="actividades_agricultura_rega_gid_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades_agricultura_rega"/>
@@ -23,7 +23,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="actividades_abastecemento" numRows="1793" remarks="" schema="utentes" type="TABLE">
+      <table name="actividades_abastecemento" numRows="1866" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="actividades_abastecemento_gid_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades"/>
          </column>
@@ -34,7 +34,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="actividades_agricultura_rega" numRows="770" remarks="" schema="utentes" type="TABLE">
+      <table name="actividades_agricultura_rega" numRows="771" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <child column="actividade" foreignKey="actividades_cultivos_actividade_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades_cultivos"/>
             <parent column="gid" foreignKey="actividades_agricultura_rega_gid_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades"/>
@@ -48,7 +48,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="actividades_cultivos" numRows="1628" remarks="" schema="utentes" type="TABLE">
+      <table name="actividades_cultivos" numRows="1589" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="cult_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="actividade" nullable="false" remarks="" size="10" type="int4" typeCode="4">
@@ -238,7 +238,7 @@
             <column ascending="true" name="the_geom"/>
          </index>
       </table>
-      <table name="documentos" numRows="3192" remarks="" schema="utentes" type="TABLE">
+      <table name="documentos" numRows="3717" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="departamento" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
@@ -259,7 +259,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="exploracaos" numRows="2942" remarks="" schema="utentes" type="TABLE">
+      <table name="exploracaos" numRows="3229" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <child column="exploracao" foreignKey="actividades_exploracao_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="actividades"/>
             <child column="exploracao" foreignKey="documentos_exploracao_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="documentos"/>
@@ -274,8 +274,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="d_soli" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="observacio" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="parent" foreignKey="exploracaos_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
             <parent column="key" foreignKey="exploracaos_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="domains" table="provincia"/>
+            <parent column="parent" foreignKey="exploracaos_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="loc_distri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="exploracaos_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
@@ -304,8 +304,8 @@
             <parent column="gid" foreignKey="exploracaos_utente_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="utentes"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="loc_divisao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="key" foreignKey="exploracaos_loc_divisao_fkey" implied="false" onDeleteCascade="false" schema="domains" table="divisao"/>
             <parent column="parent" foreignKey="exploracaos_loc_bacia_fkey" implied="false" onDeleteCascade="false" schema="domains" table="bacia"/>
+            <parent column="key" foreignKey="exploracaos_loc_divisao_fkey" implied="false" onDeleteCascade="false" schema="domains" table="divisao"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="estado_lic" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="exploracaos_estado_lic_fkey" implied="false" onDeleteCascade="false" schema="domains" table="licencia_estado"/>
@@ -371,7 +371,7 @@
             <column ascending="true" name="the_geom"/>
          </index>
       </table>
-      <table name="exploracaos_erp" numRows="800" remarks="Keep a relationship between the exploracaos registered in SIRHA and a external ERP for invoicing and accountability" schema="utentes" type="TABLE">
+      <table name="exploracaos_erp" numRows="972" remarks="Keep a relationship between the exploracaos registered in SIRHA and a external ERP for invoicing and accountability" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="We keep a surrogate primary key to anticipate some unknows in the integration between different tools" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="exploracao_gid" nullable="true" remarks="If an exploracao is deleted I want to keep track of it. For example cancel it in the ERP on the next export" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="exploracaos_erp_exploracao_gid_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
@@ -385,7 +385,7 @@
             <column ascending="true" name="id"/>
          </index>
       </table>
-      <table name="facturacao" numRows="24692" remarks="" schema="utentes" type="TABLE">
+      <table name="facturacao" numRows="34170" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <child column="facturacao_gid" foreignKey="facturacao_erp_facturacao_gid_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao_erp"/>
          </column>
@@ -413,25 +413,23 @@
          <column autoUpdated="false" defaultValue="null" digits="2" id="14" name="taxa_uso_sup" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="15" name="pago_mes_sup" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
          <column autoUpdated="false" defaultValue="null" digits="2" id="16" name="pago_iva_sup" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="17" name="iva_sup" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="'Fixo'::text" digits="0" id="18" name="consumo_tipo_sub" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+         <column autoUpdated="false" defaultValue="'Fixo'::text" digits="0" id="17" name="consumo_tipo_sub" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="facturacao_consumo_tipo_sub_fkey" implied="false" onDeleteCascade="false" schema="domains" table="facturacao_consumo_tipo"/>
          </column>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="consumo_fact_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="taxa_fixa_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="taxa_uso_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="pago_mes_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="pago_iva_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="iva_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="25" name="iva" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="26" name="pago_mes" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="2" id="27" name="pago_iva" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="fact_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="0" digits="2" id="29" name="juros" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="recibo_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="fact_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="recibo_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
-         <column autoUpdated="false" defaultValue="now()" digits="6" id="33" name="updated_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="18" name="consumo_fact_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="19" name="taxa_fixa_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="20" name="taxa_uso_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="21" name="pago_mes_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="22" name="pago_iva_sub" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="23" name="iva" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="24" name="pago_iva" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="fact_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="0" digits="2" id="26" name="juros" nullable="false" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="recibo_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="fact_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="recibo_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="30" name="updated_at" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="periodo_fact" nullable="false" remarks="" size="2147483647" type="daterange" typeCode="1111"/>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="facturacao_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -448,7 +446,7 @@
             <column ascending="true" name="recibo_id"/>
          </index>
       </table>
-      <table name="facturacao_erp" numRows="195" remarks="Keep a relationship between the invoices registered in SIRHA and the invoices in a external ERP" schema="utentes" type="TABLE">
+      <table name="facturacao_erp" numRows="235" remarks="Keep a relationship between the invoices registered in SIRHA and the invoices in a external ERP" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="We keep a surrogate primary key to anticipate some unknows in the integration between different tools" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="facturacao_gid" nullable="true" remarks="If an invoice is deleted I want to keep track of it. For example cancel it in the ERP on the next export" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="facturacao_erp_facturacao_gid_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao"/>
@@ -462,11 +460,11 @@
             <column ascending="true" name="id"/>
          </index>
       </table>
-      <table name="fontes" numRows="3391" remarks="" schema="utentes" type="TABLE">
+      <table name="fontes" numRows="3488" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="tipo_agua" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="key" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="domains" table="licencia_tipo_agua"/>
             <parent column="parent" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="fonte_tipo"/>
+            <parent column="key" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="domains" table="licencia_tipo_agua"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tipo_fonte" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="fonte_tipo"/>
@@ -501,7 +499,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="licencias" numRows="2875" remarks="" schema="utentes" type="TABLE">
+      <table name="licencias" numRows="2949" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="lic_nro" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="tipo_agua" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
@@ -545,7 +543,7 @@
             <column ascending="true" name="lic_nro"/>
          </index>
       </table>
-      <table name="renovacoes" numRows="179" remarks="" schema="utentes" type="TABLE">
+      <table name="renovacoes" numRows="569" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="exp_id" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="d_soli" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
@@ -607,7 +605,7 @@
             <column ascending="true" name="gid"/>
          </index>
       </table>
-      <table name="users" numRows="40" remarks="" schema="utentes" type="TABLE">
+      <table name="users" numRows="46" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="username" nullable="true" remarks="" size="128" type="varchar" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="password" nullable="true" remarks="" size="254" type="varchar" typeCode="12"/>
@@ -630,7 +628,7 @@
             <column ascending="true" name="username"/>
          </index>
       </table>
-      <table name="utentes" numRows="2336" remarks="" schema="utentes" type="TABLE">
+      <table name="utentes" numRows="2431" remarks="" schema="utentes" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <child column="utente" foreignKey="exploracaos_utente_fkey" implied="false" onDeleteCascade="true" schema="utentes" table="exploracaos"/>
          </column>
@@ -639,8 +637,8 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="reg_comerc" nullable="true" remarks="Número de Registo Comercial" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="reg_zona" nullable="true" remarks="Local do registro" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
-            <parent column="parent" foreignKey="utentes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
             <parent column="key" foreignKey="utentes_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="domains" table="provincia"/>
+            <parent column="parent" foreignKey="utentes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="loc_distri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="utentes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="domains" table="distrito"/>
@@ -675,13 +673,6 @@
          </index>
          <index name="utentes_nome_key" unique="true">
             <column ascending="true" name="nome"/>
-         </index>
-      </table>
-      <table name="version" numRows="1" remarks="" schema="utentes" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="version" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <primaryKey column="version" sequenceNumberInPK="1"/>
-         <index name="version_pkey" unique="true">
-            <column ascending="true" name="version"/>
          </index>
       </table>
    </tables>
@@ -743,6 +734,31 @@ BEGIN
         END;
     RETURN separator || result;
 END;
+]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="false" name="exp_id_part" returnType="record" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="PLPGSQL"><![CDATA[
+BEGIN
+    SELECT
+        LEFT(exp_id, 3)
+        , SPLIT_PART(exp_id, '/', 2)
+        -- substring(exp_id, 10, 4) AS year codificación antigua
+        , substring(exp_id FROM '\d{3}/.*/(\d{4})') AS year
+        , RIGHT(exp_id, 2)
+    INTO serie, ara, year, state;
+END
+]]></definition>
+      </routine>
+      <routine dataAccess="MODIFIES" deterministic="true" name="extract_discriminator_from_ara_name_list" returnType="SETOF text" securityType="INVOKER" type="FUNCTION">
+         <comment/>
+         <definition language="SQL"><![CDATA[
+    -- Column 'ara' in cbase schema is like 'ARA-Centro, IP; ARA-Sul, IP'
+    -- This returns a setof like:
+    -- 'Centro'
+    -- 'Sul'
+    -- useful to match between the full names and domains.ara.value for the views
+    SELECT replace(replace(trim(unnest(string_to_array($1, ';'))), 'ARA-', ''), ', IP', '');
 ]]></definition>
       </routine>
       <routine dataAccess="MODIFIES" deterministic="false" name="update_updated_at" returnType="trigger" securityType="INVOKER" type="FUNCTION">

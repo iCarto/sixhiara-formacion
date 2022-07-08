@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>fontes</h1><p><span id="recordNumber">3391</span> rows</p><br />
+                    <h1>fontes</h1><p><span id="recordNumber">3488</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -133,12 +133,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="fontes.tipo_agua references domains.licencia_tipo_agua.key via fontes_tipo_agua_fkey"><a href='../../domains/tables/licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">fontes_tipo_agua_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="fontes.[tipo_agua, tipo_fonte] references domains.fonte_tipo.[parent, key] via fontes_tipo_agua_fkey1"><a href='../../domains/tables/fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.parent</span></td>
                                                 <td class="constraint detail">fontes_tipo_agua_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes.tipo_agua references domains.licencia_tipo_agua.key via fontes_tipo_agua_fkey"><a href='../../domains/tables/licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">fontes_tipo_agua_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>

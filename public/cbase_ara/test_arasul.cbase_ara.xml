@@ -65,7 +65,7 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="bacias_representacion" numRows="6" remarks="" schema="cbase_ara" type="TABLE">
+      <table name="bacias_representacion" numRows="8" remarks="" schema="cbase_ara" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="bacias_representacion_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="bacias_representacion"/>
          </column>
@@ -93,15 +93,14 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="distritos" numRows="37" remarks="" schema="cbase_ara" type="TABLE">
+      <table name="distritos" numRows="47" remarks="" schema="cbase_ara" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="distritos_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="distritos"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="censo_2007" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="distritos_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -212,16 +211,15 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="postos" numRows="102" remarks="" schema="cbase_ara" type="TABLE">
+      <table name="postos" numRows="119" remarks="" schema="cbase_ara" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="postos_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="postos"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="loc_distri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="loc_provin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="censo_2007" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="postos_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -230,14 +228,13 @@
             <column ascending="true" name="geom"/>
          </index>
       </table>
-      <table name="provincias" numRows="5" remarks="" schema="cbase_ara" type="TABLE">
+      <table name="provincias" numRows="6" remarks="" schema="cbase_ara" type="TABLE">
          <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
             <parent column="gid" foreignKey="provincias_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="provincias"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="censo_2007" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="provincias_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -251,9 +248,8 @@
             <parent column="gid" foreignKey="provincias_outras_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="provincias"/>
          </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="censo_2007" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
-         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
          <primaryKey column="gid" sequenceNumberInPK="1"/>
          <index name="provincias_outras_pkey" unique="true">
             <column ascending="true" name="gid"/>
@@ -277,6 +273,27 @@
             <column ascending="true" name="gid"/>
          </index>
          <index name="rios_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="subacias" numRows="74" remarks="" schema="cbase_ara" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="gid" foreignKey="subacias_gid_fkey" implied="false" onDeleteCascade="true" schema="cbase" table="subacias"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="nome" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="2" name="area" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ara" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="divisao" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="bacia" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="rio_prin" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="2" id="7" name="long_rio" nullable="true" remarks="" size="10" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="afluentes" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="geom" nullable="true" remarks="" size="2147483647" type="geometry" typeCode="1111"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="subacias_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="subacias_geom_idx" unique="false">
             <column ascending="true" name="geom"/>
          </index>
       </table>

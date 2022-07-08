@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>size_category - test_arasul Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="../bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="../bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='../fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='../fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="../bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="../schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../bower/html5shiv/html5shiv.min.js"></script>
+        <script src="../bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="../../index.html" class="navbar-brand"><b>test_arasul</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="../columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="../constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="../relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="../orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="../anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="../routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>size_category</h1><p><span id="recordNumber">4</span> rows</p><br />
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            <h3 id="Columns" class="box-title">Columns</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="standard_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead align='left'>
+                                <tr>
+                                    <th>Column</th>
+                                    <th>Type</th>
+                                    <th>Size</th>
+                                    <th title='Are nulls allowed?'>Nulls</th>
+                                    <th title='Is column automatically updated?'>Auto</th>
+                                    <th title='Default value'>Default</th>
+                                    <th title='Columns in tables that reference this column'>Children</th>
+                                    <th title='Columns in tables that are referenced by this column'>Parents</th>
+                                    <th title='Comments' class="toggle"><span>Comments</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="category">category</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="actividade.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='actividade.html'>actividade</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="actividades_piscicultura_tipo_aqua.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='actividades_piscicultura_tipo_aqua.html'>actividades_piscicultura_tipo_aqua</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="animal_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='animal_tipo.html'>animal_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="ara.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='ara.html'>ara</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="bacia.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='bacia.html'>bacia</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="boolean.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='boolean.html'>boolean</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="cultivo_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='cultivo_tipo.html'>cultivo_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="distrito.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='distrito.html'>distrito</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="divisao.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='divisao.html'>divisao</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="domains.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='domains.html'>domains</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="energia_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='energia_tipo.html'>energia_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="estacoes_recolha.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='estacoes_recolha.html'>estacoes_recolha</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_consumo_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='facturacao_consumo_tipo.html'>facturacao_consumo_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_fact_estado.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='facturacao_fact_estado.html'>facturacao_fact_estado</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="facturacao_fact_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='facturacao_fact_tipo.html'>facturacao_fact_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fonte_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='fonte_tipo.html'>fonte_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes_disp_a.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='fontes_disp_a.html'>fontes_disp_a</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="fontes_sist_med.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='fontes_sist_med.html'>fontes_sist_med</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="groups.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='groups.html'>groups</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="industria_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='industria_tipo.html'>industria_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_estado.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='licencia_estado.html'>licencia_estado</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_estado_renovacao.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='licencia_estado_renovacao.html'>licencia_estado_renovacao</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_tipo_agua.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='licencia_tipo_agua.html'>licencia_tipo_agua</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="licencia_tipo_lic.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='licencia_tipo_lic.html'>licencia_tipo_lic</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="pagamentos.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='pagamentos.html'>pagamentos</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="piscicultura_gaio_subm.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='piscicultura_gaio_subm.html'>piscicultura_gaio_subm</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="piscicultura_tipo_proc.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='piscicultura_tipo_proc.html'>piscicultura_tipo_proc</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="posto.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='posto.html'>posto</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="provincia.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='provincia.html'>provincia</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="red_monit.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='red_monit.html'>red_monit</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="rega_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='rega_tipo.html'>rega_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="sexo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='sexo.html'>sexo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="subacia.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='subacia.html'>subacia</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_esp_culti.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_esp_culti.html'>tanque_piscicola_esp_culti</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_estado.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_estado.html'>tanque_piscicola_estado</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_fert_agua.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_fert_agua.html'>tanque_piscicola_fert_agua</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_prov_alev.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_prov_alev.html'>tanque_piscicola_prov_alev</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_tipo.html'>tanque_piscicola_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="tanque_piscicola_tipo_alim.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='tanque_piscicola_tipo_alim.html'>tanque_piscicola_tipo_alim</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="utentes_uten_tipo.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='utentes_uten_tipo.html'>utentes_uten_tipo</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span id="consumo_range">consumo_range</span></td>
+                                    <td>numrange</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="consumo_tipo">consumo_tipo</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="size_category.consumo_tipo references facturacao_consumo_tipo.key via size_category_consumo_tipo_fkey"><a href='facturacao_consumo_tipo.html'>facturacao_consumo_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">size_category_consumo_tipo_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="fact_tipo">fact_tipo</span></td>
+                                    <td>text</td>
+                                    <td>2147483647</td>
+                                    <td title=''></td>
+                                    <td title=''></td>
+                                    <td>null</td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="size_category.fact_tipo references facturacao_fact_tipo.key via size_category_fact_tipo_fkey"><a href='facturacao_fact_tipo.html'>facturacao_fact_tipo</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">size_category_fact_tipo_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-sitemap"></i>
+                            <h3 id="Indexes" class="box-title">Indexes</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <table id="indexes_table" class="table table-bordered table-striped dataTable" role="grid">
+                                <thead>
+                                <tr>
+                                    <th>Constraint Name</th>
+                                    <th>Type</th>
+                                    <th>Sort</th>
+                                    <th>Column(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey'></i> size_category_pkey</td>
+                                    <td>Primary key</td>
+                                    <td><span title='Ascending'>Asc</span></td>
+                                    <td>category</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div>
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 id="Relationships" class="box-title">Relationships</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="nav-tabs-custom"><!-- Tabs within a box -->
+                                <h5>Close relationships within degrees of separation</h5>
+                                <ul class="nav nav-tabs pull-left ui-sortable-handle">
+                                    <li class="active"><a href="#oneDegreeImg-chart" data-toggle="tab" aria-expanded="true">One</a></li>
+                                    <li class=""><a href="#twodegreesDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two degrees</a></li>
+                                    <li class=""><a href="#oneimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">One implied</a></li>
+                                    <li class=""><a href="#twoimpliedDegreeImg-chart" data-toggle="tab" aria-expanded="true">Two implied</a></li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                    <div class="chart tab-pane active" id="oneDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagram" name="oneDegreeRelationshipsDiagram">
+<area shape="rect" id="node1" href="size_category.html" target="_top" title="size_category" alt="" coords="328,41,687,228">
+<area shape="rect" id="node2" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="5,5,284,152">
+<area shape="rect" id="node3" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="24,169,265,316">
+</map>
+                                        <a name='diagram'><img id="oneDegreeImg" src="../diagrams/tables/size_category.1degree.png" usemap="#oneDegreeRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twodegreesDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagram" name="twoDegreesRelationshipsDiagram">
+<area shape="rect" id="node1" href="size_category.html" target="_top" title="size_category" alt="" coords="328,216,687,403">
+<area shape="rect" id="node2" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="5,79,284,225">
+<area shape="rect" id="node3" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="24,277,265,424">
+<area shape="rect" id="node4" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="387,420,627,508">
+<area shape="rect" id="node5" href="../utentes/tables/facturacao.html" target="_top" title="utentes.facturacao" alt="" coords="392,111,623,199">
+<area shape="rect" id="node6" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="400,5,615,93">
+</map>
+                                        <a name='diagram'><img id="twodegreesDegreeImg" src="../diagrams/tables/size_category.2degrees.png" usemap="#twoDegreesRelationshipsDiagram" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="1036,5,1202,152">
+<area shape="rect" id="node2" href="size_category.html" target="_top" title="size_category" alt="" coords="540,2995,899,3181">
+<area shape="rect" id="node3" href="sexo.html" target="_top" title="sexo" alt="" coords="26,2997,174,3144">
+<area shape="rect" id="node15" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="218,2915,496,3061">
+<area shape="rect" id="node17" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="236,3079,478,3225">
+<area shape="rect" id="node4" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="943,169,1295,316">
+<area shape="rect" id="node5" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="1031,333,1207,480">
+<area shape="rect" id="node6" href="ara.html" target="_top" title="ara" alt="" coords="1060,497,1178,644">
+<area shape="rect" id="node7" href="bacia.html" target="_top" title="bacia" alt="" coords="1041,661,1197,837">
+<area shape="rect" id="node8" href="boolean.html" target="_top" title="boolean" alt="" coords="1046,855,1192,1001">
+<area shape="rect" id="node9" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="1031,1019,1207,1165">
+<area shape="rect" id="node10" href="distrito.html" target="_top" title="distrito" alt="" coords="1041,1183,1197,1359">
+<area shape="rect" id="node11" href="divisao.html" target="_top" title="divisao" alt="" coords="1045,1376,1193,1523">
+<area shape="rect" id="node12" href="domains.html" target="_top" title="domains" alt="" coords="1045,1540,1193,1663">
+<area shape="rect" id="node13" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="1029,1680,1209,1827">
+<area shape="rect" id="node14" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="1012,1844,1226,1991">
+<area shape="rect" id="node16" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="988,2008,1250,2155">
+<area shape="rect" id="node18" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="1037,2172,1201,2348">
+<area shape="rect" id="node19" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="1026,2365,1212,2512">
+<area shape="rect" id="node20" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="1016,2529,1222,2676">
+<area shape="rect" id="node21" href="groups.html" target="_top" title="groups" alt="" coords="1050,2693,1188,2840">
+<area shape="rect" id="node22" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="1022,2857,1216,3004">
+<area shape="rect" id="node23" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="1018,3513,1220,3660">
+<area shape="rect" id="node24" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="976,3677,1262,3824">
+<area shape="rect" id="node25" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="1007,3841,1231,3988">
+<area shape="rect" id="node26" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="1016,4005,1222,4152">
+<area shape="rect" id="node27" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="1030,4169,1208,4316">
+<area shape="rect" id="node28" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="988,4333,1250,4480">
+<area shape="rect" id="node29" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="992,4497,1246,4644">
+<area shape="rect" id="node30" href="posto.html" target="_top" title="posto" alt="" coords="1041,4661,1197,4837">
+<area shape="rect" id="node31" href="provincia.html" target="_top" title="provincia" alt="" coords="1040,4855,1198,5001">
+<area shape="rect" id="node32" href="red_monit.html" target="_top" title="red_monit" alt="" coords="1037,5019,1201,5165">
+<area shape="rect" id="node33" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="1041,5183,1197,5329">
+<area shape="rect" id="node34" href="subacia.html" target="_top" title="subacia" alt="" coords="1041,5347,1197,5523">
+<area shape="rect" id="node35" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="976,5540,1262,5687">
+<area shape="rect" id="node36" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="984,5704,1254,5851">
+<area shape="rect" id="node37" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="974,5868,1264,6015">
+<area shape="rect" id="node38" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="973,6032,1265,6179">
+<area shape="rect" id="node39" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="994,3021,1244,3168">
+<area shape="rect" id="node40" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="974,3185,1264,3332">
+<area shape="rect" id="node41" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="1007,3349,1231,3496">
+</map>
+                                        <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/size_category.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                    <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
+                                        <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
+<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="1017,3471,1184,3617">
+<area shape="rect" id="node2" href="size_category.html" target="_top" title="size_category" alt="" coords="522,3179,881,3365">
+<area shape="rect" id="node3" href="sexo.html" target="_top" title="sexo" alt="" coords="7,3169,155,3316">
+<area shape="rect" id="node15" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="199,3307,478,3453">
+<area shape="rect" id="node17" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="218,3107,459,3253">
+<area shape="rect" id="node4" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="925,169,1277,316">
+<area shape="rect" id="node5" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="1013,661,1189,808">
+<area shape="rect" id="node6" href="ara.html" target="_top" title="ara" alt="" coords="1041,1284,1160,1431">
+<area shape="rect" id="node7" href="bacia.html" target="_top" title="bacia" alt="" coords="1023,1091,1179,1267">
+<area shape="rect" id="node8" href="boolean.html" target="_top" title="boolean" alt="" coords="1027,333,1174,480">
+<area shape="rect" id="node9" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="1013,4648,1189,4795">
+<area shape="rect" id="node10" href="distrito.html" target="_top" title="distrito" alt="" coords="1023,1448,1179,1624">
+<area shape="rect" id="node11" href="divisao.html" target="_top" title="divisao" alt="" coords="1027,2199,1175,2345">
+<area shape="rect" id="node12" href="domains.html" target="_top" title="domains" alt="" coords="1027,4976,1175,5099">
+<area shape="rect" id="node13" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="1011,4812,1191,4959">
+<area shape="rect" id="node14" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="993,5116,1208,5263">
+<area shape="rect" id="node16" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="970,3255,1231,3401">
+<area shape="rect" id="node18" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="1019,4127,1183,4303">
+<area shape="rect" id="node19" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="1007,4320,1194,4467">
+<area shape="rect" id="node20" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="997,3799,1204,3945">
+<area shape="rect" id="node21" href="groups.html" target="_top" title="groups" alt="" coords="1031,2527,1170,2673">
+<area shape="rect" id="node22" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="1004,5280,1197,5427">
+<area shape="rect" id="node23" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="999,2363,1202,2509">
+<area shape="rect" id="node24" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="957,2691,1244,2837">
+<area shape="rect" id="node25" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="989,3635,1213,3781">
+<area shape="rect" id="node26" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="997,3019,1204,3165">
+<area shape="rect" id="node27" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="1011,5608,1190,5755">
+<area shape="rect" id="node28" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="969,497,1232,644">
+<area shape="rect" id="node29" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="973,5,1228,152">
+<area shape="rect" id="node30" href="posto.html" target="_top" title="posto" alt="" coords="1023,1641,1179,1817">
+<area shape="rect" id="node31" href="provincia.html" target="_top" title="provincia" alt="" coords="1021,1835,1180,1981">
+<area shape="rect" id="node32" href="red_monit.html" target="_top" title="red_monit" alt="" coords="1019,3963,1183,4109">
+<area shape="rect" id="node33" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="1023,4484,1179,4631">
+<area shape="rect" id="node34" href="subacia.html" target="_top" title="subacia" alt="" coords="1023,897,1179,1073">
+<area shape="rect" id="node35" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="957,5444,1244,5591">
+<area shape="rect" id="node36" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="965,5772,1236,5919">
+<area shape="rect" id="node37" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="955,5936,1246,6083">
+<area shape="rect" id="node38" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="955,6100,1247,6247">
+<area shape="rect" id="node39" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="975,6264,1226,6411">
+<area shape="rect" id="node40" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="955,2855,1246,3001">
+<area shape="rect" id="node41" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="989,2035,1213,2181">
+<area shape="rect" id="node42" href="../inventario/tables/estacoes.html" target="_top" title="inventario.estacoes" alt="" coords="1397,5148,1631,5236">
+<area shape="rect" id="node43" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="1405,3995,1623,4083">
+<area shape="rect" id="node44" href="../utentes/tables/actividades.html" target="_top" title="utentes.actividades" alt="" coords="1395,3503,1633,3591">
+<area shape="rect" id="node45" href="../utentes/tables/actividades_cultivos.html" target="_top" title="utentes.actividades_cultivos" alt="" coords="1363,4599,1665,4687">
+<area shape="rect" id="node46" href="../utentes/tables/actividades_industria.html" target="_top" title="utentes.actividades_industria" alt="" coords="1357,5312,1671,5400">
+<area shape="rect" id="node47" href="../utentes/tables/actividades_piscicultura.html" target="_top" title="utentes.actividades_piscicultura" alt="" coords="1347,365,1681,453">
+<area shape="rect" id="node48" href="../utentes/tables/actividades_produccao_energia.html" target="_top" title="utentes.actividades_produccao_energia" alt="" coords="1321,4844,1707,4932">
+<area shape="rect" id="node49" href="../utentes/tables/actividades_reses.html" target="_top" title="utentes.actividades_reses" alt="" coords="1373,693,1655,781">
+<area shape="rect" id="node50" href="../utentes/tables/actividades_tanques_piscicolas.html" target="_top" title="utentes.actividades_tanques_piscicolas" alt="" coords="1322,5968,1706,6056">
+<area shape="rect" id="node51" href="../utentes/tables/documentos.html" target="_top" title="utentes.documentos" alt="" coords="1393,2341,1635,2429">
+<area shape="rect" id="node52" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="1394,1480,1634,1568">
+<area shape="rect" id="node53" href="../utentes/tables/facturacao.html" target="_top" title="utentes.facturacao" alt="" coords="1399,3339,1629,3427">
+<area shape="rect" id="node54" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="1415,4129,1613,4217">
+<area shape="rect" id="node55" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="1407,3156,1621,3244">
+<area shape="rect" id="node56" href="../utentes/tables/renovacoes.html" target="_top" title="utentes.renovacoes" alt="" coords="1397,3051,1631,3139">
+<area shape="rect" id="node57" href="../utentes/tables/users.html" target="_top" title="utentes.users" alt="" coords="1419,2503,1609,2591">
+<area shape="rect" id="node58" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="1410,1703,1618,1791">
+</map>
+                                        <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/size_category.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.box-body -->
+                    </div>
+                </section>
+                <script>
+                    var config = {
+                        pagination: true
+                    }
+                </script>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="../bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="../bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="../bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="../bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="../bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="../bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="../bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="../bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="../bower/pdfmake/pdfmake.min.js"></script>
+        <script src="../bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="../bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="../bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="../bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="../bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="../bower/codemirror/codemirror.js"></script>
+        <script src="../bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../bower/admin-lte/dist/js/app.min.js"></script>
+        <script src="table.js"></script>
+        <script src="../schemaSpy.js"></script>
+    </body>
+</html>

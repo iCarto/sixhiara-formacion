@@ -103,7 +103,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td><span id="category">category</span></td>
+                                    <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i><span id="category">category</span></td>
                                     <td>text</td>
                                     <td>2147483647</td>
                                     <td title='nullable'>√</td>
@@ -115,6 +115,10 @@
                                     </td>
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
+                                            <tr>
+                                                <td title="licencia_tipo_agua.category&#39;s name implies that it&#39;s a child of size_category.category, but it doesn&#39;t reference that column."><a href='size_category.html'>size_category</a><span class='relatedKey'>.category</span></td>
+                                                <td class="constraint detail">Implied Constraint<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
                                         </table>
                                     </td>
                                     <td></td>
@@ -300,61 +304,63 @@
                                     </div>
                                     <div class="chart tab-pane " id="oneimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="oneDegreeRelationshipsDiagramImplied" name="oneDegreeRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="184,196,517,441">
-<area shape="rect" id="node2" href="sexo.html" target="_top" title="sexo" alt="" coords="5,228,140,345">
-<area shape="rect" id="node3" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="561,5,780,211">
-<area shape="rect" id="node4" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="572,228,769,463">
-<area shape="rect" id="node5" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="563,480,778,685">
+<area shape="rect" id="node1" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="428,196,761,441">
+<area shape="rect" id="node2" href="size_category.html" target="_top" title="size_category" alt="" coords="5,200,192,376">
+<area shape="rect" id="node3" href="sexo.html" target="_top" title="sexo" alt="" coords="236,237,384,384">
+<area shape="rect" id="node4" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="805,5,1024,211">
+<area shape="rect" id="node5" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="816,228,1013,463">
+<area shape="rect" id="node6" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="807,480,1022,685">
 </map>
                                         <a name='diagram'><img id="oneimpliedDegreeImg" src="../diagrams/tables/licencia_tipo_agua.implied1degrees.png" usemap="#oneDegreeRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
                                     </div>
                                     <div class="chart tab-pane " id="twoimpliedDegreeImg-chart" style="position: relative; overflow-x:auto;">
                                         <map id="twoDegreesRelationshipsDiagramImplied" name="twoDegreesRelationshipsDiagramImplied">
-<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="277,5,443,93">
-<area shape="rect" id="node2" href="sexo.html" target="_top" title="sexo" alt="" coords="5,2128,140,2245">
-<area shape="rect" id="node3" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="184,111,536,199">
-<area shape="rect" id="node4" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="272,216,448,304">
-<area shape="rect" id="node5" href="ara.html" target="_top" title="ara" alt="" coords="301,321,419,409">
-<area shape="rect" id="node6" href="bacia.html" target="_top" title="bacia" alt="" coords="282,779,438,867">
-<area shape="rect" id="node7" href="boolean.html" target="_top" title="boolean" alt="" coords="287,2341,433,2429">
-<area shape="rect" id="node8" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="272,2447,448,2535">
-<area shape="rect" id="node9" href="distrito.html" target="_top" title="distrito" alt="" coords="282,884,438,972">
-<area shape="rect" id="node10" href="divisao.html" target="_top" title="divisao" alt="" coords="286,427,434,515">
-<area shape="rect" id="node11" href="domains.html" target="_top" title="domains" alt="" coords="286,2552,434,2616">
-<area shape="rect" id="node12" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="270,2633,450,2721">
-<area shape="rect" id="node13" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="253,2739,467,2827">
-<area shape="rect" id="node14" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="221,1552,499,1640">
-<area shape="rect" id="node15" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="229,2844,491,2932">
-<area shape="rect" id="node16" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="239,532,481,620">
-<area shape="rect" id="node17" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="278,1920,442,2008">
-<area shape="rect" id="node18" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="267,2236,453,2324">
-<area shape="rect" id="node19" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="257,2131,463,2219">
-<area shape="rect" id="node20" href="groups.html" target="_top" title="groups" alt="" coords="291,2949,429,3037">
-<area shape="rect" id="node21" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="263,3055,457,3143">
-<area shape="rect" id="node22" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="259,1200,461,1288">
-<area shape="rect" id="node23" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="217,3160,503,3248">
-<area shape="rect" id="node24" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="193,1657,527,1903">
-<area shape="rect" id="node25" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="257,1447,463,1535">
-<area shape="rect" id="node26" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="271,3265,449,3353">
-<area shape="rect" id="node27" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="229,3371,491,3459">
-<area shape="rect" id="node28" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="233,3476,487,3564">
-<area shape="rect" id="node29" href="posto.html" target="_top" title="posto" alt="" coords="282,989,438,1077">
-<area shape="rect" id="node30" href="provincia.html" target="_top" title="provincia" alt="" coords="281,1095,439,1183">
-<area shape="rect" id="node31" href="red_monit.html" target="_top" title="red_monit" alt="" coords="278,2025,442,2113">
-<area shape="rect" id="node32" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="282,3581,438,3669">
-<area shape="rect" id="node33" href="subacia.html" target="_top" title="subacia" alt="" coords="282,637,438,725">
-<area shape="rect" id="node34" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="217,3687,503,3775">
-<area shape="rect" id="node35" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="225,3792,495,3880">
-<area shape="rect" id="node36" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="215,3897,505,3985">
-<area shape="rect" id="node37" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="214,4003,506,4091">
-<area shape="rect" id="node38" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="235,4108,485,4196">
-<area shape="rect" id="node39" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="215,4213,505,4301">
-<area shape="rect" id="node40" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="248,1305,472,1393">
-<area shape="rect" id="node41" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="591,1847,809,2052">
-<area shape="rect" id="node42" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="580,779,820,867">
-<area shape="rect" id="node43" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="601,2069,799,2304">
-<area shape="rect" id="node44" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="593,1424,807,1629">
-<area shape="rect" id="node45" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="596,989,804,1077">
+<area shape="rect" id="node1" href="actividade.html" target="_top" title="actividade" alt="" coords="845,5,1012,93">
+<area shape="rect" id="node2" href="size_category.html" target="_top" title="size_category" alt="" coords="522,2032,709,2208">
+<area shape="rect" id="node3" href="sexo.html" target="_top" title="sexo" alt="" coords="7,2131,155,2277">
+<area shape="rect" id="node15" href="facturacao_consumo_tipo.html" target="_top" title="facturacao_consumo_tipo" alt="" coords="199,2023,478,2111">
+<area shape="rect" id="node17" href="facturacao_fact_tipo.html" target="_top" title="facturacao_fact_tipo" alt="" coords="218,2128,459,2216">
+<area shape="rect" id="node4" href="actividades_piscicultura_tipo_aqua.html" target="_top" title="actividades_piscicultura_tipo_aqua" alt="" coords="753,111,1105,199">
+<area shape="rect" id="node5" href="animal_tipo.html" target="_top" title="animal_tipo" alt="" coords="841,216,1017,304">
+<area shape="rect" id="node6" href="ara.html" target="_top" title="ara" alt="" coords="869,321,988,409">
+<area shape="rect" id="node7" href="bacia.html" target="_top" title="bacia" alt="" coords="851,2633,1007,2721">
+<area shape="rect" id="node8" href="boolean.html" target="_top" title="boolean" alt="" coords="855,532,1002,620">
+<area shape="rect" id="node9" href="cultivo_tipo.html" target="_top" title="cultivo_tipo" alt="" coords="841,637,1017,725">
+<area shape="rect" id="node10" href="distrito.html" target="_top" title="distrito" alt="" coords="851,3091,1007,3179">
+<area shape="rect" id="node11" href="divisao.html" target="_top" title="divisao" alt="" coords="855,2844,1003,2932">
+<area shape="rect" id="node12" href="domains.html" target="_top" title="domains" alt="" coords="855,953,1003,1017">
+<area shape="rect" id="node13" href="energia_tipo.html" target="_top" title="energia_tipo" alt="" coords="839,1035,1019,1123">
+<area shape="rect" id="node14" href="estacoes_recolha.html" target="_top" title="estacoes_recolha" alt="" coords="821,1140,1036,1228">
+<area shape="rect" id="node16" href="facturacao_fact_estado.html" target="_top" title="facturacao_fact_estado" alt="" coords="798,1245,1059,1333">
+<area shape="rect" id="node18" href="fonte_tipo.html" target="_top" title="fonte_tipo" alt="" coords="847,743,1011,831">
+<area shape="rect" id="node19" href="fontes_disp_a.html" target="_top" title="fontes_disp_a" alt="" coords="835,427,1022,515">
+<area shape="rect" id="node20" href="fontes_sist_med.html" target="_top" title="fontes_sist_med" alt="" coords="825,848,1032,936">
+<area shape="rect" id="node21" href="groups.html" target="_top" title="groups" alt="" coords="859,1860,998,1948">
+<area shape="rect" id="node22" href="industria_tipo.html" target="_top" title="industria_tipo" alt="" coords="832,1965,1025,2053">
+<area shape="rect" id="node23" href="licencia_estado.html" target="_top" title="licencia_estado" alt="" coords="827,2071,1030,2159">
+<area shape="rect" id="node24" href="licencia_estado_renovacao.html" target="_top" title="licencia_estado_renovacao" alt="" coords="785,2281,1072,2369">
+<area shape="rect" id="node25" href="licencia_tipo_agua.html" target="_top" title="licencia_tipo_agua" alt="" coords="762,1456,1095,1701">
+<area shape="rect" id="node26" href="licencia_tipo_lic.html" target="_top" title="licencia_tipo_lic" alt="" coords="825,1719,1032,1807">
+<area shape="rect" id="node27" href="pagamentos.html" target="_top" title="pagamentos" alt="" coords="839,2423,1018,2511">
+<area shape="rect" id="node28" href="piscicultura_gaio_subm.html" target="_top" title="piscicultura_gaio_subm" alt="" coords="797,2528,1060,2616">
+<area shape="rect" id="node29" href="piscicultura_tipo_proc.html" target="_top" title="piscicultura_tipo_proc" alt="" coords="801,2739,1056,2827">
+<area shape="rect" id="node30" href="posto.html" target="_top" title="posto" alt="" coords="851,3196,1007,3284">
+<area shape="rect" id="node31" href="provincia.html" target="_top" title="provincia" alt="" coords="849,3301,1008,3389">
+<area shape="rect" id="node32" href="red_monit.html" target="_top" title="red_monit" alt="" coords="847,1351,1011,1439">
+<area shape="rect" id="node33" href="rega_tipo.html" target="_top" title="rega_tipo" alt="" coords="851,2949,1007,3037">
+<area shape="rect" id="node34" href="subacia.html" target="_top" title="subacia" alt="" coords="851,2176,1007,2264">
+<area shape="rect" id="node35" href="tanque_piscicola_esp_culti.html" target="_top" title="tanque_piscicola_esp_culti" alt="" coords="785,3407,1072,3495">
+<area shape="rect" id="node36" href="tanque_piscicola_estado.html" target="_top" title="tanque_piscicola_estado" alt="" coords="793,3512,1064,3600">
+<area shape="rect" id="node37" href="tanque_piscicola_fert_agua.html" target="_top" title="tanque_piscicola_fert_agua" alt="" coords="783,3617,1074,3705">
+<area shape="rect" id="node38" href="tanque_piscicola_prov_alev.html" target="_top" title="tanque_piscicola_prov_alev" alt="" coords="783,3828,1075,3916">
+<area shape="rect" id="node39" href="tanque_piscicola_tipo.html" target="_top" title="tanque_piscicola_tipo" alt="" coords="803,3933,1054,4021">
+<area shape="rect" id="node40" href="tanque_piscicola_tipo_alim.html" target="_top" title="tanque_piscicola_tipo_alim" alt="" coords="783,4039,1074,4127">
+<area shape="rect" id="node41" href="utentes_uten_tipo.html" target="_top" title="utentes_uten_tipo" alt="" coords="817,3723,1041,3811">
+<area shape="rect" id="node42" href="../inventario/tables/fontes.html" target="_top" title="inventario.fontes" alt="" coords="1159,992,1378,1197">
+<area shape="rect" id="node43" href="../utentes/tables/exploracaos.html" target="_top" title="utentes.exploracaos" alt="" coords="1149,2844,1389,2932">
+<area shape="rect" id="node44" href="../utentes/tables/fontes.html" target="_top" title="utentes.fontes" alt="" coords="1170,740,1367,975">
+<area shape="rect" id="node45" href="../utentes/tables/licencias.html" target="_top" title="utentes.licencias" alt="" coords="1161,1677,1376,1883">
+<area shape="rect" id="node46" href="../utentes/tables/utentes.html" target="_top" title="utentes.utentes" alt="" coords="1165,3196,1373,3284">
 </map>
                                         <a name='diagram'><img id="twoimpliedDegreeImg" src="../diagrams/tables/licencia_tipo_agua.implied2degrees.png" usemap="#twoDegreesRelationshipsDiagramImplied" class="diagram" border="0" align="left"></a>
                                     </div>

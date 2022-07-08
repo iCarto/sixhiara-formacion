@@ -12,5 +12,6 @@ oceanos
 paises_limitrofes
 postos
 rios
+subacias
 unidades_weap
 batimetria

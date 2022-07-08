@@ -70,7 +70,7 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="distrito" numRows="37" remarks="" schema="inventario_dominios" type="TABLE">
+      <table name="distrito" numRows="47" remarks="" schema="inventario_dominios" type="TABLE">
          <column autoUpdated="false" defaultValue="'distrito'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="distrito" foreignKey="barragens_provincia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
@@ -201,7 +201,7 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="posto" numRows="102" remarks="" schema="inventario_dominios" type="TABLE">
+      <table name="posto" numRows="119" remarks="" schema="inventario_dominios" type="TABLE">
          <column autoUpdated="false" defaultValue="'posto'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="posto_adm" foreignKey="barragens_distrito_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
@@ -251,7 +251,7 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="provincia" numRows="5" remarks="" schema="inventario_dominios" type="TABLE">
+      <table name="provincia" numRows="6" remarks="" schema="inventario_dominios" type="TABLE">
          <column autoUpdated="false" defaultValue="'provincia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="provincia" foreignKey="barragens_provincia_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>
@@ -281,7 +281,7 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="subacia" numRows="47" remarks="" schema="inventario_dominios" type="TABLE">
+      <table name="subacia" numRows="63" remarks="" schema="inventario_dominios" type="TABLE">
          <column autoUpdated="false" defaultValue="'subacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="subacia" foreignKey="barragens_bacia_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="barragens"/>

@@ -2,13 +2,13 @@ sexo
 boolean
 licencia_tipo_lic
 distrito
+facturacao_consumo_tipo
 fonte_tipo
 posto
 divisao
-facturacao_consumo_tipo
+facturacao_fact_tipo
 licencia_tipo_agua
 bacia
-facturacao_fact_tipo
 fontes_sist_med
 groups
 licencia_estado
@@ -34,6 +34,7 @@ tanque_piscicola_fert_agua
 tanque_piscicola_prov_alev
 tanque_piscicola_tipo
 utentes_uten_tipo
+size_category
 ara
 pagamentos
 tanque_piscicola_tipo_alim

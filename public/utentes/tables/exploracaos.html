@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>exploracaos</h1><p><span id="recordNumber">2942</span> rows</p><br />
+                    <h1>exploracaos</h1><p><span id="recordNumber">3229</span> rows</p><br />
                 </section>
                 <!-- Main content -->
                 <section class="content">
@@ -229,12 +229,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="exploracaos.[loc_provin, loc_distri] references domains.distrito.[parent, key] via exploracaos_loc_provin_fkey1"><a href='../../domains/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
-                                                <td class="constraint detail">exploracaos_loc_provin_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="exploracaos.loc_provin references domains.provincia.key via exploracaos_loc_provin_fkey"><a href='../../domains/tables/provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
                                                 <td class="constraint detail">exploracaos_loc_provin_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="exploracaos.[loc_provin, loc_distri] references domains.distrito.[parent, key] via exploracaos_loc_provin_fkey1"><a href='../../domains/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
+                                                <td class="constraint detail">exploracaos_loc_provin_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -520,12 +520,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="exploracaos.loc_divisao references domains.divisao.key via exploracaos_loc_divisao_fkey"><a href='../../domains/tables/divisao.html'>divisao</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">exploracaos_loc_divisao_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="exploracaos.[loc_divisao, loc_bacia] references domains.bacia.[parent, key] via exploracaos_loc_bacia_fkey"><a href='../../domains/tables/bacia.html'>bacia</a><span class='relatedKey'>.parent</span></td>
                                                 <td class="constraint detail">exploracaos_loc_bacia_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="exploracaos.loc_divisao references domains.divisao.key via exploracaos_loc_divisao_fkey"><a href='../../domains/tables/divisao.html'>divisao</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">exploracaos_loc_divisao_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>

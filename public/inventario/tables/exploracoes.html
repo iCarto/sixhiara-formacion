@@ -184,12 +184,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="exploracoes.loc_provin references inventario_dominios.provincia.key via exploracoes_loc_provin_fkey"><a href='../../inventario_dominios/tables/provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">exploracoes_loc_provin_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="exploracoes.[loc_provin, loc_distri] references inventario_dominios.distrito.[parent, key] via exploracoes_loc_provin_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.parent</span></td>
                                                 <td class="constraint detail">exploracoes_loc_provin_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="exploracoes.loc_provin references inventario_dominios.provincia.key via exploracoes_loc_provin_fkey"><a href='../../inventario_dominios/tables/provincia.html'>provincia</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">exploracoes_loc_provin_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -209,12 +209,12 @@
                                     <td>
                                         <table border='0' cellspacing='0' cellpadding='0'>
                                             <tr>
-                                                <td title="exploracoes.[loc_provin, loc_distri] references inventario_dominios.distrito.[parent, key] via exploracoes_loc_provin_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.key</span></td>
-                                                <td class="constraint detail">exploracoes_loc_provin_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td title="exploracoes.[loc_distri, loc_post] references inventario_dominios.posto.[parent, key] via exploracoes_loc_distri_fkey"><a href='../../inventario_dominios/tables/posto.html'>posto</a><span class='relatedKey'>.parent</span></td>
                                                 <td class="constraint detail">exploracoes_loc_distri_fkey<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td title="exploracoes.[loc_provin, loc_distri] references inventario_dominios.distrito.[parent, key] via exploracoes_loc_provin_fkey1"><a href='../../inventario_dominios/tables/distrito.html'>distrito</a><span class='relatedKey'>.key</span></td>
+                                                <td class="constraint detail">exploracoes_loc_provin_fkey1<span title='Restrict delete:&#10;Parent cannot be deleted if children exist'>R</span></td>
                                             </tr>
                                         </table>
                                     </td>

@@ -2,7 +2,9 @@
 <database name="test_arasul" schema="domains" type="PostgreSQL - 10.13 (Debian 10.13-1.pgdg90+1)">
    <tables>
       <table name="actividade" numRows="8" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo" foreignKey="actividades_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -16,7 +18,9 @@
          </index>
       </table>
       <table name="actividades_piscicultura_tipo_aqua" numRows="4" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'actividades_piscicultura_tipo_aqua'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'actividades_piscicultura_tipo_aqua'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo_aqua" foreignKey="actividades_piscicultura_tipo_aqua_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_piscicultura"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -30,7 +34,9 @@
          </index>
       </table>
       <table name="animal_tipo" numRows="7" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="reses_tipo" foreignKey="actividades_reses_reses_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_reses"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -44,7 +50,9 @@
          </index>
       </table>
       <table name="ara" numRows="1" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'ara'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'ara'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
          </column>
@@ -57,7 +65,9 @@
          </index>
       </table>
       <table name="bacia" numRows="156" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'bacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'bacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="loc_bacia" foreignKey="exploracaos_loc_bacia_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -75,7 +85,9 @@
          </index>
       </table>
       <table name="boolean" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="asis_aber" foreignKey="actividades_piscicultura_asis_aber_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_piscicultura"/>
             <child column="asis_moni" foreignKey="actividades_piscicultura_asis_moni_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_piscicultura"/>
@@ -93,7 +105,9 @@
          </index>
       </table>
       <table name="cultivo_tipo" numRows="14" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'cultivo_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'cultivo_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="cultivo" foreignKey="actividades_cultivos_cultivo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_cultivos"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -121,8 +135,10 @@
             <column ascending="true" name="id"/>
          </index>
       </table>
-      <table name="distrito" numRows="144" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'distrito'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+      <table name="distrito" numRows="162" remarks="" schema="domains" type="TABLE">
+         <column autoUpdated="false" defaultValue="'distrito'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="loc_distri" foreignKey="exploracaos_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <child column="loc_distri" foreignKey="utentes_loc_provin_fkey1" implied="false" onDeleteCascade="false" schema="utentes" table="utentes"/>
@@ -142,7 +158,9 @@
          </index>
       </table>
       <table name="divisao" numRows="10" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'divisao'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'divisao'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="divisao" foreignKey="documentos_divisao_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="documentos"/>
             <child column="loc_divisao" foreignKey="exploracaos_loc_divisao_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
@@ -159,7 +177,9 @@
          </index>
       </table>
       <table name="domains" numRows="0" remarks="" schema="domains" type="VIEW" viewSql=" SELECT (current_database())::information_schema.sql_identifier AS domain_catalog,&#10;    (nt.nspname)::information_schema.sql_identifier AS domain_schema,&#10;    (t.typname)::information_schema.sql_identifier AS domain_name,&#10;    (&#10;        CASE&#10;            WHEN ((t.typelem &lt;&gt; (0)::oid) AND (t.typlen = '-1'::integer)) THEN 'ARRAY'::text&#10;            WHEN (nbt.nspname = 'pg_catalog'::name) THEN format_type(t.typbasetype, NULL::integer)&#10;            ELSE 'USER-DEFINED'::text&#10;        END)::information_schema.character_data AS data_type,&#10;    (information_schema._pg_char_max_length(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS character_maximum_length,&#10;    (information_schema._pg_char_octet_length(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS character_octet_length,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_catalog,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_schema,&#10;    (NULL::character varying)::information_schema.sql_identifier AS character_set_name,&#10;    (&#10;        CASE&#10;            WHEN (nco.nspname IS NOT NULL) THEN current_database()&#10;            ELSE NULL::name&#10;        END)::information_schema.sql_identifier AS collation_catalog,&#10;    (nco.nspname)::information_schema.sql_identifier AS collation_schema,&#10;    (co.collname)::information_schema.sql_identifier AS collation_name,&#10;    (information_schema._pg_numeric_precision(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_precision,&#10;    (information_schema._pg_numeric_precision_radix(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_precision_radix,&#10;    (information_schema._pg_numeric_scale(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS numeric_scale,&#10;    (information_schema._pg_datetime_precision(t.typbasetype, t.typtypmod))::information_schema.cardinal_number AS datetime_precision,&#10;    (information_schema._pg_interval_type(t.typbasetype, t.typtypmod))::information_schema.character_data AS interval_type,&#10;    (NULL::integer)::information_schema.cardinal_number AS interval_precision,&#10;    (t.typdefault)::information_schema.character_data AS domain_default,&#10;    (current_database())::information_schema.sql_identifier AS udt_catalog,&#10;    (nbt.nspname)::information_schema.sql_identifier AS udt_schema,&#10;    (bt.typname)::information_schema.sql_identifier AS udt_name,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_catalog,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_schema,&#10;    (NULL::character varying)::information_schema.sql_identifier AS scope_name,&#10;    (NULL::integer)::information_schema.cardinal_number AS maximum_cardinality,&#10;    (1)::information_schema.sql_identifier AS dtd_identifier&#10;   FROM (((pg_type t&#10;     JOIN pg_namespace nt ON ((t.typnamespace = nt.oid)))&#10;     JOIN (pg_type bt&#10;     JOIN pg_namespace nbt ON ((bt.typnamespace = nbt.oid))) ON (((t.typbasetype = bt.oid) AND (t.typtype = 'd'::&quot;char&quot;))))&#10;     LEFT JOIN (pg_collation co&#10;     JOIN pg_namespace nco ON ((co.collnamespace = nco.oid))) ON (((t.typcollation = co.oid) AND ((nco.nspname &lt;&gt; 'pg_catalog'::name) OR (co.collname &lt;&gt; 'default'::name)))))&#10;  WHERE (pg_has_role(t.typowner, 'USAGE'::text) OR has_type_privilege(t.oid, 'USAGE'::text)); WITH tmp_query AS (&#10;         SELECT provincia.category,&#10;            provincia.key,&#10;            provincia.value,&#10;            provincia.ordering,&#10;            provincia.parent,&#10;            provincia.tooltip,&#10;            provincia.app&#10;           FROM domains.provincia&#10;          WHERE ((provincia.key IS NULL) OR (provincia.app IS NOT NULL))&#10;        UNION&#10;         SELECT 'utentes-provincia'::text AS text,&#10;            provincia.key,&#10;            provincia.value,&#10;            provincia.ordering,&#10;            provincia.parent,&#10;            provincia.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.provincia&#10;        UNION&#10;         SELECT distrito.category,&#10;            distrito.key,&#10;            distrito.value,&#10;            distrito.ordering,&#10;            distrito.parent,&#10;            distrito.tooltip,&#10;            distrito.app&#10;           FROM domains.distrito&#10;          WHERE (distrito.app IS NOT NULL)&#10;        UNION&#10;         SELECT 'utentes-distrito'::text AS text,&#10;            distrito.key,&#10;            distrito.value,&#10;            distrito.ordering,&#10;            distrito.parent,&#10;            distrito.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.distrito&#10;        UNION&#10;         SELECT posto.category,&#10;            posto.key,&#10;            posto.value,&#10;            posto.ordering,&#10;            posto.parent,&#10;            posto.tooltip,&#10;            posto.app&#10;           FROM domains.posto&#10;          WHERE (posto.app IS NOT NULL)&#10;        UNION&#10;         SELECT 'utentes-posto'::text AS text,&#10;            posto.key,&#10;            posto.value,&#10;            posto.ordering,&#10;            posto.parent,&#10;            posto.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.posto&#10;        UNION&#10;         SELECT divisao.category,&#10;            divisao.key,&#10;            divisao.value,&#10;            divisao.ordering,&#10;            divisao.parent,&#10;            divisao.tooltip,&#10;            divisao.app&#10;           FROM domains.divisao&#10;        UNION&#10;         SELECT bacia.category,&#10;            bacia.key,&#10;            bacia.value,&#10;            bacia.ordering,&#10;            bacia.parent,&#10;            bacia.tooltip,&#10;            bacia.app&#10;           FROM domains.bacia&#10;        UNION&#10;         SELECT subacia.category,&#10;            subacia.key,&#10;            subacia.value,&#10;            subacia.ordering,&#10;            subacia.parent,&#10;            subacia.tooltip,&#10;            subacia.app&#10;           FROM domains.subacia&#10;        UNION&#10;         SELECT actividade.category,&#10;            actividade.key,&#10;            actividade.value,&#10;            actividade.ordering,&#10;            actividade.parent,&#10;            actividade.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.actividade&#10;        UNION&#10;         SELECT animal_tipo.category,&#10;            animal_tipo.key,&#10;            animal_tipo.value,&#10;            animal_tipo.ordering,&#10;            animal_tipo.parent,&#10;            animal_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.animal_tipo&#10;        UNION&#10;         SELECT cultivo_tipo.category,&#10;            cultivo_tipo.key,&#10;            cultivo_tipo.value,&#10;            cultivo_tipo.ordering,&#10;            cultivo_tipo.parent,&#10;            cultivo_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.cultivo_tipo&#10;        UNION&#10;         SELECT energia_tipo.category,&#10;            energia_tipo.key,&#10;            energia_tipo.value,&#10;            energia_tipo.ordering,&#10;            energia_tipo.parent,&#10;            energia_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.energia_tipo&#10;        UNION&#10;         SELECT fonte_tipo.category,&#10;            fonte_tipo.key,&#10;            fonte_tipo.value,&#10;            fonte_tipo.ordering,&#10;            fonte_tipo.parent,&#10;            fonte_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fonte_tipo&#10;        UNION&#10;         SELECT industria_tipo.category,&#10;            industria_tipo.key,&#10;            industria_tipo.value,&#10;            industria_tipo.ordering,&#10;            industria_tipo.parent,&#10;            industria_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.industria_tipo&#10;        UNION&#10;         SELECT licencia_estado.category,&#10;            licencia_estado.key,&#10;            licencia_estado.value,&#10;            licencia_estado.ordering,&#10;            licencia_estado.parent,&#10;            licencia_estado.tooltip,&#10;            licencia_estado.app&#10;           FROM domains.licencia_estado&#10;        UNION&#10;         SELECT licencia_tipo_agua.category,&#10;            licencia_tipo_agua.key,&#10;            licencia_tipo_agua.value,&#10;            licencia_tipo_agua.ordering,&#10;            licencia_tipo_agua.parent,&#10;            licencia_tipo_agua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.licencia_tipo_agua&#10;        UNION&#10;         SELECT pagamentos.category,&#10;            pagamentos.key,&#10;            pagamentos.value,&#10;            pagamentos.ordering,&#10;            pagamentos.parent,&#10;            pagamentos.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.pagamentos&#10;        UNION&#10;         SELECT &quot;boolean&quot;.category,&#10;            &quot;boolean&quot;.key,&#10;            &quot;boolean&quot;.value,&#10;            &quot;boolean&quot;.ordering,&#10;            &quot;boolean&quot;.parent,&#10;            &quot;boolean&quot;.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.&quot;boolean&quot;&#10;        UNION&#10;         SELECT rega_tipo.category,&#10;            rega_tipo.key,&#10;            rega_tipo.value,&#10;            rega_tipo.ordering,&#10;            rega_tipo.parent,&#10;            rega_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.rega_tipo&#10;        UNION&#10;         SELECT piscicultura_tipo_proc.category,&#10;            piscicultura_tipo_proc.key,&#10;            piscicultura_tipo_proc.value,&#10;            piscicultura_tipo_proc.ordering,&#10;            piscicultura_tipo_proc.parent,&#10;            piscicultura_tipo_proc.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.piscicultura_tipo_proc&#10;        UNION&#10;         SELECT piscicultura_gaio_subm.category,&#10;            piscicultura_gaio_subm.key,&#10;            piscicultura_gaio_subm.value,&#10;            piscicultura_gaio_subm.ordering,&#10;            piscicultura_gaio_subm.parent,&#10;            piscicultura_gaio_subm.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.piscicultura_gaio_subm&#10;        UNION&#10;         SELECT tanque_piscicola_tipo.category,&#10;            tanque_piscicola_tipo.key,&#10;            tanque_piscicola_tipo.value,&#10;            tanque_piscicola_tipo.ordering,&#10;            tanque_piscicola_tipo.parent,&#10;            tanque_piscicola_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_tipo&#10;        UNION&#10;         SELECT tanque_piscicola_estado.category,&#10;            tanque_piscicola_estado.key,&#10;            tanque_piscicola_estado.value,&#10;            tanque_piscicola_estado.ordering,&#10;            tanque_piscicola_estado.parent,&#10;            tanque_piscicola_estado.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_estado&#10;        UNION&#10;         SELECT tanque_piscicola_esp_culti.category,&#10;            tanque_piscicola_esp_culti.key,&#10;            tanque_piscicola_esp_culti.value,&#10;            tanque_piscicola_esp_culti.ordering,&#10;            tanque_piscicola_esp_culti.parent,&#10;            tanque_piscicola_esp_culti.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_esp_culti&#10;        UNION&#10;         SELECT tanque_piscicola_tipo_alim.category,&#10;            tanque_piscicola_tipo_alim.key,&#10;            tanque_piscicola_tipo_alim.value,&#10;            tanque_piscicola_tipo_alim.ordering,&#10;            tanque_piscicola_tipo_alim.parent,&#10;            tanque_piscicola_tipo_alim.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_tipo_alim&#10;        UNION&#10;         SELECT tanque_piscicola_prov_alev.category,&#10;            tanque_piscicola_prov_alev.key,&#10;            tanque_piscicola_prov_alev.value,&#10;            tanque_piscicola_prov_alev.ordering,&#10;            tanque_piscicola_prov_alev.parent,&#10;            tanque_piscicola_prov_alev.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_prov_alev&#10;        UNION&#10;         SELECT tanque_piscicola_fert_agua.category,&#10;            tanque_piscicola_fert_agua.key,&#10;            tanque_piscicola_fert_agua.value,&#10;            tanque_piscicola_fert_agua.ordering,&#10;            tanque_piscicola_fert_agua.parent,&#10;            tanque_piscicola_fert_agua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.tanque_piscicola_fert_agua&#10;        UNION&#10;         SELECT utentes_uten_tipo.category,&#10;            utentes_uten_tipo.key,&#10;            utentes_uten_tipo.value,&#10;            utentes_uten_tipo.ordering,&#10;            utentes_uten_tipo.parent,&#10;            utentes_uten_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.utentes_uten_tipo&#10;        UNION&#10;         SELECT fontes_sist_med.category,&#10;            fontes_sist_med.key,&#10;            fontes_sist_med.value,&#10;            fontes_sist_med.ordering,&#10;            fontes_sist_med.parent,&#10;            fontes_sist_med.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fontes_sist_med&#10;        UNION&#10;         SELECT actividades_piscicultura_tipo_aqua.category,&#10;            actividades_piscicultura_tipo_aqua.key,&#10;            actividades_piscicultura_tipo_aqua.value,&#10;            actividades_piscicultura_tipo_aqua.ordering,&#10;            actividades_piscicultura_tipo_aqua.parent,&#10;            actividades_piscicultura_tipo_aqua.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.actividades_piscicultura_tipo_aqua&#10;        UNION&#10;         SELECT fontes_disp_a.category,&#10;            fontes_disp_a.key,&#10;            fontes_disp_a.value,&#10;            fontes_disp_a.ordering,&#10;            fontes_disp_a.parent,&#10;            fontes_disp_a.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.fontes_disp_a&#10;        UNION&#10;         SELECT licencia_tipo_lic.category,&#10;            licencia_tipo_lic.key,&#10;            licencia_tipo_lic.value,&#10;            licencia_tipo_lic.ordering,&#10;            licencia_tipo_lic.parent,&#10;            licencia_tipo_lic.tooltip,&#10;            licencia_tipo_lic.app&#10;           FROM domains.licencia_tipo_lic&#10;        UNION&#10;         SELECT facturacao_consumo_tipo.category,&#10;            facturacao_consumo_tipo.key,&#10;            facturacao_consumo_tipo.value,&#10;            facturacao_consumo_tipo.ordering,&#10;            facturacao_consumo_tipo.parent,&#10;            facturacao_consumo_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.facturacao_consumo_tipo&#10;        UNION&#10;         SELECT facturacao_fact_tipo.category,&#10;            facturacao_fact_tipo.key,&#10;            facturacao_fact_tipo.value,&#10;            facturacao_fact_tipo.ordering,&#10;            facturacao_fact_tipo.parent,&#10;            facturacao_fact_tipo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.facturacao_fact_tipo&#10;        UNION&#10;         SELECT licencia_estado_renovacao.category,&#10;            licencia_estado_renovacao.key,&#10;            licencia_estado_renovacao.value,&#10;            licencia_estado_renovacao.ordering,&#10;            licencia_estado_renovacao.parent,&#10;            licencia_estado_renovacao.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.licencia_estado_renovacao&#10;        UNION&#10;         SELECT red_monit.category,&#10;            red_monit.key,&#10;            red_monit.value,&#10;            red_monit.ordering,&#10;            red_monit.parent,&#10;            red_monit.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.red_monit&#10;        UNION&#10;         SELECT sexo.category,&#10;            sexo.key,&#10;            sexo.value,&#10;            sexo.ordering,&#10;            sexo.parent,&#10;            sexo.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.sexo&#10;        UNION&#10;         SELECT groups.category,&#10;            groups.key,&#10;            groups.value,&#10;            groups.ordering,&#10;            groups.parent,&#10;            groups.tooltip,&#10;            NULL::text[] AS text&#10;           FROM domains.groups&#10;        )&#10; SELECT tmp_query.category,&#10;    tmp_query.key,&#10;    tmp_query.value,&#10;    tmp_query.ordering,&#10;    tmp_query.parent,&#10;    tmp_query.tooltip&#10;   FROM tmp_query&#10;  WHERE ((tmp_query.app IS NULL) OR (( SELECT ara.key&#10;           FROM domains.ara&#10;         LIMIT 1) = ANY (tmp_query.app)));">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
          </column>
@@ -169,7 +189,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
       </table>
       <table name="energia_tipo" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'energia_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'energia_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="energia_tipo" foreignKey="actividades_produccao_energia_energia_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_produccao_energia"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -183,7 +205,9 @@
          </index>
       </table>
       <table name="estacoes_recolha" numRows="2" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'estacoes_recolcha'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'estacoes_recolcha'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="recolha" foreignKey="estacoes_recolha_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="estacoes"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -197,8 +221,11 @@
          </index>
       </table>
       <table name="facturacao_consumo_tipo" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'facturacao_consumo_tipo'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'facturacao_consumo_tipo'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="consumo_tipo" foreignKey="size_category_consumo_tipo_fkey" implied="false" onDeleteCascade="false" schema="domains" table="size_category"/>
             <child column="consumo_tipo_sub" foreignKey="facturacao_consumo_tipo_sub_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao"/>
             <child column="consumo_tipo_sup" foreignKey="facturacao_consumo_tipo_sup_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao"/>
             <child column="consumo_tipo" foreignKey="licencias_consumo_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="licencias"/>
@@ -214,7 +241,9 @@
          </index>
       </table>
       <table name="facturacao_fact_estado" numRows="6" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'facturacao_fact_estado'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'facturacao_fact_estado'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="fact_estado" foreignKey="facturacao_fact_estado_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -229,8 +258,11 @@
          </index>
       </table>
       <table name="facturacao_fact_tipo" numRows="4" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'facturacao_fact_tipo'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'facturacao_fact_tipo'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="fact_tipo" foreignKey="size_category_fact_tipo_fkey" implied="false" onDeleteCascade="false" schema="domains" table="size_category"/>
             <child column="fact_tipo" foreignKey="exploracaos_fact_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <child column="fact_tipo" foreignKey="facturacao_fact_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="facturacao"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -245,7 +277,9 @@
          </index>
       </table>
       <table name="fonte_tipo" numRows="9" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'fonte_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'fonte_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tip_fonte" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
             <child column="tipo_fonte" foreignKey="fontes_tipo_agua_fkey1" implied="false" onDeleteCascade="false" schema="utentes" table="fontes"/>
@@ -264,7 +298,9 @@
          </index>
       </table>
       <table name="fontes_disp_a" numRows="5" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'piscicultura_fontes_disp_a'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'piscicultura_fontes_disp_a'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="disp_a" foreignKey="fontes_disp_a_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="fontes"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -283,7 +319,9 @@
             <child column="sist_med" foreignKey="fontes_sist_med_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="fontes"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
          </column>
-         <column autoUpdated="false" defaultValue="'sistema_medicao'::text" digits="0" id="1" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'sistema_medicao'::text" digits="0" id="1" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ordering" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
          <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="parent" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
@@ -293,7 +331,9 @@
          </index>
       </table>
       <table name="groups" numRows="8" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'groups'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'groups'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="departamento" foreignKey="documentos_departamento_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="documentos"/>
             <child column="usergroup" foreignKey="users_usergroup_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="users"/>
@@ -308,7 +348,9 @@
          </index>
       </table>
       <table name="industria_tipo" numRows="17" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo_indus" foreignKey="actividades_industria_tipo_indus_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_industria"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -322,7 +364,9 @@
          </index>
       </table>
       <table name="licencia_estado" numRows="17" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'licencia_estado'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'licencia_estado'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="estado_lic" foreignKey="exploracaos_estado_lic_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <child column="estado" foreignKey="licencias_estado_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="licencias"/>
@@ -338,7 +382,9 @@
          </index>
       </table>
       <table name="licencia_estado_renovacao" numRows="15" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'licencia_estado_renovacao'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'licencia_estado_renovacao'::text" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="estado" foreignKey="renovacoes_estado_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="renovacoes"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -353,7 +399,9 @@
          </index>
       </table>
       <table name="licencia_tipo_agua" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo_agua" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
             <child column="tipo_agua" foreignKey="fontes_tipo_agua_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="fontes"/>
@@ -369,7 +417,9 @@
          </index>
       </table>
       <table name="licencia_tipo_lic" numRows="4" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo_lic" foreignKey="tipo_licencia_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="licencias"/>
             <child column="tipo_lic_sub" foreignKey="renovacoes_tipo_lic_sub_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="renovacoes"/>
@@ -388,7 +438,9 @@
          </index>
       </table>
       <table name="pagamentos" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
          </column>
@@ -398,7 +450,9 @@
          <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="tooltip" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
       </table>
       <table name="piscicultura_gaio_subm" numRows="6" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'piscicultura_subm'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'piscicultura_subm'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="gaio_subm" foreignKey="actividades_piscicultura_gaio_subm_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_piscicultura"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -412,7 +466,9 @@
          </index>
       </table>
       <table name="piscicultura_tipo_proc" numRows="7" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'piscicultura_tipo_proc'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'piscicultura_tipo_proc'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo_proc" foreignKey="actividades_piscicultura_tipo_proc_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_piscicultura"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -425,8 +481,10 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="posto" numRows="407" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'posto'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+      <table name="posto" numRows="461" remarks="" schema="domains" type="TABLE">
+         <column autoUpdated="false" defaultValue="'posto'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="loc_posto" foreignKey="exploracaos_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <child column="loc_posto" foreignKey="utentes_loc_distri_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="utentes"/>
@@ -445,8 +503,10 @@
             <column ascending="true" name="parent"/>
          </index>
       </table>
-      <table name="provincia" numRows="10" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'provincia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+      <table name="provincia" numRows="11" remarks="" schema="domains" type="TABLE">
+         <column autoUpdated="false" defaultValue="'provincia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="loc_provin" foreignKey="exploracaos_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <child column="loc_provin" foreignKey="utentes_loc_provin_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="utentes"/>
@@ -462,7 +522,9 @@
          </index>
       </table>
       <table name="red_monit" numRows="4" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'red_monit'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'red_monit'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="red_monit" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="inventario" table="fontes"/>
             <child column="red_monit" foreignKey="fontes_red_monit_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="fontes"/>
@@ -477,7 +539,9 @@
          </index>
       </table>
       <table name="rega_tipo" numRows="5" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="rega" foreignKey="actividades_cultivos_rega_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_cultivos"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -491,7 +555,9 @@
          </index>
       </table>
       <table name="sexo" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'sexo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'sexo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="actividade"/>
             <child column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="actividades_piscicultura_tipo_aqua"/>
@@ -544,8 +610,65 @@
             <column ascending="true" name="key"/>
          </index>
       </table>
-      <table name="subacia" numRows="317" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'subacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+      <table name="size_category" numRows="4" remarks="" schema="domains" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="category" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="actividade"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="actividades_piscicultura_tipo_aqua"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="animal_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="ara"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="bacia"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="boolean"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="cultivo_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="distrito"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="divisao"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="domains"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="energia_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="estacoes_recolha"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="facturacao_consumo_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="facturacao_fact_estado"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="facturacao_fact_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="fonte_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="fontes_disp_a"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="fontes_sist_med"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="groups"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="industria_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="licencia_estado"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="licencia_estado_renovacao"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="licencia_tipo_agua"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="licencia_tipo_lic"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="pagamentos"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="piscicultura_gaio_subm"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="piscicultura_tipo_proc"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="posto"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="provincia"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="red_monit"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="rega_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="subacia"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_esp_culti"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_estado"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_fert_agua"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_prov_alev"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_tipo"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="tanque_piscicola_tipo_alim"/>
+            <child column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="utentes_uten_tipo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="consumo_range" nullable="false" remarks="" size="2147483647" type="numrange" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="consumo_tipo" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="size_category_consumo_tipo_fkey" implied="false" onDeleteCascade="false" schema="domains" table="facturacao_consumo_tipo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="fact_tipo" nullable="false" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="key" foreignKey="size_category_fact_tipo_fkey" implied="false" onDeleteCascade="false" schema="domains" table="facturacao_fact_tipo"/>
+         </column>
+         <primaryKey column="category" sequenceNumberInPK="1"/>
+         <index name="size_category_pkey" unique="true">
+            <column ascending="true" name="category"/>
+         </index>
+      </table>
+      <table name="subacia" numRows="428" remarks="" schema="domains" type="TABLE">
+         <column autoUpdated="false" defaultValue="'subacia'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="loc_subaci" foreignKey="exploracaos_loc_bacia_fkey1" implied="false" onDeleteCascade="false" schema="utentes" table="exploracaos"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -563,7 +686,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_esp_culti" numRows="7" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_esp_culti'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_esp_culti'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="esp_culti" foreignKey="actividades_tanques_piscicolas_esp_culti_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_tanques_piscicolas"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -577,7 +702,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_estado" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_estado'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_estado'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="estado" foreignKey="actividades_tanques_piscicolas_estado_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_tanques_piscicolas"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -591,7 +718,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_fert_agua" numRows="5" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_fert_agua'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_fert_agua'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="fert_agua" foreignKey="actividades_tanques_piscicolas_fert_agua_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_tanques_piscicolas"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -605,7 +734,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_prov_alev" numRows="5" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_prov_alev'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_prov_alev'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="prov_alev" foreignKey="actividades_tanques_piscicolas_prov_alev_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_tanques_piscicolas"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -619,7 +750,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_tipo" numRows="3" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="tipo" foreignKey="actividades_tanques_piscicolas_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="actividades_tanques_piscicolas"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
@@ -633,7 +766,9 @@
          </index>
       </table>
       <table name="tanque_piscicola_tipo_alim" numRows="12" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'tanque_piscicola_tipo_alim'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'tanque_piscicola_tipo_alim'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
          </column>
@@ -646,7 +781,9 @@
          </index>
       </table>
       <table name="utentes_uten_tipo" numRows="6" remarks="" schema="domains" type="TABLE">
-         <column autoUpdated="false" defaultValue="'utentes_uten_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="'utentes_uten_tipo'::text" digits="0" id="0" name="category" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
+            <parent column="category" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="size_category"/>
+         </column>
          <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12">
             <child column="uten_tipo" foreignKey="utentes_uten_tipo_fkey" implied="false" onDeleteCascade="false" schema="utentes" table="utentes"/>
             <parent column="key" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="domains" table="sexo"/>
